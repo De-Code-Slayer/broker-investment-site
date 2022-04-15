@@ -14,11 +14,11 @@
     <meta name="theme-color" content="#e9e8f0" />
     <!-- Site Properties -->
     <title>Sign in - Profit HTML5 Template</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="{{ url_for('static', filename="favicon.ico") }}" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename="apple-touch-icon.png") }}">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/vendors/uikit.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/vendors/uikit.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/style.css") }}">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
         <div class="uk-section uk-padding-remove-vertical">
             <div class="uk-container uk-container-expand">
                 <div class="uk-grid" data-uk-height-viewport="expand: true">
-                    <div class="uk-width-3-5@m uk-background-cover uk-background-center-right uk-visible@m uk-box-shadow-xlarge" style="background-image: url(img/in-signin-image.jpg);">
+                    <div class="uk-width-3-5@m uk-background-cover uk-background-center-right uk-visible@m uk-box-shadow-xlarge" style="background-image: url({{ url_for('static', filename="img/in-signin-image.jpg") }});">
                     </div>
                     <div class="uk-width-expand@m uk-flex uk-flex-middle">
                         <div class="uk-grid uk-flex-center">
@@ -42,7 +42,7 @@
                                 <div class="in-padding-horizontal@s">
                                     <!-- module logo begin -->
                                     <a class="uk-logo" href="index-2.html">
-                                        <img class="in-offset-top-10" src="img/in-lazy.svg" data-src="img/in-logo-1.svg" alt="logo" width="130" height="36" data-uk-img>
+                                        <img class="in-offset-top-10" src="{{ url_for('static', filename="img/in-lazy.svg") }}" data-src="{{ url_for('static', filename="img/in-logo-1.svg") }}" alt="logo" width="130" height="36" data-uk-img>
                                     </a>
                                     <!-- module logo begin -->
                                     <p class="uk-text-lead uk-margin-top uk-margin-remove-bottom">Log into your account</p>
@@ -83,8 +83,8 @@
         <!-- section content end -->
     </main>
     <!-- Javascript -->
-    <script src="js/vendors/uikit.min.js"></script>
-    <script src="js/vendors/indonez.min.js"></script>
+    <script src="{{ url_for('static', filename="js/vendors/uikit.min.js") }}"></script>
+    <script src="{{ url_for('static', filename="js/vendors/indonez.min.js") }}"></script>
 </body>
 
 

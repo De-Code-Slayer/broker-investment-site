@@ -22,70 +22,121 @@ def home():
     return render_template("index.html")
 
 
-@views.route("/<id>/hh")
-def more(id):
-    ident = id
+# @views.route("/<id>/hh")
+# def more(id):
+#     ident = id
 
-    post = Articles.query.get(ident)
-    return render_template("more_post.html", content=post, user=current_user,  id=ident)
+#     post = Articles.query.get(ident)
+#     return render_template("more_post.html", content=post, user=current_user,  id=ident)
 
 
-@views.route("/whatsapp", methods=["GET", "POST"])
-def whatsapp():
-    if request.method == "POST":
-        institute = request.form.get("category")
-        category = Whatsapp.query.filter_by(institute=institute).all()
-        # print(category)
-        if category:
-            whatsapp = category
-            return render_template("whatsapp.html", whatsapp=whatsapp, user=current_user,  id="!!")
+# @views.route("/whatsapp", methods=["GET", "POST"])
+# def whatsapp():
+#     if request.method == "POST":
+#         institute = request.form.get("category")
+#         category = Whatsapp.query.filter_by(institute=institute).all()
+#         # print(category)
+#         if category:
+#             whatsapp = category
+#             return render_template("whatsapp.html", whatsapp=whatsapp, user=current_user,  id="!!")
             
-    # Queries to database to get All the whatsapp links
-    whatsapp_groups = db.session.query(Whatsapp).all()
-    return render_template("whatsapp.html", whatsapp=whatsapp_groups, user=current_user,  id="!!")
+#     # Queries to database to get All the whatsapp links
+#     whatsapp_groups = db.session.query(Whatsapp).all()
+#     return render_template("whatsapp.html", whatsapp=whatsapp_groups, user=current_user,  id="!!")
 
 
-@views.route("/how")
-def how_to():
+# @views.route("/how")
+# def how_to():
 
-    how_to = Howto.query.all()
-    return render_template("how-to.html", how_to=how_to, user=current_user,  id="!!")
-
-
-@views.route("/how_to/<id>")
-def view_how_to(id):
-    ident = id
-    how_to = Howto.query.all()
-    view = Howto.query.get(ident)
-    return render_template("how-to.html", how_to=how_to, view=view, user=current_user,  id="!!")
+#     how_to = Howto.query.all()
+#     return render_template("how-to.html", how_to=how_to, user=current_user,  id="!!")
 
 
-@views.route("/university")
-def university():
+# @views.route("/how_to/<id>")
+# def view_how_to(id):
+#     ident = id
+#     how_to = Howto.query.all()
+#     view = Howto.query.get(ident)
+#     return render_template("how-to.html", how_to=how_to, view=view, user=current_user,  id="!!")
 
-    university = University.query.order_by(asc(University.school)).all()
-    print(university)
 
-    return render_template("university.html", university=university, user=current_user,  id="!!")
+# @views.route("/university")
+# def university():
+
+#     university = University.query.order_by(asc(University.school)).all()
+#     print(university)
+
+#     return render_template("university.html", university=university, user=current_user,  id="!!")
 
 
-@views.route("/profile", methods=["GET", "POST"])
-@login_required
-def profile():
-    if request.method == "POST":
-        school = str(request.form.get("university")).title()
-        course = str(request.form.get("course")).title()
-        degree = str(request.form.get("degree")).title()
-        email = current_user.email
-        application = User.query.filter_by(email=email).first()
-        print(application)
-        application.university = school
-        application.course = course
-        application.degree = degree
-        db.session.commit()
-        flash("Application Submitted")
+# @views.route("/profile", methods=["GET", "POST"])
+# @login_required
+# def profile():
+#     if request.method == "POST":
+#         school = str(request.form.get("university")).title()
+#         course = str(request.form.get("course")).title()
+#         degree = str(request.form.get("degree")).title()
+#         email = current_user.email
+#         application = User.query.filter_by(email=email).first()
+#         print(application)
+#         application.university = school
+#         application.course = course
+#         application.degree = degree
+#         db.session.commit()
+#         flash("Application Submitted")
 
-    return render_template("profile.html", student=current_user, user=current_user,  id="!!")
+#     return render_template("profile.html", student=current_user, user=current_user,  id="!!")
+
+@views.route("/market", methods=["GET", "POST"])
+# @login_required
+def market():
+    
+
+    return render_template("market.html")
+
+
+
+
+@views.route("/exchange", methods=["GET", "POST"])
+# @login_required
+def exchange():
+    
+
+    return render_template("exchange-dark.html")
+
+
+@views.route("/exchange/liveprice", methods=["GET", "POST"])
+# @login_required
+def exchange_liveprice():
+    
+
+    return render_template("exchange-dark-live-price.html")
+
+
+# @views.route("/market", methods=["GET", "POST"])
+# @login_required
+# def market():
+    
+
+#     return render_template("profile.html")
+# @views.route("/market", methods=["GET", "POST"])
+# @login_required
+# def market():
+    
+
+#     return render_template("profile.html")
+# @views.route("/market", methods=["GET", "POST"])
+# @login_required
+# def market():
+    
+
+#     return render_template("profile.html")
+# @views.route("/market", methods=["GET", "POST"])
+# @login_required
+# def market():
+    
+
+#     return render_template("profile.html")
 
 
 @views.route("/signup", methods=["GET", "POST"])
@@ -116,7 +167,7 @@ def signup():
                 login_user(user, remember=True)
                 return redirect(url_for("views.profile"))
 
-    return render_template("sign_up.html")
+    return render_template("signup-dark.html")
 
 
 @views.route("/signin", methods=["GET", "POST"])
@@ -135,7 +186,7 @@ def signin():
         else:
             flash("Email or Password is not correct")
 
-    return render_template("sign_in.html")
+    return render_template("signin.html")
 
 
 @views.route("/logout")

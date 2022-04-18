@@ -1,21 +1,8 @@
 {% extends "tradeview_base.html" %}
-{% block content %}
 
-  <div class="container-fluid mtb15 no-fluid">
-    <div class="row sm-gutters">
-      <div class="col-md-12 mb15">
-        <!-- TradingView Widget BEGIN -->
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-            async>
-              {
-                "colorTheme": "dark"
-              }
-            </script>
-        </div>
-        <!-- TradingView Widget END -->
-      </div>
+{% block content %}
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
       <div class="col-md-3">
         <div class="market-pairs">
           <div class="input-group">
@@ -43,6 +30,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="pill" href="#DAI" role="tab" aria-selected="false">DAI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#PAX" role="tab" aria-selected="false">PAX</a>
             </li>
           </ul>
           <div class="tab-content">
@@ -769,11 +759,149 @@
                 </tbody>
               </table>
             </div>
+            <div class="tab-pane fade show" id="PAX" role="tabpanel">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Pairs</th>
+                    <th>Last Price</th>
+                    <th>Change</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> ETH/PAX</td>
+                    <td>0.00330255</td>
+                    <td class="red">-9.58%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> KCS/PAX</td>
+                    <td>0.00055192</td>
+                    <td class="red">-0.6%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> XRP/PAX</td>
+                    <td>0.00002996</td>
+                    <td class="red">-0.55%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> VET/PAX</td>
+                    <td>0.00000103</td>
+                    <td class="green">+1.8%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> EOS/PAX</td>
+                    <td>0.00000103</td>
+                    <td class="red">-2.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> BTT/PAX</td>
+                    <td>0.00002303</td>
+                    <td class="red">-1.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> LTC/PAX</td>
+                    <td>0.03520103</td>
+                    <td class="green">+1.5%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> TRX/PAX</td>
+                    <td>0.00330103</td>
+                    <td class="red">-3.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> BSV/PAX</td>
+                    <td>0.00300103</td>
+                    <td class="green">+2.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> COTI/PAX</td>
+                    <td>0.003500103</td>
+                    <td class="green">+2.85%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> XYT/PAX</td>
+                    <td>0.00003103</td>
+                    <td class="green">+3.55%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> BNB/PAX</td>
+                    <td>0.003500103</td>
+                    <td class="red">-2.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> XMR/PAX</td>
+                    <td>0.003500103</td>
+                    <td class="red">-1.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> TRY/PAX</td>
+                    <td>0.00000123</td>
+                    <td class="red">-2.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> ADA/PAX</td>
+                    <td>0.00050103</td>
+                    <td class="green">+5.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> PAX/PAX</td>
+                    <td>0.00340103</td>
+                    <td class="red">-1.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> XLM/PAX</td>
+                    <td>0.00035103</td>
+                    <td class="green">+5.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> ENQ/PAX</td>
+                    <td>0.00354103</td>
+                    <td class="green">+2.02%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> AVA/PAX</td>
+                    <td>0.02535103</td>
+                    <td class="green">+3.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> AMB/PAX</td>
+                    <td>0.05335103</td>
+                    <td class="green">+1.0%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> MAP/PAX</td>
+                    <td>0.00234103</td>
+                    <td class="red">-2.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> GO/PAX</td>
+                    <td>0.00354103</td>
+                    <td class="red">-6.50%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> KICK/PAX</td>
+                    <td>0.02053103</td>
+                    <td class="red">-6.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> DBC/PAX</td>
+                    <td>0.02535103</td>
+                    <td class="green">+7.05%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="icon ion-md-star"></i> GGC/PAX</td>
+                    <td>0.00353103</td>
+                    <td class="red">-4.05%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
           </div>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-6">
         <div class="main-chart">
           <!-- TradingView Widget BEGIN -->
           <div class="tradingview-widget-container">
@@ -805,26 +933,497 @@
           </div>
           <!-- TradingView Widget END -->
         </div>
-        <div class="market-history mt15">
+        <div class="market-trade">
           <ul class="nav nav-pills" role="tablist">
             <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#market-depth" role="tab" aria-selected="false">Market
-                Depth</a>
+              <a class="nav-link active" data-toggle="pill" href="#pills-trade-limit" role="tab"
+                aria-selected="true">Limit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#pills-market" role="tab" aria-selected="false">Market</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#pills-stop-limit" role="tab" aria-selected="false">Stop
+                Limit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#pills-stop-market" role="tab" aria-selected="false">Stop
+                Market</a>
             </li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane fade show active" id="market-depth" role="tabpanel">
-              <div class="depth-chart-container">
-                <div class="depth-chart-inner">
-                  <div id="darkDepthChart"></div>
+            <div class="tab-pane fade show active" id="pills-trade-limit" role="tabpanel">
+              <div class="d-flex justify-content-between">
+                <div class="market-trade-buy">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn buy">Buy</button>
+                </div>
+                <div class="market-trade-sell">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn sell">Sell</button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-market" role="tabpanel">
+              <div class="d-flex justify-content-between">
+                <div class="market-trade-buy">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn buy">Buy</button>
+                </div>
+                <div class="market-trade-sell">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn sell">Sell</button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-stop-limit" role="tabpanel">
+              <div class="d-flex justify-content-between">
+                <div class="market-trade-buy">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn buy">Buy</button>
+                </div>
+                <div class="market-trade-sell">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn sell">Sell</button>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-stop-market" role="tabpanel">
+              <div class="d-flex justify-content-between">
+                <div class="market-trade-buy">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn buy">Buy</button>
+                </div>
+                <div class="market-trade-sell">
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Price">
+                    <div class="input-group-append">
+                      <span class="input-group-text">BTC</span>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text">ETH</span>
+                    </div>
+                  </div>
+                  <ul class="market-trade-list">
+                    <li><a href="#">25%</a></li>
+                    <li><a href="#">50%</a></li>
+                    <li><a href="#">75%</a></li>
+                    <li><a href="#">100%</a></li>
+                  </ul>
+                  <p>Available: <span>0 BTC = 0 USD</span></p>
+                  <p>Volume: <span>0 BTC = 0 USD</span></p>
+                  <p>Margin: <span>0 BTC = 0 USD</span></p>
+                  <p>Fee: <span>0 BTC = 0 USD</span></p>
+                  <button class="btn sell">Sell</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="market-history market-order mt15">
+      <div class="col-md-3">
+        <div class="order-book">
+          <h2 class="heading">Order Book</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Price(BTC)</th>
+                <th>Amount(ETH)</th>
+                <th>Total(ETH)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="red-bg-80">
+                <td class="red">0.022572</td>
+                <td>1.253415</td>
+                <td>15.27648</td>
+              </tr>
+              <tr class="red-bg-60">
+                <td class="red">0.020371</td>
+                <td>1.205415</td>
+                <td>15.25648</td>
+              </tr>
+              <tr class="red-bg-40">
+                <td class="red">0.023572</td>
+                <td>1.645415</td>
+                <td>15.23648</td>
+              </tr>
+              <tr class="red-bg-20">
+                <td class="red">0.032378</td>
+                <td>1.206715</td>
+                <td>15.25348</td>
+              </tr>
+              <tr class="red-bg-10">
+                <td class="red">0.022573</td>
+                <td>1.262415</td>
+                <td>15.19648</td>
+              </tr>
+              <tr class="red-bg-8">
+                <td class="red">0.154377</td>
+                <td>1.225415</td>
+                <td>15.35648</td>
+              </tr>
+              <tr class="red-bg-5">
+                <td class="red">0.120373</td>
+                <td>1.285415</td>
+                <td>15.25648</td>
+              </tr>
+              <tr class="red-bg">
+                <td class="red">0.028576</td>
+                <td>1.291415</td>
+                <td>15.26448</td>
+              </tr>
+            </tbody>
+            <tbody class="ob-heading">
+              <tr>
+                <td>
+                  <span>Last Price</span>
+                  0.020367
+                </td>
+                <td>
+                  <span>USD</span>
+                  148.65
+                </td>
+                <td class="red">
+                  <span>Change</span>
+                  -0.51%
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="green-bg">
+                <td class="green">0.158373</td>
+                <td>1.209515</td>
+                <td>15.23248</td>
+              </tr>
+              <tr class="green-bg-5">
+                <td class="green">0.020851</td>
+                <td>1.206245</td>
+                <td>15.25458</td>
+              </tr>
+              <tr class="green-bg-8">
+                <td class="green">0.025375</td>
+                <td>1.205715</td>
+                <td>15.65648</td>
+              </tr>
+              <tr class="green-bg-10">
+                <td class="green">0.020252</td>
+                <td>1.205495</td>
+                <td>15.24548</td>
+              </tr>
+              <tr class="green-bg-20">
+                <td class="green">0.020373</td>
+                <td>1.205415</td>
+                <td>15.25648</td>
+              </tr>
+              <tr class="green-bg-40">
+                <td class="green">0.020156</td>
+                <td>1.207515</td>
+                <td>15.28948</td>
+              </tr>
+              <tr class="green-bg-60">
+                <td class="green">0.540375</td>
+                <td>1.205915</td>
+                <td>15.25748</td>
+              </tr>
+              <tr class="green-bg-80">
+                <td class="green">0.020372</td>
+                <td>1.205415</td>
+                <td>15.25648</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="market-history">
+          <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#recent-trades" role="tab" aria-selected="true">Recent
+                Trades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="pill" href="#market-depth" role="tab" aria-selected="false">Market
+                Depth</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade" id="recent-trades" role="tabpanel">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Price(BTC)</th>
+                    <th>Amount(ETH)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="red">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="red">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="red">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="red">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="red">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="green">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                  <tr>
+                    <td>13:03:53</td>
+                    <td class="red">0.020191</td>
+                    <td>0.2155045</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade show active" id="market-depth" role="tabpanel">
+              <div id="darkDepthChart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="market-news">
+          <h2 class="heading">Market News</h2>
+          <ul>
+            <li><a href="#">
+                <strong>KCS Pay Fees Feature is Coming Soon</strong>
+                To accelerate the ecosystem construction of KuCoin Share (KCS) and promote the implementation of the KCS
+                application.
+                <span>2019-12-04 20:22</span>
+              </a></li>
+            <li><a href="#">
+                <strong>KCS Pay Fees Feature is Coming Soon</strong>
+                To accelerate the ecosystem construction of KuCoin Share (KCS) and promote the implementation of the KCS
+                application.
+                <span>2019-12-04 20:22</span>
+              </a></li>
+            <li><a href="#">
+                <strong>KCS Pay Fees Feature is Coming Soon</strong>
+                To accelerate the ecosystem construction of KuCoin Share (KCS) and promote the implementation of the KCS
+                application.
+                <span>2019-12-04 20:22</span>
+              </a></li>
+            <li><a href="#">
+                <strong>KCS Pay Fees Feature is Coming Soon</strong>
+                To accelerate the ecosystem construction of KuCoin Share (KCS) and promote the implementation of the KCS
+                application.
+                <span>2019-12-04 20:22</span>
+              </a></li>
+            <li><a href="#">
+                <strong>KCS Pay Fees Feature is Coming Soon</strong>
+                To accelerate the ecosystem construction of KuCoin Share (KCS) and promote the implementation of the KCS
+                application.
+                <span>2019-12-04 20:22</span>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="market-history market-order">
           <ul class="nav nav-pills" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" data-toggle="pill" href="#open-orders" role="tab" aria-selected="true">Open
@@ -910,246 +1509,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="market-trade mt15">
-          <ul class="nav nav-pills" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="pill" href="#pills-trade-limit" role="tab"
-                aria-selected="true">Limit</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#pills-market" role="tab" aria-selected="false">Market</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#pills-stop-limit" role="tab" aria-selected="false">Stop
-                Limit</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#pills-stop-market" role="tab" aria-selected="false">Stop
-                Market</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade show active" id="pills-trade-limit" role="tabpanel">
-              <div class="d-flex justify-content-between">
-                <div class="market-trade-buy">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn buy">Buy</button>
-                </div>
-                <div class="market-trade-sell">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn sell">Sell</button>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="pills-market" role="tabpanel">
-              <div class="d-flex justify-content-between">
-                <div class="market-trade-buy">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn buy">Buy</button>
-                </div>
-                <div class="market-trade-sell">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn sell">Sell</button>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="pills-stop-limit" role="tabpanel">
-              <div class="d-flex justify-content-between">
-                <div class="market-trade-buy">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn buy">Buy</button>
-                </div>
-                <div class="market-trade-sell">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn sell">Sell</button>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="pills-stop-market" role="tabpanel">
-              <div class="d-flex justify-content-between">
-                <div class="market-trade-buy">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn buy">Buy</button>
-                </div>
-                <div class="market-trade-sell">
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Price">
-                    <div class="input-group-append">
-                      <span class="input-group-text">BTC</span>
-                    </div>
-                  </div>
-                  <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Amount">
-                    <div class="input-group-append">
-                      <span class="input-group-text">ETH</span>
-                    </div>
-                  </div>
-                  <ul class="market-trade-list">
-                    <li><a href="#!">25%</a></li>
-                    <li><a href="#!">50%</a></li>
-                    <li><a href="#!">75%</a></li>
-                    <li><a href="#!">100%</a></li>
-                  </ul>
-                  <p>Available: <span>0 BTC = 0 USD</span></p>
-                  <p>Volume: <span>0 BTC = 0 USD</span></p>
-                  <p>Margin: <span>0 BTC = 0 USD</span></p>
-                  <p>Fee: <span>0 BTC = 0 USD</span></p>
-                  <button class="btn sell">Sell</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
-{% endblock %}
+  {% endblock %}

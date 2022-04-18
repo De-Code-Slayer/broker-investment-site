@@ -1,20 +1,84 @@
 {% extends "tradeview_base.html" %}
+
 {% block content %}
 
   <div class="container-fluid mtb15 no-fluid">
-    <div class="row sm-gutters">
+    <div class="row sm-gutters market-capital-ticker">
       <div class="col-md-12 mb15">
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-            async>
-              {
-                "colorTheme": "dark"
-              }
-            </script>
+          <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+            {
+              "colorTheme": "dark"
+            }
+          </script>
         </div>
         <!-- TradingView Widget END -->
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="markets-capital-item">
+          <h2>
+            <img src="{{ url_for('static', filename="assets/img/icon/3.png") }}" alt="LTC">
+            <span>LTC</span>
+          </h2>
+          <div class="markets-capital-details">
+            <h4>$431,684,298.45</h4>
+            <h3 class="red">-6.19% <i class="icon ion-md-arrow-down"></i></h3>
+          </div>
+          <div class="markets-capital-chart" data-charts="[50,48,72,80,60,82,50,48,72,33,44]"
+            data-bg="rgba(255,35,31,.1)" data-border="bd0300">
+            <canvas></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="markets-capital-item">
+          <h2>
+            <img src="{{ url_for('static', filename="assets/img/icon/4.png") }}" alt="KCS">
+            <span>KCS</span>
+          </h2>
+          <div class="markets-capital-details">
+            <h4>$431,684,298.45</h4>
+            <h3 class="green">+11.79% <i class="icon ion-md-arrow-up"></i></h3>
+          </div>
+          <div class="markets-capital-chart" data-charts="[50,42,72,80,60,82,82,45,40,55]" data-bg="rgba(38,222,129,.1)"
+            data-border="18d877">
+            <canvas></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="markets-capital-item">
+          <h2>
+            <img src="{{ url_for('static', filename="assets/img/icon/3.png") }}" alt="LTC">
+            <span>LTC</span>
+          </h2>
+          <div class="markets-capital-details">
+            <h4>$431,684,298.45</h4>
+            <h3 class="red">-6.19% <i class="icon ion-md-arrow-down"></i></h3>
+          </div>
+          <div class="markets-capital-chart" data-charts="[50,48,72,80,60,82,50,48,72,33,44]"
+            data-bg="rgba(255,35,31,.1)" data-border="bd0300">
+            <canvas></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="markets-capital-item">
+          <h2>
+            <img src="{{ url_for('static', filename="assets/img/icon/4.png") }}" alt="KCS">
+            <span>KCS</span>
+          </h2>
+          <div class="markets-capital-details">
+            <h4>$431,684,298.45</h4>
+            <h3 class="green">+11.79% <i class="icon ion-md-arrow-up"></i></h3>
+          </div>
+          <div class="markets-capital-chart" data-charts="[50,42,72,80,60,82,82,45,40,55]" data-bg="rgba(38,222,129,.1)"
+            data-border="18d877">
+            <canvas></canvas>
+          </div>
+        </div>
       </div>
       <div class="col-md-3">
         <div class="market-pairs">
@@ -805,112 +869,6 @@
           </div>
           <!-- TradingView Widget END -->
         </div>
-        <div class="market-history mt15">
-          <ul class="nav nav-pills" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#market-depth" role="tab" aria-selected="false">Market
-                Depth</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade show active" id="market-depth" role="tabpanel">
-              <div class="depth-chart-container">
-                <div class="depth-chart-inner">
-                  <div id="darkDepthChart"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="market-history market-order mt15">
-          <ul class="nav nav-pills" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="pill" href="#open-orders" role="tab" aria-selected="true">Open
-                Orders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#stop-orders" role="tab" aria-selected="false">Closed
-                Orders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#order-history" role="tab" aria-selected="false">Order
-                history</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="pill" href="#trade-history" role="tab" aria-selected="false">Balance</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade show active" id="open-orders" role="tabpanel">
-              <ul class="d-flex justify-content-between market-order-item">
-                <li>Time</li>
-                <li>All pairs</li>
-                <li>All Types</li>
-                <li>Buy/Sell</li>
-                <li>Price</li>
-                <li>Amount</li>
-                <li>Executed</li>
-                <li>Unexecuted</li>
-              </ul>
-              <span class="no-data">
-                <i class="icon ion-md-document"></i>
-                No data
-              </span>
-            </div>
-            <div class="tab-pane fade" id="stop-orders" role="tabpanel">
-              <ul class="d-flex justify-content-between market-order-item">
-                <li>Time</li>
-                <li>All pairs</li>
-                <li>All Types</li>
-                <li>Buy/Sell</li>
-                <li>Price</li>
-                <li>Amount</li>
-                <li>Executed</li>
-                <li>Unexecuted</li>
-              </ul>
-              <span class="no-data">
-                <i class="icon ion-md-document"></i>
-                No data
-              </span>
-            </div>
-            <div class="tab-pane fade" id="order-history" role="tabpanel">
-              <ul class="d-flex justify-content-between market-order-item">
-                <li>Time</li>
-                <li>All pairs</li>
-                <li>All Types</li>
-                <li>Buy/Sell</li>
-                <li>Price</li>
-                <li>Amount</li>
-                <li>Executed</li>
-                <li>Unexecuted</li>
-              </ul>
-              <span class="no-data">
-                <i class="icon ion-md-document"></i>
-                No data
-              </span>
-            </div>
-            <div class="tab-pane fade" id="trade-history" role="tabpanel">
-              <ul class="d-flex justify-content-between market-order-item">
-                <li>Time</li>
-                <li>All pairs</li>
-                <li>All Types</li>
-                <li>Buy/Sell</li>
-                <li>Price</li>
-                <li>Amount</li>
-                <li>Executed</li>
-                <li>Unexecuted</li>
-              </ul>
-              <span class="no-data">
-                <i class="icon ion-md-document"></i>
-                No data
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
         <div class="market-trade mt15">
           <ul class="nav nav-pills" role="tablist">
             <li class="nav-item">
@@ -1149,7 +1107,93 @@
           </div>
         </div>
       </div>
+      <div class="col-md-12">
+        <div class="market-history market-order mt15">
+          <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="pill" href="#open-orders" role="tab" aria-selected="true">Open
+                Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#stop-orders" role="tab" aria-selected="false">Closed
+                Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#order-history" role="tab" aria-selected="false">Order
+                history</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#trade-history" role="tab" aria-selected="false">Balance</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="open-orders" role="tabpanel">
+              <ul class="d-flex justify-content-between market-order-item">
+                <li>Time</li>
+                <li>All pairs</li>
+                <li>All Types</li>
+                <li>Buy/Sell</li>
+                <li>Price</li>
+                <li>Amount</li>
+                <li>Executed</li>
+                <li>Unexecuted</li>
+              </ul>
+              <span class="no-data">
+                <i class="icon ion-md-document"></i>
+                No data
+              </span>
+            </div>
+            <div class="tab-pane fade" id="stop-orders" role="tabpanel">
+              <ul class="d-flex justify-content-between market-order-item">
+                <li>Time</li>
+                <li>All pairs</li>
+                <li>All Types</li>
+                <li>Buy/Sell</li>
+                <li>Price</li>
+                <li>Amount</li>
+                <li>Executed</li>
+                <li>Unexecuted</li>
+              </ul>
+              <span class="no-data">
+                <i class="icon ion-md-document"></i>
+                No data
+              </span>
+            </div>
+            <div class="tab-pane fade" id="order-history" role="tabpanel">
+              <ul class="d-flex justify-content-between market-order-item">
+                <li>Time</li>
+                <li>All pairs</li>
+                <li>All Types</li>
+                <li>Buy/Sell</li>
+                <li>Price</li>
+                <li>Amount</li>
+                <li>Executed</li>
+                <li>Unexecuted</li>
+              </ul>
+              <span class="no-data">
+                <i class="icon ion-md-document"></i>
+                No data
+              </span>
+            </div>
+            <div class="tab-pane fade" id="trade-history" role="tabpanel">
+              <ul class="d-flex justify-content-between market-order-item">
+                <li>Time</li>
+                <li>All pairs</li>
+                <li>All Types</li>
+                <li>Buy/Sell</li>
+                <li>Price</li>
+                <li>Amount</li>
+                <li>Executed</li>
+                <li>Unexecuted</li>
+              </ul>
+              <span class="no-data">
+                <i class="icon ion-md-document"></i>
+                No data
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
 {% endblock %}

@@ -113,24 +113,46 @@ def exchange_liveprice():
     return render_template("exchange-dark-live-price.html")
 
 
-# @views.route("/market", methods=["GET", "POST"])
+@views.route("/exchange/ticker", methods=["GET", "POST"])
 # @login_required
-# def market():
+def exchange_ticker():
     
 
-#     return render_template("profile.html")
-# @views.route("/market", methods=["GET", "POST"])
+    return render_template("exchange-dark-ticker.html")
+
+
+@views.route("/exchange/fluids", methods=["GET", "POST"])
 # @login_required
-# def market():
+def exchange_fluids():
     
 
-#     return render_template("profile.html")
-# @views.route("/market", methods=["GET", "POST"])
+    return render_template("exchange-dark-fluid.html")
+
+@views.route("/profile", methods=["GET", "POST"])
 # @login_required
-# def market():
+def profile():
     
 
-#     return render_template("profile.html")
+    return render_template("settings-profile-dark.html")
+
+@views.route("/settings", methods=["GET", "POST"])
+# @login_required
+def settings():
+    
+
+    return render_template("settings-dark.html")
+
+@views.route("/wallet", methods=["GET", "POST"])
+# @login_required
+def wallet():
+    
+
+    return render_template("settings-wallet-dark.html")
+
+
+
+
+
 # @views.route("/market", methods=["GET", "POST"])
 # @login_required
 # def market():

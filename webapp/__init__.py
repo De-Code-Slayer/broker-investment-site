@@ -7,7 +7,7 @@ import os
 from os.path import join, dirname, realpath
 
 db = SQLAlchemy()
-DB_NAME = ""
+DB_NAME = "Paschals_sqlite_database.db"
 # ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
 # UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
 # # basedir = os.path.abspath(os.path.dirname(__file__))
@@ -18,8 +18,8 @@ app = Flask(__name__)
 
 def create_app():
  global app
- app.config["SECRET_KEY"] = "Titans232."
- app.config["SQLALCHEMY_DATABASE_URI"] = "".format(DB_NAME)
+ app.config["SECRET_KEY"] = "paschal"
+ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_NAME)
 #  app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -32,24 +32,24 @@ def create_app():
  app.register_blueprint(views, url_prefix="/" )
 #  app.register_blueprint(admin, url_prefix="/" )
 
-#  from .models import User, Articles
-#  create_database(app)
+ from .models import User, Articles
+ create_database(app)
 
 
-#  login_manager = LoginManager()
-#  login_manager.login_view = "admin.login"
-#  login_manager.init_app(app)
+ login_manager = LoginManager()
+ login_manager.login_view = "views.login"
+ login_manager.init_app(app)
 
-#  @login_manager.user_loader
-#  def load_user(id):
-#     return User.query.get(int(id))
+ @login_manager.user_loader
+ def load_user(id):
+    return User.query.get(int(id))
 
 
  
 # ERROR PAGE HANDLER
-#  @app.errorhandler(404)
-#  def page_not_found(error):
-#     return render_template('page_not_found.html'), 404
+ @app.errorhandler(404)
+ def page_not_found(error):
+    return render_template('404-dark.html'), 404
  
  return app
 
@@ -66,7 +66,7 @@ def create_app():
 #             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 #             # return url_for('static', filename="images/{filename}")
 #             return filename
-# def create_database(app):
-#     # if not path.exists("webapp/" + DB_NAME):
-#         db.create_all(app=app)
-#         print("Database created!!")
+def create_database(app):
+    # if not path.exists("webapp/" + DB_NAME):
+        db.create_all(app=app)
+        print("Database created!!")

@@ -30,31 +30,15 @@
                       </div>
                       <div class="form-row mt-4">
                         <div class="col-md-6">
-                          <label for="formFirst">First name</label>
-                          <input id="formFirst" type="text" class="form-control" placeholder="First name">
-                        </div>
-                        <div class="col-md-6">
-                          <label for="formLast">Last name</label>
-                          <input id="formLast" type="text" class="form-control" placeholder="Last name">
+                          <label for="formFirst">Fullname</label>
+                          <input id="formFirst" type="text" class="form-control" value="{{user.fullname}}" readonly>
                         </div>
                         <div class="col-md-6">
                           <label for="emailAddress">Email</label>
-                          <input id="emailAddress" type="text" class="form-control" placeholder="Enter your email">
+                          <input id="emailAddress" type="text" class="form-control" value="{{user.email}}" placeholder="Enter your email">
                         </div>
-                        <div class="col-md-6">
-                          <label for="phoneNumber">Phone</label>
-                          <input id="phoneNumber" type="text" class="form-control" placeholder="Enter phone number">
-                        </div>
-                        <div class="col-md-6">
-                          <label for="selectLanguage">Language</label>
-                          <select id="selectLanguage" class="custom-select">
-                            <option selected>English</option>
-                            <option>Mandarin Chinese</option>
-                            <option>Spanish</option>
-                            <option>Arabic</option>
-                            <option>Russian</option>
-                          </select>
-                        </div>
+                       
+                        
                         <div class="col-md-6">
                           <label for="selectCurrency">Currency</label>
                           <select id="selectCurrency" class="custom-select">

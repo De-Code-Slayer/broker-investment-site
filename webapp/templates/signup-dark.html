@@ -214,22 +214,22 @@
   </header> -->
   <div class="vh-100 d-flex justify-content-center">
     <div class="form-access my-auto">
-      <form>
+      <form method="post">
         <span>Create Account</span>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Full Name">
+          <input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
         </div>
         <div class="form-group">
-          <input type="email" class="form-control" placeholder="Email Address">
+          <input type="email" class="form-control" name="email" placeholder="Email Address" required>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password" required>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Confirm Password">
+          <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required>
         </div>
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="form-checkbox">
+          <input type="checkbox" class="custom-control-input" id="form-checkbox" required>
           <label class="custom-control-label" for="form-checkbox">I agree to the <a href="#!">Terms &
               Conditions</a></label>
         </div>

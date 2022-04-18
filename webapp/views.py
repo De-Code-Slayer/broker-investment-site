@@ -2,8 +2,8 @@
 
 from flask.helpers import flash
 from sqlalchemy.sql.expression import asc
-from .models import Articles, Whatsapp, Howto, User, University
-from flask import Blueprint, render_template, url_for, request, redirect
+from .models import User
+from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db
 
@@ -129,57 +129,74 @@ def exchange_fluids():
     return render_template("exchange-dark-fluid.html")
 
 @views.route("/profile", methods=["GET", "POST"])
-# @login_required
+@login_required
 def profile():
     
 
-    return render_template("settings-profile-dark.html")
+    return render_template("settings-profile-dark.html",user=current_user)
+
+
+
+
 
 @views.route("/settings", methods=["GET", "POST"])
 # @login_required
 def settings():
     
 
-    return render_template("settings-dark.html")
+    return render_template("settings-dark.html",user=current_user)
 
 @views.route("/wallet", methods=["GET", "POST"])
 # @login_required
 def wallet():
     
 
-    return render_template("settings-wallet-dark.html")
+    return render_template("settings-wallet-dark.html",user=current_user)
 
 
 
 
 
-# @views.route("/market", methods=["GET", "POST"])
+@views.route("/crossrates", methods=["GET", "POST"])
+@login_required
+def crossrates():
+    return render_template("cross-rates-dark.html",user=current_user)
+
+@views.route("/marketinfo", methods=["GET", "POST"])
+@login_required
+def marketinfo():
+    return render_template("symbol-info-dark.html",user=current_user)
+
+# @views.route("/technicalanalysis", methods=["GET", "POST"])
 # @login_required
-# def market():
-    
+# def technical_analysis():
+#     return render_template("technical-analysis-dark.html",user=current_user)
 
-#     return render_template("profile.html")
+
+
+@views.route("/investment", methods=["GET", "POST"])
+def investment():
+    return render_template("investment.html")
+
+
 
 
 @views.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        first_name = str(request.form.get("first-name")).title()
-        last_name = str(request.form.get("last-name")).title()
-        nationality = str(request.form.get("nationality")).title()
-        age = str(request.form.get("age"))
+        fullname = str(request.form.get("fullname")).title()
         email = str(request.form.get("email"))
-        phone = str(request.form.get("phone")).title()
-        occupation = str(request.form.get("occupation")).title()
         password = str(request.form.get("password"))
-
+        confirm_password = str(request.form.get("confirmpassword"))
+        if password != confirm_password:
+            flash(message="passwords dont match")
+            abort(500, message="password_error")
         check = User.query.filter_by(
             email=email).first()
         if check:
             flash("An account with this email already exist please Login ")
         else:
-            application = User(first_name=first_name, last_name=last_name, nationality=nationality,
-                               age=age, email=email, phone=phone, occupation=occupation, password=password)
+            application = User(fullname=fullname, email=email, password=password)
             db.session.add(application)
             db.session.commit()
 

@@ -46,22 +46,22 @@
                                     </a>
                                     <!-- module logo begin -->
                                     <p class="uk-text-lead uk-margin-top uk-margin-remove-bottom">Log into your account</p>
-                                    <p class="uk-text-small uk-margin-remove-top uk-margin-medium-bottom">Don't have an account? <a href="#">Register here</a></p>
+                                    <p class="uk-text-small uk-margin-remove-top uk-margin-medium-bottom">Don't have an account? <a href="/signup">Register here</a></p>
                                     <!-- login form begin -->
-                                    <form class="uk-grid uk-form">
+                                    <form class="uk-grid uk-form" method="post">
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
-                                            <input class="uk-input uk-border-rounded" id="username" value="" type="text" placeholder="Username">
+                                            <input class="uk-input uk-border-rounded" id="username" name="email" type="email" placeholder="Email Address" required>
                                         </div>
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>
-                                            <input class="uk-input uk-border-rounded" id="password" value="" type="password" placeholder="Password">
+                                            <input class="uk-input uk-border-rounded" id="password" name="password" value="" type="password" placeholder="Password" required>
                                         </div>
                                         <div class="uk-margin-small uk-width-auto uk-text-small">
-                                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox"> Remember me</label>
+                                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox" required> Remember me</label>
                                         </div>
                                         <div class="uk-margin-small uk-width-expand uk-text-small">
-                                            <label class="uk-align-right"><a class="uk-link-reset" href="#">Forgot password?</a></label>
+                                            <label class="uk-align-right"><a class="uk-link-reset" href="/passwordreset">Forgot password?</a></label>
                                         </div>
                                         <div class="uk-margin-small uk-width-1-1">
                                             <button class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left" type="submit" name="submit">Sign in</button>

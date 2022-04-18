@@ -43,6 +43,7 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/market">Markets</a>
+              <a class="dropdown-item" href="/marketinfo">Market Informations</a>
               <!-- <a class="dropdown-item" href="market-capital-dark.html">Markets Line</a>
               <a class="dropdown-item" href="market-capital-bar-dark.html">Markets Bar</a>
               <a class="dropdown-item" href="market-overview-dark.html">Market Overview</a>
@@ -59,7 +60,13 @@
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/profile">Profile</a>
               <a class="dropdown-item" href="/wallet">Wallet</a>
+              <a class="dropdown-item" href="/crossrates">Crossrates</a>
+              <a class="dropdown-item" href="/investment">Investments</a>
+              <a class="dropdown-item" href="/settings">Credentials Verification</a>
+              <a class="dropdown-item" href="/withdrawals">Withdrawals</a>
+              <a class="dropdown-item" href="/technicalanalysis">Technical Analysis</a>
               <a class="dropdown-item" href="/settings">Settings</a>
+              
             </div>
           </li>
           <!-- <li class="nav-item dropdown">
@@ -158,8 +165,8 @@
                   <img src="{{ url_for('static', filename="assets/img/avatar.svg") }}" alt="">
                 </div>
                 <div class="info text-center">
-                  <p class="name font-weight-bold mb-0">Tony Stark</p>
-                  <p class="email text-muted mb-3">tonystark@gmail.com</p>
+                  <p class="name font-weight-bold mb-0">{{user.fullname}}</p>
+                  <p class="email text-muted mb-3">{{user.email}}</p>
                 </div>
               </div>
               <div class="dropdown-body">

@@ -1,7 +1,7 @@
-from flask import Flask,render_template,got_request_exception
+from flask import Flask,render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import path
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 from werkzeug.utils import secure_filename
 import os
 from os.path import join, dirname, realpath
@@ -49,7 +49,7 @@ def create_app():
 # ERROR PAGE HANDLER
  @app.errorhandler(404)
  def page_not_found(error):
-    return render_template('404-dark.html'), 404
+    return render_template('404-dark.html', user=current_user), 404
  
  return app
 

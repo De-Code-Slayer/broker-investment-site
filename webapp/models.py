@@ -10,6 +10,7 @@ class User(db.Model,UserMixin):
     email = db.Column(db.String())
     password = db.Column(db.String())
     fullname = db.Column(db.String(100))
+    confirmed = db.Column(db.Boolean, nullable=False, default=False)
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     
 # ---------- Student--------------------------------------------------

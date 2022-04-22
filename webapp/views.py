@@ -29,6 +29,65 @@ def home():
 #     post = Articles.query.get(ident)
 #     return render_template("more_post.html", content=post, user=current_user,  id=ident)
 
+@views.route("/home/market")
+def market_home():
+    
+    return render_template("markets_home.html")
+
+@views.route("/home/about")
+def about_home():
+    return render_template("about.html")
+
+
+@views.route("/home/career")
+def career_home():
+    
+    return render_template("careers.html")
+
+
+@views.route("/home/contact")
+def contact_home():
+    
+    return render_template("contact.html")
+
+
+@views.route("/home/legal")
+def legal_home():
+    
+    return render_template("legal-docs.html")
+
+
+@views.route("/home/help")
+def help_home():
+    
+    return render_template("help-center.html")
+
+
+@views.route("/home/roadmap")
+def roadmap_home():
+    
+    return render_template("roadmap.html")
+
+
+@views.route("/home/customers")
+def customers_home():
+    
+    return render_template("customers.html")
+
+
+# @views.route("/home/market")
+# def market_home():
+    
+#     return render_template("markets_home.html")
+# @views.route("/home/market")
+# def market_home():
+    
+#     return render_template("markets_home.html")
+# @views.route("/home/market")
+# def market_home():
+    
+#     return render_template("markets_home.html")
+
 
 # @views.route("/whatsapp", methods=["GET", "POST"])
 # def whatsapp():
@@ -92,7 +151,7 @@ def home():
 def market():
     
 
-    return render_template("market.html")
+    return render_template("market.html",user=current_user)
 
 
 
@@ -102,7 +161,7 @@ def market():
 def exchange():
     
 
-    return render_template("exchange-dark.html")
+    return render_template("exchange-dark.html",user=current_user)
 
 
 @views.route("/exchange/liveprice", methods=["GET", "POST"])
@@ -118,7 +177,7 @@ def exchange_liveprice():
 def exchange_ticker():
     
 
-    return render_template("exchange-dark-ticker.html")
+    return render_template("exchange-dark-ticker.html",user=current_user)
 
 
 @views.route("/exchange/fluids", methods=["GET", "POST"])

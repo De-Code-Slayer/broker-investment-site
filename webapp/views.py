@@ -6,7 +6,7 @@ from .models import User
 from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db
-
+from .generic import generate_confirmation_token, confirm_token, send_email
 
 views = Blueprint("views", __name__)
 
@@ -226,17 +226,44 @@ def crossrates():
 def marketinfo():
     return render_template("symbol-info-dark.html",user=current_user)
 
-# @views.route("/technicalanalysis", methods=["GET", "POST"])
-# @login_required
-# def technical_analysis():
-#     return render_template("technical-analysis-dark.html",user=current_user)
-
-
+@views.route("/technicalanalysis", methods=["GET", "POST"])
+@login_required
+def technical_analysis():
+    return render_template("technical-analysis-dark.html",user=current_user)
+#
+# 
 
 @views.route("/investment", methods=["GET", "POST"])
 def investment():
     return render_template("investment.html")
 
+
+@views.route("/withdrawals")
+def withdraw():
+    return render_template("withdraw.html",user=current_user)
+
+@views.route("/verification")
+def verification():
+    return render_template("verification.html",user=current_user)
+
+
+@views.route("/confirm/<token>")
+def confirm_email(token):
+    try:
+        email = confirm_token(token)
+    except:
+        abort(404, response="The confirmation link is invalid or has expired")
+    user = User.query.filter_by(email=email).first_or_404()
+    if user.confirmed:
+     
+        abort(404, response="The email is already confirmed")
+    else:
+        user.confirmed = True
+      
+        db.session.add(user)
+        db.session.commit()
+       
+    return redirect(url_for('profile'))
 
 
 
@@ -258,14 +285,53 @@ def signup():
             application = User(fullname=fullname, email=email, password=password)
             db.session.add(application)
             db.session.commit()
+            token = generate_confirmation_token(application.email)
+            confirm_url = url_for('views.confirm_email', token=token, _external=True)
+            html = render_template('confirmemail.html', confirm_url=confirm_url)
+            subject = "Please confirm your email"
+            send_email(application.email, subject, html)
 
             user = User.query.filter_by(
                 email=email, password=password).first()
             if user:
                 login_user(user, remember=True)
+                flash('A confirmation email has been sent via email.', 'success')
                 return redirect(url_for("views.profile"))
 
     return render_template("signup-dark.html")
+
+
+
+
+
+
+
+
+
+
+
+@views.route('/resendmail')
+@login_required
+def resend_confirmation():
+    token = generate_confirmation_token(current_user.email)
+    confirm_url = url_for('views.confirm_email', token=token, _external=True)
+    html = render_template('confirmemail.html', confirm_url=confirm_url)
+    subject = "Please confirm your email"
+    send_email(current_user.email, subject, html)
+    flash('A new confirmation email has been sent.', 'success')
+    return redirect(url_for('views.home'))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @views.route("/signin", methods=["GET", "POST"])

@@ -5,6 +5,7 @@ from flask_login import LoginManager, current_user
 from werkzeug.utils import secure_filename
 import os
 from os.path import join, dirname, realpath
+from flask_mail import Mail
 
 db = SQLAlchemy()
 DB_NAME = "Paschals_sqlite_database.db"
@@ -19,7 +20,23 @@ app = Flask(__name__)
 def create_app():
  global app
  app.config["SECRET_KEY"] = "paschal"
+ app.config["SECURITY_PASSWORD_SALT"] = "salt_for_paschal"
  app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_NAME)
+ # mail settings
+ app.config["MAIL_SERVER"] = "smtp.gmail.com"
+ app.config["MAIL_PORT"] = 587
+ app.config["MAIL_USE_TLS"] = True
+ app.config["MAIL_USE_SSL"] = False
+
+  # gmail authentication
+ app.config["MAIL_USERNAME"] = "veronicapage232@gmail.com"
+ app.config["MAIL_PASSWORD"] = "titans232"
+
+    # mail accounts
+ app.config["MAIL_DEFAULT_SENDER"] = 'veronicapage232@gmail.com'
+
+
+
 #  app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -53,7 +70,7 @@ def create_app():
  
  return app
 
-
+mail = Mail(app)
 
 # def allowed_file(filename):
 #     return '.' in filename and \

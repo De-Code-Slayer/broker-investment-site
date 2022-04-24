@@ -1,6 +1,7 @@
 from itsdangerous import URLSafeTimedSerializer
 from flask_mail import Mail, Message
-
+import json
+import requests
 from . import app
 
 from .import app, mail
@@ -32,3 +33,20 @@ def confirm_token(token, expiration=3600):
     except:
         return False
     return email
+
+
+
+def get_btc(coin):
+    # Import libraries
+    coin = coin.upper()
+
+    # defining key/request url
+    key = f"https://api.binance.com/api/v3/ticker/price?symbol={coin}USDT"
+    
+    # requesting data from url
+    data = requests.get(key)
+    data = data.json()
+    # print(f"{data['symbol']} price is {data['price']}")
+    return data['price']
+
+

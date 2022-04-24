@@ -8,7 +8,7 @@
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Crypo</title>
+  <title>{{name}} - Profits</title>
   <link rel="icon" href="{{ url_for('static', filename="img/favicon.ico") }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ url_for('static', filename="assets/css/style.css") }}">
 </head>
@@ -59,13 +59,13 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/profile">Profile</a>
-              <a class="dropdown-item" href="/wallet">Wallet</a>
+              <!-- <a class="dropdown-item" href="/wallet">Wallet</a> -->
               <a class="dropdown-item" href="/crossrates">Crossrates</a>
               <a class="dropdown-item" href="/investment">Investments</a>
               <a class="dropdown-item" href="/verification">Credentials Verification</a>
               <a class="dropdown-item" href="/withdrawals">Withdrawals</a>
               <a class="dropdown-item" href="/technicalanalysis">Technical Analysis</a>
-              <a class="dropdown-item" href="/settings">Settings</a>
+              <!-- <a class="dropdown-item" href="/settings">Settings</a> -->
               
             </div>
           </li>
@@ -157,12 +157,24 @@
           <li class="nav-item dropdown header-img-icon">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
+
+              {% if user.profilephoto %}
+              <img src="{{ url_for('static', filename="images/{}".format(user.profilephoto)) }}" alt="avatar">
+                {% endif %}
+                {% if not user.profilephoto %}
               <img src="{{ url_for('static', filename="assets/img/avatar.svg") }}" alt="avatar">
+                {% endif %}
+              
             </a>
             <div class="dropdown-menu">
               <div class="dropdown-header d-flex flex-column align-items-center">
                 <div class="figure mb-3">
-                  <img src="{{ url_for('static', filename="assets/img/avatar.svg") }}" alt="">
+                  {% if user.profilephoto %}
+                  <img src="{{ url_for('static', filename="images/{}".format(user.profilephoto)) }}" alt="avatar">
+                    {% endif %}
+                    {% if not user.profilephoto %}
+                  <img src="{{ url_for('static', filename="assets/img/avatar.svg") }}" alt="avatar">
+                    {% endif %}
                 </div>
                 <div class="info text-center">
                   <p class="name font-weight-bold mb-0">{{user.fullname}}</p>

@@ -22,10 +22,15 @@
                 <div class="card-body">
                   <h5 class="card-title">General Information</h5>
                   <div class="settings-profile">
-                    <form>
+                    <form method="post" enctype="multipart/form-data">
+                        {% if user.profilephoto %}
+                      <img src="{{ url_for('static', filename="images/{}".format(user.profilephoto)) }}" alt="avatar">
+                        {% endif %}
+                        {% if not user.profilephoto %}
                       <img src="{{ url_for('static', filename="assets/img/avatar.svg") }}" alt="avatar">
+                        {% endif %}
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="fileUpload">
+                        <input type="file" name="img"  class="custom-file-input" id="fileUpload">
                         <label class="custom-file-label" for="fileUpload">Choose avatar</label>
                       </div>
                       <div class="form-row mt-4">
@@ -35,11 +40,11 @@
                         </div>
                         <div class="col-md-6">
                           <label for="emailAddress">Email</label>
-                          <input id="emailAddress" type="text" class="form-control" value="{{user.email}}" placeholder="Enter your email">
+                          <input id="emailAddress" type="text" class="form-control" value="{{user.email}}" placeholder="Enter your email" readonly>
                         </div>
                        
                         
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                           <label for="selectCurrency">Currency</label>
                           <select id="selectCurrency" class="custom-select">
                             <option selected>USD</option>
@@ -47,7 +52,7 @@
                             <option>GBP</option>
                             <option>CHF</option>
                           </select>
-                        </div>
+                        </div> -->
                         <div class="col-md-12">
                           <input type="submit" value="Update">
                         </div>
@@ -136,8 +141,8 @@
                           </div>
                         </div>
                         <div>
-                          <h3>4.5484254</h3>
-                          <p class="text-right"><i class="icon ion-md-lock"></i> 0.0000000</p>
+                          <h3>{{btc}}</h3>
+                          <p class="text-right"><i class="icon ion-md-lock"></i> {{500/btc}}</p>
                         </div>
                       </a>
                       <a class="nav-link d-flex justify-content-between align-items-center" data-toggle="pill"
@@ -150,8 +155,8 @@
                           </div>
                         </div>
                         <div>
-                          <h3>13.454845</h3>
-                          <p class="text-right"><i class="icon ion-md-lock"></i> 0.0000000</p>
+                          <h3>{{eth}}</h3>
+                          <p class="text-right"><i class="icon ion-md-lock"></i> {{500/eth}}</p>
                         </div>
                       </a>
                       <a class="nav-link d-flex justify-content-between align-items-center" data-toggle="pill"
@@ -164,8 +169,8 @@
                           </div>
                         </div>
                         <div>
-                          <h3>35.4842458</h3>
-                          <p class="text-right"><i class="icon ion-md-lock"></i> 0.0000000</p>
+                          <h3></h3>
+                          <p class="text-right"><i class="icon ion-md-lock"></i> {{user.limit}}</p>
                         </div>
                       </a>
                       <!-- <a class="nav-link d-flex justify-content-between align-items-center" data-toggle="pill"
@@ -236,24 +241,30 @@
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-cash"></i>
-                                  <h2>Total Equity</h2>
+                                  <h2>Total Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>5.5894 BTC</h3>
+                              
+                                  <h3>{{user.btc/btc}} BTC</h3>
+
                                 </div>
                               </li>
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-checkmark"></i>
-                                  <h2>Available Margin</h2>
+                                  <h2>Available Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>2.480 BTC</h3>
+                                  <h3>{{(user.btc/btc)}} BTC</h3>
                                 </div>
                               </li>
                             </ul>
-                            <button class="btn green">Deposit</button>
-                            <button class="btn red">Withdraw</button>
+
+                            {% if user.btc >= user.limit %}
+                            <button class="btn green">Withdraw</button>
+                            {% endif %}
+
+
                           </div>
                         </div>
                         <div class="card">
@@ -265,9 +276,9 @@
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e">
+                                  <input type="text"  class="form-control" id="myInput"  value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -335,24 +346,25 @@
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-cash"></i>
-                                  <h2>Total Equity</h2>
+                                  <h2>Total Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>4.1542 ETH</h3>
+                                  <h3>{{(user.btc/eth)}} ETH</h3>
                                 </div>
                               </li>
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-checkmark"></i>
-                                  <h2>Available Margin</h2>
+                                  <h2>Available Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>1.334 ETH</h3>
+                                  <h3>{{(user.btc/eth)}} ETH</h3>
                                 </div>
                               </li>
                             </ul>
-                            <button class="btn green">Deposit</button>
-                            <button class="btn red">Withdraw</button>
+                            {% if user.btc >= user.limit %}
+                            <button class="btn green">Withdraw</button>
+                            {% endif %}
                           </div>
                         </div>
                         <div class="card">
@@ -364,9 +376,9 @@
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e">
+                                  <input type="text"  class="form-control" id="myInput"  value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -434,24 +446,25 @@
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-cash"></i>
-                                  <h2>Total Equity</h2>
+                                  <h2>Total Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>7.342 BNB</h3>
+                                  <h3>{{user.btc}} USDT</h3>
                                 </div>
                               </li>
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-checkmark"></i>
-                                  <h2>Available Margin</h2>
+                                  <h2>Available Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>0.332 BNB</h3>
+                                  <h3>{{user.btc}}</h3>
                                 </div>
                               </li>
                             </ul>
-                            <button class="btn green">Deposit</button>
-                            <button class="btn red">Withdraw</button>
+                            {% if user.btc >= user.limit %}
+                            <button class="btn green">Withdraw</button>
+                            {% endif %}
                           </div>
                         </div>
                         <div class="card">
@@ -463,9 +476,9 @@
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e">
+                                  <input type="text"  class="form-control" id="myInput"  value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -562,9 +575,9 @@
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e">
+                                  <input type="text"  class="form-control" id="myInput"  value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -661,9 +674,9 @@
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e">
+                                  <input type="text"  class="form-control" id="myInput"  value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -759,10 +772,10 @@
                                 <p>Deposits to this address are unlimited. Note that you may not be able to withdraw all
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
-                                <div class="input-group">
-                                  <input type="text" class="form-control" value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e">
+                                  <div class="input-group">
+                                  <input type="text"  class="form-control" id="myInput"  value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -859,9 +872,9 @@
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e">
+                                  <input type="text"  class="form-control" id="myInput"  value="Ad87deD4gEe8dG57Ede4eEg5dREs4d5e8f4e" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -986,7 +999,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card settings-profile">
+              <!-- <div class="card settings-profile">
                 <div class="card-body">
                   <h5 class="card-title">Create API Key</h5>
                   <div class="form-row">
@@ -1067,11 +1080,30 @@
                     </table>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("The Wallet address has been copied to your Clipboard ");
+  // alert("The Wallet address has been copied to your Clipboard " + copyText.value);
+}
+
+  </script>
 {% endblock %}

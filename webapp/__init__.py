@@ -9,11 +9,11 @@ from flask_mail import Mail
 
 db = SQLAlchemy()
 DB_NAME = "Paschals_sqlite_database.db"
-# ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
-# UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
-# # basedir = os.path.abspath(os.path.dirname(__file__))
+ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
+UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
+basedir = os.path.abspath(os.path.dirname(__file__))
 
-# UPLOAD_FOLDER = UPLOADS_PATH
+UPLOAD_FOLDER = UPLOADS_PATH
 app = Flask(__name__)
 
 
@@ -37,7 +37,7 @@ def create_app():
 
 
 
-#  app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
  db.init_app(app)
@@ -72,17 +72,18 @@ def create_app():
 
 mail = Mail(app)
 
-# def allowed_file(filename):
-#     return '.' in filename and \
-#            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-# def save_file(file):
-#    if file and allowed_file(file.filename):
-#             filename = secure_filename(file.filename)
-#             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#             # return url_for('static', filename="images/{filename}")
-#             return filename
+def save_file(file):
+   if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # return url_for('static', filename="images/{filename}")
+            return filename
+
 def create_database(app):
     # if not path.exists("webapp/" + DB_NAME):
         db.create_all(app=app)

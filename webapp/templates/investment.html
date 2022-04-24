@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html style="font-size: 16px;">
-  
-<!-- Mirrored from website460952.nicepage.io/About.html?version=06d5c517-e489-4d37-94d0-18dda29b8153 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Apr 2022 17:46:23 GMT -->
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Premium Plans, $0, $29, $59, $79">
-    <meta name="description" content="">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>About</title>
+{% extends "tradeview_base.html" %}
+{% block content %}
     <link rel="stylesheet" href="{{ url_for('static', filename="css/nicepage3078.css") }}" media="screen">
     <script class="u-script" type="text/javascript" src="https://static.nicepage.com/shared/assets/jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="https://capp.nicepage.com/65ebbba119a92d2e20a58f84d6eaeb222b674159/nicepage.js" defer=""></script>
@@ -16,9 +7,11 @@
     <!-- Favicon and apple icon -->
     <link rel="shortcut icon" href="{{ url_for('static', filename="img/favicon.ico") }}" type="image/x-icon">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-   
+    
+    
    
    <style class="u-style">
+
 .u-section-2 {
   background-image: linear-gradient(45deg, #030008, #2c2933);
 }
@@ -493,15 +486,15 @@
     
   
 </head>
-  <body class="u-body">
 
-    
+  
+
     <section class="u-align-center u-clearfix u-gradient u-section-2" id="sec-2b3f">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <h1 class="u-text u-text-body-alt-color u-text-1">Premium Plans</h1>
-        <a href="/profile" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-radius-50 u-text-palette-1-base u-white u-btn-1">Go Back</a>
+        <h1 class="u-text u-text-body-alt-color u-text-1">Professional Plans</h1>
+        <a href="/profile" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-radius-50 u-text-palette-1-base u-white u-btn-1"><i class="fa-thin fa-arrow-left"></i>Go Back</a>
               
-        <p class="u-text u-text-body-alt-color u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+        <p class="u-text u-text-body-alt-color u-text-2">Chose an Investment Plan from our List of available Plans</p>
         <div class="u-clearfix u-expanded-width u-gutter-16 u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
             <div class="u-layout-row">
@@ -509,64 +502,64 @@
                 <div class="u-container-layout u-container-layout-1">
                   <div class="u-align-center u-container-style u-expanded-width u-group u-radius-15 u-shape-round u-white u-group-1">
                     <div class="u-container-layout u-container-layout-2">
-                      <h5 class="u-text u-text-palette-1-base u-text-3">Free</h5>
-                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-1-base u-text-4">
-                        <span style="font-weight: 400;">$</span>0
+                      <h5 class="u-text u-text-palette-1-base u-text-3">Basic</h5>
+                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-1-base u-text-11">
+                        <span style="font-weight: 400;">$</span>500+
                       </h2>
-                      <p class="u-text u-text-palette-1-base u-text-5">per mounth</p>
+                      <p class="u-text u-text-palette-1-base u-text-5"></p>
                     </div>
                   </div>
-                  <p class="u-text u-text-palette-1-light-3 u-text-6">15 Users&nbsp;<br>Feature 2 <br>Feature 3 <br>Feature 4
+                  <p class="u-text u-text-palette-1-light-3 u-text-6">20% Monthly Interest Rate&nbsp;<br>10% Referal Bonus 
                   </p>
-                  <a href="https://nicepage.com/k/offer-html-templates" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-radius-50 u-text-palette-1-base u-white u-btn-1">get plan</a>
+                  <a href="/profile" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-radius-50 u-text-palette-1-base u-white u-btn-1">Deposit</a>
                 </div>
               </div>
               <div class="u-align-center u-container-style u-layout-cell u-palette-2-base u-radius-15 u-size-15 u-size-30-md u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-3">
                   <div class="u-align-center u-container-style u-expanded-width u-group u-radius-15 u-shape-round u-white u-group-2">
                     <div class="u-container-layout u-container-layout-4">
-                      <h5 class="u-text u-text-palette-2-base u-text-7">Plus</h5>
-                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-2-base u-text-8">
-                        <span style="font-weight: 400;">$</span>29
+                      <h6 class="u-text u-text-palette-2-base u-text-7">Standard</h6>
+                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-2-base u-text-11">
+                        <span style="font-weight: 400;">$</span>2000+
                       </h2>
-                      <p class="u-text u-text-palette-2-base u-text-9">per mounth</p>
+                      <p class="u-text u-text-palette-2-base u-text-9"></p>
                     </div>
                   </div>
-                  <p class="u-text u-text-palette-1-light-3 u-text-10">15 Users&nbsp;<br>Feature 2 <br>Feature 3 <br>Feature 4
+                  <p class="u-text u-text-palette-1-light-3 u-text-10">25% Monthly Interest Rate&nbsp;<br>13% Referal Bonus
                   </p>
-                  <a href="https://nicepage.com/k/offer-html-templates" class="u-active-palette-2-light-2 u-btn u-btn-round u-button-style u-hover-palette-2-light-2 u-radius-50 u-text-palette-2-base u-white u-btn-2">get plan</a>
+                  <a href="/profile" class="u-active-palette-2-light-2 u-btn u-btn-round u-button-style u-hover-palette-2-light-2 u-radius-50 u-text-palette-2-base u-white u-btn-2">Deposit</a>
                 </div>
               </div>
               <div class="u-align-center u-container-style u-layout-cell u-palette-3-base u-radius-15 u-size-15 u-size-30-md u-layout-cell-3">
                 <div class="u-container-layout u-container-layout-5">
                   <div class="u-align-center u-container-style u-expanded-width u-group u-radius-15 u-shape-round u-white u-group-3">
                     <div class="u-container-layout u-container-layout-6">
-                      <h5 class="u-text u-text-palette-3-base u-text-11">Standart</h5>
-                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-3-base u-text-12">
-                        <span style="font-weight: 400;">$</span>59
+                      <h5 class="u-text u-text-palette-3-base u-text-11">Silver</h5>
+                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-3-base u-text-11">
+                        <span style="font-weight: 100;">$</span>10000+
                       </h2>
-                      <p class="u-text u-text-palette-3-base u-text-13">per mounth</p>
+                      <p class="u-text u-text-palette-3-base u-text-13"></p>
                     </div>
                   </div>
-                  <p class="u-text u-text-palette-1-light-3 u-text-14">15 Users&nbsp;<br>Feature 2 <br>Feature 3 <br>Feature 4
+                  <p class="u-text u-text-palette-1-light-3 u-text-14">28% Monthly Interest Rate&nbsp;<br>20% Referal Bonus 
                   </p>
-                  <a href="https://nicepage.com/k/offer-html-templates" class="u-active-palette-3-light-2 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-radius-50 u-text-palette-3-base u-white u-btn-3">get plan</a>
+                  <a href="/profile" class="u-active-palette-3-light-2 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-radius-50 u-text-palette-3-base u-white u-btn-3">Deposit</a>
                 </div>
               </div>
               <div class="u-align-center u-container-style u-layout-cell u-palette-4-base u-radius-15 u-right-cell u-size-15 u-size-30-md u-layout-cell-4">
                 <div class="u-container-layout u-container-layout-7">
                   <div class="u-align-center u-container-style u-expanded-width u-group u-radius-15 u-shape-round u-white u-group-4">
                     <div class="u-container-layout u-container-layout-8">
-                      <h5 class="u-text u-text-palette-4-base u-text-15">Business</h5>
-                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-4-base u-text-16">
-                        <span style="font-weight: 400;">$</span>79
+                      <h5 class="u-text u-text-palette-4-base u-text-15">Gold</h5>
+                      <h2 class="u-custom-font u-font-arial u-text u-text-palette-4-base u-text-11">
+                        <span style="font-weight: 400;">$</span>50000+
                       </h2>
-                      <p class="u-text u-text-palette-4-base u-text-17">per mounth</p>
+                      <p class="u-text u-text-palette-4-base u-text-17"></p>
                     </div>
                   </div>
-                  <p class="u-text u-text-palette-1-light-3 u-text-18">15 Users&nbsp;<br>Feature 2 <br>Feature 3 <br>Feature 4
+                  <p class="u-text u-text-palette-1-light-3 u-text-18">30% Monthly Interest Rate&nbsp;<br>25% Referal Bonus <br>24/7 support <br>
                   </p>
-                  <a href="https://nicepage.com/k/offer-html-templates" class="u-active-palette-4-light-2 u-btn u-btn-round u-button-style u-hover-palette-4-light-2 u-radius-50 u-text-palette-4-base u-white u-btn-4">get plan</a>
+                  <a href="/profile" class="u-active-palette-4-light-2 u-btn u-btn-round u-button-style u-hover-palette-4-light-2 u-radius-50 u-text-palette-4-base u-white u-btn-4">Deposit</a>
                 </div>
               </div>
             </div>
@@ -576,7 +569,4 @@
     </section>
     
     
-  </body>
-
-<!-- Mirrored from website460952.nicepage.io/About.html?version=06d5c517-e489-4d37-94d0-18dda29b8153 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Apr 2022 17:46:31 GMT -->
-</html>
+{% endblock %}

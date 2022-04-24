@@ -5,8 +5,8 @@ from sqlalchemy.sql.expression import asc
 from .models import User
 from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
-from . import db
-from .generic import generate_confirmation_token, confirm_token, send_email
+from . import db,save_file
+from .generic import generate_confirmation_token, confirm_token, send_email, get_btc
 
 views = Blueprint("views", __name__)
 
@@ -16,10 +16,9 @@ views = Blueprint("views", __name__)
 @views.route("/" )
 def home():
 
-    # Queries to database to get the post by the 5 most recent
     
     
-    return render_template("index.html")
+    return render_template("index.html", name="Home",user=current_user )
 
 
 # @views.route("/<id>/hh")
@@ -32,49 +31,49 @@ def home():
 @views.route("/home/market")
 def market_home():
     
-    return render_template("markets_home.html")
+    return render_template("markets_home.html", name="Home",user=current_user)
 
 @views.route("/home/about")
 def about_home():
-    return render_template("about.html")
+    return render_template("about.html", name="Home",user=current_user)
 
 
 @views.route("/home/career")
 def career_home():
     
-    return render_template("careers.html")
+    return render_template("careers.html", name="Home",user=current_user)
 
 
 @views.route("/home/contact")
 def contact_home():
     
-    return render_template("contact.html")
+    return render_template("contact.html", name="Home",user=current_user)
 
 
 @views.route("/home/legal")
 def legal_home():
     
-    return render_template("legal-docs.html")
+    return render_template("legal-docs.html", name="Home",user=current_user)
 
 
 @views.route("/home/help")
 def help_home():
     
-    return render_template("help-center.html")
+    return render_template("help-center.html", name="Home",user=current_user)
 
 
 @views.route("/home/roadmap")
 def roadmap_home():
     
-    return render_template("roadmap.html")
+    return render_template("roadmap.html", name="Home",user=current_user)
 
 
 @views.route("/home/customers")
 def customers_home():
     
-    return render_template("customers.html")
+    return render_template("customers.html", name="Home",user=current_user)
 
-
+"""
 # @views.route("/home/market")
 # def market_home():
     
@@ -145,13 +144,15 @@ def customers_home():
 #         flash("Application Submitted")
 
 #     return render_template("profile.html", student=current_user, user=current_user,  id="!!")
+"""
+
 
 @views.route("/market", methods=["GET", "POST"])
 # @login_required
 def market():
     
 
-    return render_template("market.html",user=current_user)
+    return render_template("market-crypto-dark.html",user=current_user , name="Home")
 
 
 
@@ -161,56 +162,92 @@ def market():
 def exchange():
     
 
-    return render_template("exchange-dark.html",user=current_user)
+    return render_template("exchange-dark.html",user=current_user, name="Home")
 
 
 @views.route("/exchange/liveprice", methods=["GET", "POST"])
-# @login_required
+@login_required
 def exchange_liveprice():
     
 
-    return render_template("exchange-dark-live-price.html")
+    return render_template("exchange-dark-live-price.html",name="Home", user=current_user)
 
 
 @views.route("/exchange/ticker", methods=["GET", "POST"])
-# @login_required
+@login_required
 def exchange_ticker():
     
 
-    return render_template("exchange-dark-ticker.html",user=current_user)
+    return render_template("exchange-dark-ticker.html",user=current_user,name="Home")
 
 
 @views.route("/exchange/fluids", methods=["GET", "POST"])
-# @login_required
+@login_required
 def exchange_fluids():
     
 
-    return render_template("exchange-dark-fluid.html")
+    return render_template("exchange-dark-fluid.html",name="Home",user=current_user)
 
 @views.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
     
+    eth=get_btc("eth")
+    btc=get_btc("btc")
 
-    return render_template("settings-profile-dark.html",user=current_user)
+    if request.method == "POST":
+        file = request.files['img']
+        print(file)
+        if file:
+            file_path = save_file(file)
+            current_user.profilephoto = file_path
+            db.session.commit()
+            print("saving=======================>")
+            flash(message="")
+        else:
+            print("nofile====================>")
+            flash(message="")
+        
+    return render_template("settings-wallet-dark.html",name="Home",user=current_user,btc=float(btc), eth=float(eth))
 
 
 
 
+"""
+# @views.route("/settings", methods=["GET", "POST"])
+# # @login_required
+# def settings():
+#     eth=get_btc("eth")
+#     btc=get_btc("btc")
 
-@views.route("/settings", methods=["GET", "POST"])
-# @login_required
-def settings():
+#     return render_template("settings-dark.html",user=current_user,btc=float(btc), eth=float(eth))
+
+# @views.route("/wallet", methods=["GET", "POST"])
+# # @login_required
+# def wallet():
     
-
-    return render_template("settings-dark.html",user=current_user)
-
-@views.route("/wallet", methods=["GET", "POST"])
-# @login_required
-def wallet():
+#     eth=get_btc("eth")
+#     btc=get_btc("btc")
     
+#     return render_template("settings-wallet-dark.html",user=current_user,btc=float(btc), eth=float(eth))
 
-    return render_template("settings-wallet-dark.html",user=current_user)
+"""
+
+# @views.route("/settings/updatephoto", methods=["POST"])
+# # @login_required
+# def update_photo():
+#     file = request.files['img']
+#     print(file)
+#     if file:
+#       file_path = save_file(file)
+#       current_user.profilephoto = file_path
+#       db.session.commit()
+#       print("saving=======================>")
+#       flash()
+#     else:
+#       print("nofile====================>")
+#       flash()
+#     return redirect(url_for('views.profile'))
 
 
 
@@ -219,32 +256,32 @@ def wallet():
 @views.route("/crossrates", methods=["GET", "POST"])
 @login_required
 def crossrates():
-    return render_template("cross-rates-dark.html",user=current_user)
+    return render_template("cross-rates-dark.html",user=current_user,name="Home")
 
 @views.route("/marketinfo", methods=["GET", "POST"])
 @login_required
 def marketinfo():
-    return render_template("symbol-info-dark.html",user=current_user)
+    return render_template("symbol-info-dark.html",user=current_user,name="Home")
 
 @views.route("/technicalanalysis", methods=["GET", "POST"])
 @login_required
 def technical_analysis():
-    return render_template("technical-analysis-dark.html",user=current_user)
+    return render_template("technical-analysis-dark.html",user=current_user,name="Home")
 #
 # 
 
 @views.route("/investment", methods=["GET", "POST"])
 def investment():
-    return render_template("investment.html")
+    return render_template("investment.html",user=current_user,name="Home")
 
 
 @views.route("/withdrawals")
 def withdraw():
-    return render_template("withdraw.html",user=current_user)
+    return render_template("withdraw.html",user=current_user,name="Home")
 
 @views.route("/verification")
 def verification():
-    return render_template("verification.html",user=current_user)
+    return render_template("verification.html",user=current_user,name="Home")
 
 
 @views.route("/confirm/<token>")
@@ -281,6 +318,7 @@ def signup():
             email=email).first()
         if check:
             flash("An account with this email already exist please Login ")
+            return redirect(url_for("views.signin"))
         else:
             application = User(fullname=fullname, email=email, password=password)
             db.session.add(application)
@@ -289,7 +327,7 @@ def signup():
             confirm_url = url_for('views.confirm_email', token=token, _external=True)
             html = render_template('confirmemail.html', confirm_url=confirm_url)
             subject = "Please confirm your email"
-            send_email(application.email, subject, html)
+            # send_email(application.email, subject, html)
 
             user = User.query.filter_by(
                 email=email, password=password).first()
@@ -298,15 +336,7 @@ def signup():
                 flash('A confirmation email has been sent via email.', 'success')
                 return redirect(url_for("views.profile"))
 
-    return render_template("signup-dark.html")
-
-
-
-
-
-
-
-
+    return render_template("signup-dark.html",name="Home",user=current_user)
 
 
 
@@ -320,17 +350,6 @@ def resend_confirmation():
     send_email(current_user.email, subject, html)
     flash('A new confirmation email has been sent.', 'success')
     return redirect(url_for('views.home'))
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -350,7 +369,7 @@ def signin():
         else:
             flash("Email or Password is not correct")
 
-    return render_template("signin.html")
+    return render_template("signin.html",user=current_user,name="Home")
 
 
 @views.route("/logout")

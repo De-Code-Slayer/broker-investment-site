@@ -89,7 +89,7 @@
                     <div class="uk-navbar-left uk-width-auto">
                         <div class="uk-navbar-item">
                             <!-- module logo begin -->
-                            <a class="uk-logo" href="index-2.html">
+                            <a class="uk-logo" href="#">
                                 <img class="in-offset-top-10" src="{{ url_for('static', filename="img/in-lazy.svg") }}" data-src="{{ url_for('static', filename="img/in-logo-1.svg") }}" alt="logo" width="130" height="36" data-uk-img>
                             </a>
                             <!-- module logo begin -->
@@ -116,7 +116,9 @@
                 </ul>
             </div>
         </li>
+        {% if user.is_authenticated %}
         <li><a href="/profile">Account</a></li>
+        {% endif %}
         <li><a href="#">Resources<i class="fas fa-chevron-down"></i></a>
             <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
                 <div class="uk-navbar-dropdown-grid uk-child-width-1-2" data-uk-grid>
@@ -139,10 +141,18 @@
         </li>
     </ul>
                         <div class="uk-navbar-item uk-visible@m in-optional-nav">
+                            {% if not user.is_authenticated %}
                             <div>
                                 <a href="/signin" class="uk-button uk-button-text">Login</a>
                                   <a href="/signup" class="uk-button uk-button-text">Sign up</a>
-                            </div>
+                                </div>
+                                {% endif %}
+                            {% if  user.is_authenticated %}
+                            <div>
+                                
+                                  <a href="/signup" class="uk-button uk-button-text">Log Out</a>
+                                </div>
+                                {% endif %}
                         </div>
                     </div>
                 </div>
@@ -151,6 +161,18 @@
         </div>
         <!-- header content end -->
     </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+      <strong>Notification</strong> {{ message }}.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+  {% endwith %}
   
         {% block content%}
         {% endblock %}

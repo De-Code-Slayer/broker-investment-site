@@ -194,19 +194,20 @@ def profile():
     
     eth=get_btc("eth")
     btc=get_btc("btc")
+    if current_user.confirmed == False:
+        flash("Please confirm your email, an email was sent to your account","info")
+    if current_user.verified == False:
+        flash("Please verify your account, go to credential verifications", "info")
 
     if request.method == "POST":
         file = request.files['img']
-        print(file)
         if file:
             file_path = save_file(file)
             current_user.profilephoto = file_path
             db.session.commit()
-            print("saving=======================>")
-            flash(message="")
+            flash("Picture updated successfully","success")
         else:
-            print("nofile====================>")
-            flash(message="")
+            flash("There was a problem saving your photo. Please try again later","danger")
         
     return render_template("settings-wallet-dark.html",name="Home",user=current_user,btc=float(btc), eth=float(eth))
 
@@ -231,7 +232,6 @@ def profile():
     
 #     return render_template("settings-wallet-dark.html",user=current_user,btc=float(btc), eth=float(eth))
 
-"""
 
 # @views.route("/settings/updatephoto", methods=["POST"])
 # # @login_required
@@ -250,6 +250,7 @@ def profile():
 #     return redirect(url_for('views.profile'))
 
 
+"""
 
 
 
@@ -312,12 +313,11 @@ def signup():
         password = str(request.form.get("password"))
         confirm_password = str(request.form.get("confirmpassword"))
         if password != confirm_password:
-            flash(message="passwords dont match")
-            abort(500, message="password_error")
+            flash("passwords dont match", "warning")
         check = User.query.filter_by(
-            email=email).first()
+            email=email, password=password).first()
         if check:
-            flash("An account with this email already exist please Login ")
+            flash("An account with this email already exist please Login ", "warning")
             return redirect(url_for("views.signin"))
         else:
             application = User(fullname=fullname, email=email, password=password)
@@ -367,7 +367,7 @@ def signin():
             login_user(check, remember=True)
             return redirect(url_for("views.profile"))
         else:
-            flash("Email or Password is not correct")
+            flash("Email or Password is not correct","warning")
 
     return render_template("signin.html",user=current_user,name="Home")
 

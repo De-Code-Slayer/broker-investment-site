@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "tradeview_base.html" %}
 
-
-<!-- Mirrored from crypo.netlify.app/signup-dark.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Apr 2022 15:30:10 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Crypo</title>
-  <link rel="icon" href="{{ url_for('static', filename="assets/img/favicon.png") }}" type="image/x-icon">
-  <link rel="stylesheet" href="{{ url_for('static', filename="assets/css/style.css") }}">
-</head>
-
-<body id="dark">
+{% block content %}
   <!-- <header class="dark-bb">
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="exchange-dark.html"><img src="{{ url_for('static', filename="assets/img/logo-light.svg") }}" alt="logo"></a>
@@ -239,14 +226,4 @@
     </div>
   </div>
 
-  <script src="{{ url_for('static', filename="assets/js/jquery-3.4.1.min.js") }}"></script>
-  <script src="{{ url_for('static', filename="assets/js/popper.min.js") }}"></script>
-  <script src="{{ url_for('static', filename="assets/js/bootstrap.min.js") }}"></script>
-  <script src="{{ url_for('static', filename="assets/js/amcharts-core.min.js") }}"></script>
-  <script src="{{ url_for('static', filename="assets/js/amcharts.min.js") }}"></script>
-  <script src="{{ url_for('static', filename="assets/js/custom.js") }}"></script>
-</body>
-
-
-<!-- Mirrored from crypo.netlify.app/signup-dark.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Apr 2022 15:30:10 GMT -->
-</html>
+ {% endblock %}

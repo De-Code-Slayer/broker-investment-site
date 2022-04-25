@@ -14,11 +14,13 @@
     <meta name="theme-color" content="#e9e8f0" />
     <!-- Site Properties -->
     <title>Sign in - Profit HTML5 Template</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename="favicon.ico") }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename="img/favicon.ico") }}" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename="apple-touch-icon.png") }}">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename="css/vendors/uikit.min.css") }}">
     <link rel="stylesheet" href="{{ url_for('static', filename="css/style.css") }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -28,8 +30,22 @@
         <div></div>
         <div></div>
     </div>
+
+    
     <!-- preloader end -->
     <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+            <strong>Notification</strong> {{ message }}.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endfor %}
+          {% endif %}
+        {% endwith %}
         <!-- section content begin -->
         <div class="uk-section uk-padding-remove-vertical">
             <div class="uk-container uk-container-expand">

@@ -24,7 +24,7 @@
                   <div class="settings-profile">
                     <form method="post" enctype="multipart/form-data">
                         {% if user.profilephoto %}
-                      <img src="{{ url_for('static', filename="images/{}".format(user.profilephoto)) }}" alt="avatar">
+                      <img class="w-25 rounded-circle h-50" src="{{ url_for('static', filename="images/{}".format(user.profilephoto)) }}" alt="avatar">
                         {% endif %}
                         {% if not user.profilephoto %}
                       <img src="{{ url_for('static', filename="assets/img/avatar.svg") }}" alt="avatar">

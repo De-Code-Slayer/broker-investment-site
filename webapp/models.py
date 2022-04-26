@@ -13,7 +13,7 @@ class User(db.Model,UserMixin):
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     date_deposit = db.Column(db.DateTime(timezone=True), default=func.now())
-    date_of_last_update = db.Column(db.DateTime(timezone=True), default=func.now())
+    date_of_last_update = db.Column(db.DateTime(timezone=True))
     verified = db.Column(db.Boolean, nullable=False, default=False)
     suspended = db.Column(db.Boolean, nullable=False, default=False)
     history = db.Column(db.String())

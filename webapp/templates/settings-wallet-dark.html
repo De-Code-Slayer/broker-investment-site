@@ -236,26 +236,63 @@
                       <div class="tab-pane fade show active" id="coinBTC" role="tabpanel">
                         <div class="card">
                           <div class="card-body">
-                            <h5 class="card-title">Balances</h5>
+                            <h5 class="card-title">Account Details</h5>
                             <ul>
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
-                                  <i class="icon ion-md-cash"></i>
-                                  <h2>Total Balance</h2>
+                                  <i class="icon ion-md-speedometer"></i>
+                                  <h2>Investment Plan</h2>
                                 </div>
+                               
                                 <div>
                               
                                   <h3>{{user.btc/btc}} BTC</h3>
 
                                 </div>
                               </li>
+                              
+                              
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
-                                  <i class="icon ion-md-checkmark"></i>
+                                  <i class="icon ion-md-pulse"></i>
+                                  <h2>Interest Rate</h2>
+                                </div>
+                                <div>
+                                  <h3>{{(user.interest)}} %</h3>
+                                </div>
+                              </li>
+                            </ul>
+
+                            {% if user.btc >= user.limit %}
+                            <button class="btn green">Withdraw</button>
+                            {% endif %}
+
+
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">Balances</h5>
+                            <ul>
+                              <li class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  <i class="icon ion-md-cash"></i>
+                                  <h2>Total Deposit</h2>
+                                </div>
+                               
+                                <div>
+                              
+                                  <h3>{{user.btc/btc}} BTC</h3>
+
+                                </div>
+                              </li>
+                              
+                              
+                              <li class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  <i class="icon ion-md-wallet"></i>
                                   <h2>Available Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>{{(user.btc/btc)}} BTC</h3>
+                                  <h3>{{(user.btc/btc)+(user.balance/btc)}} BTC</h3>
                                 </div>
                               </li>
                             </ul>

@@ -6,6 +6,8 @@ from werkzeug.utils import secure_filename
 import os
 from os.path import join, dirname, realpath
 from flask_mail import Mail
+# from flask_crontab import Crontab
+
 
 db = SQLAlchemy()
 DB_NAME = "Paschals_sqlite_database.db"
@@ -15,7 +17,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 UPLOAD_FOLDER = UPLOADS_PATH
 app = Flask(__name__)
-
+# crontab = Crontab()
 
 def create_app():
  global app
@@ -27,7 +29,7 @@ def create_app():
  app.config["MAIL_PORT"] = 587
  app.config["MAIL_USE_TLS"] = True
  app.config["MAIL_USE_SSL"] = False
-
+#  crontab.init_app(app)
   # gmail authentication
  app.config["MAIL_USERNAME"] = "veronicapage232@gmail.com"
  app.config["MAIL_PASSWORD"] = "titans232"

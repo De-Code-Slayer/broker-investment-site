@@ -12,15 +12,16 @@ class User(db.Model,UserMixin):
     fullname = db.Column(db.String(100))
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
     date = db.Column(db.DateTime(timezone=True), default=func.now())
-
+    date_deposit = db.Column(db.DateTime(timezone=True), default=func.now())
+    date_of_last_update = db.Column(db.DateTime(timezone=True), default=func.now())
     verified = db.Column(db.Boolean, nullable=False, default=False)
     suspended = db.Column(db.Boolean, nullable=False, default=False)
     history = db.Column(db.String())
     profilephoto = db.Column(db.String(), default=None)
     btc = db.Column(db.Integer, default=0.0000)
-    # eth = db.Column(db.Integer, default=0.0000)
-    # usdt = db.Column(db.Integer, default=0.0000)
-    # intrestrate = db.Column(db.Integer, default=0)
+    eth = db.Column(db.Integer, default=0.0000)
+    balance = db.Column(db.Integer, default=0.0000)
+    interest = db.Column(db.Integer, default=0)
     limit = db.Column(db.Integer, default=500) #used to set each accountlimit
 
 # ---------- Student--------------------------------------------------

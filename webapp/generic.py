@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 import json
 import requests
 from . import app
-
+from flask_login import current_user
 from .import app, mail
 
 
@@ -49,4 +49,15 @@ def get_btc(coin):
     # print(f"{data['symbol']} price is {data['price']}")
     return data['price']
 
+
+# def update_balance(current_user):
+#     balance = current_user.balance
+#     interest = current_user.interest
+
+
+
+#     interest_amount = (balance * interest)/100
+
+
+    return interest_amount
 

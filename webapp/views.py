@@ -7,6 +7,7 @@ from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db,save_file
 from .generic import generate_confirmation_token, confirm_token, send_email, get_btc
+# from flask_crontab import Crontab
 
 views = Blueprint("views", __name__)
 
@@ -148,7 +149,7 @@ def customers_home():
 
 
 @views.route("/market", methods=["GET", "POST"])
-# @login_required
+@login_required
 def market():
     
 
@@ -158,7 +159,7 @@ def market():
 
 
 @views.route("/exchange", methods=["GET", "POST"])
-# @login_required
+@login_required
 def exchange():
     
 
@@ -378,3 +379,64 @@ def logout():
     return redirect(url_for("views.signin"))
 
 
+@views.route("/user/update/account/verified")
+def update_account():
+    from datetime import datetime, timedelta
+
+    result = db.session.query(User.btc,User.balance,User.interest,User.date_of_last_update,User.date_deposit,User.id).all()
+    status = ""
+    for i in result:
+        # initilize the columns
+        deposit = i[0]
+        balance = i[1]
+        interest_rate = i[2]
+        time_stamp = i[3]
+        deposit_date = i[4]
+        id = i[5]
+        user = User.query.filter_by(id=id).first()
+        # print(user.id)
+        # days_old = datetime.now() - deposit_date
+        last_check = time_stamp - timedelta(days=30)
+        # test = deposit_date - timedelta(days=30)
+        print(deposit_date)
+        # print(time_stamp - timedelta(seconds=40) )
+        # print(time_stamp > (time_stamp - timedelta(seconds=40)) )
+        # check if its up to a month since user deposited
+        if deposit_date+timedelta(days=31) < datetime.now():
+            # check if it been up to a month since last interest was paid
+          if last_check > datetime.now()-timedelta(days=31):
+            print("=============UPDATING====")
+            # calculate his interest
+            try:
+             interest = (deposit*interest_rate)/100
+            except Exception as e:
+                return e
+            # print(interest,"=================================>>>>>>>>")
+            user.balance = interest+balance
+            user.history = f" Intrest of {interest}  has been credited to Your account on {time_stamp}"
+            # stamping date
+            user.date_of_last_update = datetime.now()
+            db.session.commit()
+
+            status = "Success"
+            # print("============SAVED=====================>>>>>>>>")
+          else:
+            print("recently updated")
+        else:  
+            print("deposit not old enough")
+    return "Proccessed"
+        # print(i,"=================================>>>>>>>>")
+
+
+# [(400, 20000), (50, 656), (85, 8487)]
+ 
+
+# @crontab.job(minute="1")
+# def my_scheduled_job():
+#     print("===============> running cronjob")
+#     balance = update_balance(current_user) 
+#     if current_user.balance == 0:
+#        current_user.balance = balance + current_user.btc
+#     else:
+#        current_user.balance = balance + current_user.btc 
+#     db.session.commit()

@@ -273,15 +273,18 @@ def technical_analysis():
 # 
 
 @views.route("/investment", methods=["GET", "POST"])
+@login_required
 def investment():
     return render_template("investment.html",user=current_user,name="Home")
 
 
 @views.route("/withdrawals")
+@login_required
 def withdraw():
     return render_template("withdraw.html",user=current_user,name="Home")
 
 @views.route("/verification")
+@login_required
 def verification():
     return render_template("verification.html",user=current_user,name="Home")
 
@@ -380,6 +383,7 @@ def logout():
 
 
 @views.route("/user/update/account/verified")
+@login_required
 def update_account():
     from datetime import datetime, timedelta
 

@@ -196,11 +196,11 @@ def profile():
     eth=get_btc("eth")
     btc=get_btc("btc")
     # the investment plan is set here
-    if current_user.btc >= 500 and current_user.btc < 2000:
+    if current_user.btc >= 1000 and current_user.btc < 2000:
         current_user.current_plan = "You are on BASIC Plan"
         current_user.interest = 20
         db.session.commit()
-    if current_user.btc >= 2000 and current_user.btc < 10000:
+    if current_user.btc >= 4000 and current_user.btc < 10000:
         current_user.current_plan = "You are on STANDARD Plan"
         current_user.interest = 25
         db.session.commit()

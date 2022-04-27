@@ -1,5 +1,118 @@
-{% extends "tradeview_base.html" %}
-{% block content %}
-<script type="text/javascript" src="https://form.jotform.com/jsform/221122545595454"></script>
 
-{% endblock %}
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static', filename="form/vendors/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="form/vendors/nice-select/css/nice-select.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="form/vendors/elagent-icon/style.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="form/css/style.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="form/css/responsive.css") }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename="img/favicon.ico") }}" type="image/x-icon">
+
+    <title>{{name}}</title>
+</head>
+
+<body>
+    <div class="body_wrapper frm-vh-md-100">
+        <div class="formify_body formify_signup_fullwidth formify_signup_fullwidth_two d-flex">
+            <div class="formify_left_fullwidth formify_left_top_logo frm-vh-md-100 d-flex align-items-center justify-content-center"
+                data-bg-color="">
+                <a href="index.html" class="top_logo"><img src="{{ url_for('static', filename="img/in-logo-1.svg") }}" alt=""></a>
+                <img class="img-fluid" src="{{ url_for('static', filename="img/in-logo-1.svg") }}" alt="">
+            </div>
+            <div class="formify_right_fullwidth d-flex align-items-center justify-content-center">
+                <div class="form_tab_two">
+                    <ul class="nav nav-tabs form_tab" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active show" id="One-tab" data-toggle="tab" href="#One" role="tab"
+                                aria-controls="One" aria-selected="true">
+                                <span>1</span>
+                                Verification
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="One" role="tabpanel" aria-labelledby="One-tab">
+                            <div class="formify_box">
+                                <h4 class="form_title">Fill your <span>Address</span></h4>
+                             
+                             
+                                <form method="post" class="signup_form row">
+                                    <div class="form-group col-md-6">
+                                        <label class="input_title" for="inputName">Permanent Address</label>
+                                        <input type="text" class="form-control" name="address" id="inputName"
+                                            placeholder="Permanent Address" required="Permanentt Address is required">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="input_title" for="inputName2">Country</label>
+                                        <input type="text" name="country" class="form-control" id="inputName2"
+                                            placeholder="country" required="">
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <label class="input_title" for="inputAddress">State</label>
+                                        <input type="text" name="state" class="form-control" id="inputAddress"
+                                            placeholder="State" required="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="input_title">Gender</label>
+                                        <select class="niceselect" name="gender" >
+
+                                            <option  selected disabled hidden>Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-3">
+                                        <label class="input_title" for="inputzip">Zip code</label>
+                                        <input type="text" class="form-control" name="zip" id="inputzip" placeholder="94102"
+                                            required="">
+
+                                            
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="input_title">Identity Document type</label>
+                                        <select class="niceselect" name="id_type" >
+
+                                            <option  selected disabled hidden>Type Of Document</option>
+                                            <option value="male">Passport</option>
+                                            <option value="female">National Identity Card</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="input_title" for="inputName">Identity Number</label>
+                                        <input type="text" class="form-control" name="id_number" id="inputName"
+                                            placeholder="ID-Number" required="this is Important">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlFile1">Upload Document Photo</label>
+                                        <input type="file" class="form-control-file" name="file" id="exampleFormControlFile1">
+                                      </div>
+
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                                        <label class="form-check-label" for="exampleCheck1">Accept Terms and Conditions</label>
+                                     </div>
+
+                                    <div class="next_button text-right">
+                                        <button type="submit" class="btn thm_btn red_btn next_tab">Submit <i class="arrow_right"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="{{ url_for('static', filename="form/js/jquery-3.4.1.min.js") }}"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="{{ url_for('static', filename="form/vendors/bootstrap/js/popper.min.js") }}"></script>
+    <script src="{{ url_for('static', filename="form/vendors/bootstrap/js/bootstrap.min.js") }}"></script>
+    <script src="{{ url_for('static', filename="form/vendors/nice-select/js/jquery.nice-select.min.js") }}"></script>
+    <script src="{{ url_for('static', filename="form/js/main.js") }}"></script>

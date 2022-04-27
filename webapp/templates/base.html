@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" dir="ltr">
+<html lang="en-US">
 
 
 
@@ -46,6 +46,8 @@
     <!-- preloader end -->
     <header>
         <!-- header content begin -->
+        <div id="google_translate_element"></div>
+
         <div class="uk-section uk-padding-small in-profit-ticker">
             <div class="uk-container">
                 <div class="uk-grid">
@@ -77,6 +79,7 @@
                                     <i class="fas fa-angle-up in-icon-wrap small circle up"></i> GBPJPY <span class="uk-text-success">141.91</span>
                                 </li>
                             </ul>
+                            
                         </div>
                     </div>
                 </div>
@@ -95,9 +98,11 @@
                             <!-- module logo begin -->
                         </div>
                     </div>
+                    
                     <div class="uk-navbar-right uk-width-expand uk-flex uk-flex-right">
                         <ul class="uk-navbar-nav uk-visible@m">
-                            <li><a href="/">Home<i class="fas fa-chevron-down"></i></a>
+                            
+                            <li><a href="/">Home</i></a>
                                 <!-- <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li><a href="homepage2.html">Homepage 2</a></li>
@@ -247,6 +252,14 @@
         <!-- module totop begin -->
     </footer>
     <!-- Javascript -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+        </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- google translate scrript above -->
     <script src="{{ url_for('static', filename="js/vendors/uikit.min.js") }}"></script>
     <script src="{{ url_for('static', filename="js/vendors/indonez.min.js") }}"></script>
     <script src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" defer></script>

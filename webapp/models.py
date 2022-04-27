@@ -22,6 +22,10 @@ class User(db.Model,UserMixin):
     eth = db.Column(db.Integer, default=0.0000)
     balance = db.Column(db.Integer, default=0.0000)
     interest = db.Column(db.Integer, default=0)
+    bonus = db.Column(db.Integer, default=0)
+    referal_points = db.Column(db.Integer, default=0)
+    referals = db.Column(db.String())
+    current_plan = db.Column(db.String(), default="You are Currently Not on a Plan")
     limit = db.Column(db.Integer, default=500) #used to set each accountlimit
 
 # ---------- Student--------------------------------------------------

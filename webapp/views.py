@@ -148,7 +148,7 @@ def customers_home():
 """
 
 
-@views.route("/market", methods=["GET", "POST"])
+@views.route("/market")
 @login_required
 def market():
     
@@ -158,7 +158,7 @@ def market():
 
 
 
-@views.route("/exchange", methods=["GET", "POST"])
+@views.route("/exchange")
 @login_required
 def exchange():
     
@@ -166,7 +166,7 @@ def exchange():
     return render_template("exchange-dark.html",user=current_user, name="Home")
 
 
-@views.route("/exchange/liveprice", methods=["GET", "POST"])
+@views.route("/exchange/liveprice")
 @login_required
 def exchange_liveprice():
     
@@ -174,7 +174,7 @@ def exchange_liveprice():
     return render_template("exchange-dark-live-price.html",name="Home", user=current_user)
 
 
-@views.route("/exchange/ticker", methods=["GET", "POST"])
+@views.route("/exchange/ticker")
 @login_required
 def exchange_ticker():
     
@@ -182,7 +182,7 @@ def exchange_ticker():
     return render_template("exchange-dark-ticker.html",user=current_user,name="Home")
 
 
-@views.route("/exchange/fluids", methods=["GET", "POST"])
+@views.route("/exchange/fluids")
 @login_required
 def exchange_fluids():
     
@@ -195,6 +195,23 @@ def profile():
     
     eth=get_btc("eth")
     btc=get_btc("btc")
+    # the investment plan is set here
+    if current_user.btc >= 500 and current_user.btc < 2000:
+        current_user.current_plan = "You are on BASIC Plan"
+        current_user.interest = 20
+        db.session.commit()
+    if current_user.btc >= 2000 and current_user.btc < 10000:
+        current_user.current_plan = "You are on STANDARD Plan"
+        current_user.interest = 25
+        db.session.commit()
+    if current_user.btc >= 10000 and current_user.btc < 50000:
+        current_user.current_plan = "You are on SILVER Plan"
+        current_user.interest = 28
+        db.session.commit()
+    if current_user.btc >= 50000 :
+        current_user.current_plan = "You are on GOLD Plan"
+        current_user.interest = 30
+        db.session.commit()
     if current_user.confirmed == False:
         flash("Please confirm your email, an email was sent to your account","info")
     if current_user.verified == False:
@@ -255,24 +272,24 @@ def profile():
 
 
 
-@views.route("/crossrates", methods=["GET", "POST"])
+@views.route("/crossrates")
 @login_required
 def crossrates():
     return render_template("cross-rates-dark.html",user=current_user,name="Home")
 
-@views.route("/marketinfo", methods=["GET", "POST"])
+@views.route("/marketinfo")
 @login_required
 def marketinfo():
     return render_template("symbol-info-dark.html",user=current_user,name="Home")
 
-@views.route("/technicalanalysis", methods=["GET", "POST"])
+@views.route("/technicalanalysis")
 @login_required
 def technical_analysis():
     return render_template("technical-analysis-dark.html",user=current_user,name="Home")
 #
 # 
 
-@views.route("/investment", methods=["GET", "POST"])
+@views.route("/investment")
 @login_required
 def investment():
     return render_template("investment.html",user=current_user,name="Home")
@@ -305,7 +322,7 @@ def confirm_email(token):
         db.session.add(user)
         db.session.commit()
        
-    return redirect(url_for('profile'))
+    return redirect(url_for('views.profile'))
 
 
 
@@ -318,6 +335,7 @@ def signup():
         confirm_password = str(request.form.get("confirmpassword"))
         if password != confirm_password:
             flash("passwords dont match", "warning")
+            return redirect(url_for("views.signup"))
         check = User.query.filter_by(
             email=email, password=password).first()
         if check:

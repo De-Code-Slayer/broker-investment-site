@@ -246,7 +246,7 @@
                                
                                 <div>
                               
-                                  <h3>{{user.btc/btc}} BTC</h3>
+                                  <span class="badge badge-pill badge-warning"> <h3>{{user.current_plan}} </h3></span>
 
                                 </div>
                               </li>
@@ -258,7 +258,7 @@
                                   <h2>Interest Rate</h2>
                                 </div>
                                 <div>
-                                  <h3>{{(user.interest)}} %</h3>
+                                  <span class="badge badge-primary"><h3>{{(user.interest)}} %</h3></span>
                                 </div>
                               </li>
                             </ul>
@@ -280,7 +280,7 @@
                                
                                 <div>
                               
-                                  <h3>{{user.btc/btc}} BTC</h3>
+                                  <span class="badge badge-success"><h3>{{user.btc/btc}} BTC</h3></span>
 
                                 </div>
                               </li>
@@ -292,7 +292,27 @@
                                   <h2>Available Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>{{(user.btc/btc)+(user.balance/btc)}} BTC</h3>
+                                  <span class="badge badge-success"> <h3>{{(user.btc/btc)+(user.balance/btc)}} BTC</h3></span>
+                                </div>
+                              </li>
+                              <hr>
+                              <li class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  <i class="icon ion-md-ribbon"></i>
+                                  <h2>Bonus</h2>
+                                </div>
+                                <div>
+                                  <span class="badge badge-info"><h3>{{(user.bonus/btc)}} BTC</h3></span>
+                                </div>
+                              </li>
+                              <hr>
+                              <li class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  <i class="icon ion-md-link"></i>
+                                  <h2>Referal Points</h2>
+                                </div>
+                                <div>
+                                  <span class="badge badge-secondary"> <h3>{{user.referal_points}} BTC</h3></span>
                                 </div>
                               </li>
                             </ul>
@@ -301,7 +321,7 @@
                             <button class="btn green">Withdraw</button>
                             {% endif %}
 
-
+                            <button class="btn red">Refresh Balance</button>
                           </div>
                         </div>
                         <div class="card">
@@ -395,7 +415,7 @@
                                   <h2>Available Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>{{(user.btc/eth)}} ETH</h3>
+                                  <h3>{{(user.btc/eth)+(user.balance/eth)}} ETH</h3>
                                 </div>
                               </li>
                             </ul>
@@ -495,7 +515,7 @@
                                   <h2>Available Balance</h2>
                                 </div>
                                 <div>
-                                  <h3>{{user.btc}}</h3>
+                                  <h3>{{user.btc+user.balance}}</h3>
                                 </div>
                               </li>
                             </ul>

@@ -406,7 +406,8 @@ def update_account():
     from datetime import datetime, timedelta
 
     result = db.session.query(User.btc,User.balance,User.interest,User.date_of_last_update,User.date_deposit,User.id).all()
-    status = ""
+    status = "Account Updated Successfully"
+    mode = "success"
     for i in result:
         # initilize the columns
         deposit = i[0]
@@ -443,10 +444,13 @@ def update_account():
             status = "Success"
             # print("============SAVED=====================>>>>>>>>")
           else:
-            print("recently updated")
+            statsu = "Interest is alreaady UpToDate"
+            mode = "info"
         else:  
-            print("deposit not old enough")
-    return "Proccessed"
+            status = "Interest will be paid after a month from deposit Date"
+            mode = "info"
+        flash(status,mode)    
+    return redirect(url_for("views.profile"))
         # print(i,"=================================>>>>>>>>")
 
 

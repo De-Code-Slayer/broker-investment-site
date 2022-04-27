@@ -101,8 +101,8 @@
                                 <i class="fas fa-money-bill-wave fa-2x in-icon-wrap circle large primary-color uk-margin-right"></i>
                             </div>
                             <div class="uk-width-expand">
-                                <h2>Why trade with Profit Inc?</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation repudiandae ullamco.</p>
+                                <h2>Why trade with Glace Wealth Management Inc?</h2>
+                                <p>We operate with your best interest at heart.</p>
                                 <div class="uk-grid uk-child-width-1-2@s uk-child-width-1-2@m in-margin-bottom-30@s" data-uk-grid>
                                     <div>
                                         <ul class="uk-list uk-list-bullet in-list-check">
@@ -155,6 +155,7 @@
         </div>
         <!-- section content end -->
         <!-- section content begin -->
+        {% if not user.is_authenticated %}
         <div class="uk-section">
             <div class="uk-container">
                 <div class="uk-grid">
@@ -162,10 +163,10 @@
                         <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
                             <div class="uk-grid uk-flex-middle" data-uk-grid>
                                 <div class="uk-width-1-1 uk-width-expand@m">
-                                    <h3>Get up to $600 plus 60 days of commission-free stocks &amp; forex trades</h3>
+                                    <h3>Get up to $600 USDT plus 60 days of commission-free Profits &amp; Tax</h3>
                                 </div>
                                 <div class="uk-width-auto">
-                                    <a class="uk-button uk-button-primary uk-border-rounded" href="#">Open an Account</a>
+                                    <a class="uk-button uk-button-primary uk-border-rounded" href="/signup">Open an Account</a>
                                 </div>
                             </div>
                         </div>
@@ -173,6 +174,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- section content end -->
     </main>
   {% endblock %}

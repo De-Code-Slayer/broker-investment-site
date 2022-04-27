@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <!-- breadcrumb content begin -->
-    <div class="uk-section uk-padding-remove-vertical">
+    <!-- <div class="uk-section uk-padding-remove-vertical">
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1 in-breadcrumb">
@@ -11,7 +11,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- breadcrumb content end -->
     <main>
         <!-- section content begin -->
@@ -31,9 +31,9 @@
                                             <i class="fas fa-paper-plane fa-lg in-icon-wrap circle primary-color uk-margin-right"></i>
                                             <div>
                                                 <h3 class="uk-margin-remove-bottom">
-                                                    <span class="count" data-counter-end="35817">0</span>
+                                                    <span class="count" data-counter-end="35817">0</span>K
                                                 </h3>
-                                                <span class="uk-label uk-text-small uk-border-rounded">Business launch</span>
+                                                <span class="uk-label uk-text-small uk-border-rounded">Investment Profiles</span>
                                             </div>
                                         </div>
                                     </li>
@@ -42,9 +42,9 @@
                                             <i class="fas fa-user-tie fa-lg in-icon-wrap circle primary-color uk-margin-right"></i>
                                             <div>
                                                 <h3 class="uk-margin-remove-bottom">
-                                                    <span class="count" data-counter-end="4400">0</span>
+                                                    <span class="count" data-counter-end="4400">0</span>K
                                                 </h3>
-                                                <span class="uk-label uk-text-small uk-border-rounded">Investor engaged</span>
+                                                <span class="uk-label uk-text-small uk-border-rounded">Gold Customers</span>
                                             </div>
                                         </div>
                                     </li>
@@ -62,32 +62,32 @@
                 <div class="uk-grid-medium uk-child-width-1-2@m in-testimonial-8" data-uk-grid>
                     <div>
                         <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded">
-                            <img class="uk-position-bottom-right" src="img/in-testimoni-2.png" alt="client-testimoni" width="200">
+                            <img class="uk-position-bottom-right" src="{{ url_for('static', filename="img/in-testimoni-2.png") }}" alt="client-testimoni" width="200">
                             <div class="uk-card-header">
                                 <blockquote>
                                     <p>The extension makes collecting feedback so much easier! Shipright then really helps us make decisions based on the data we collected.</p>
                                 </blockquote>
                             </div>
                             <div class="uk-card-footer">
-                                <img src="img/in-client-testi-1.svg" alt="client-logo" width="54">
+                                <img src="{{ url_for('static', filename="img/in-client-testi-1.svg") }}" alt="client-logo" width="54">
                                 <blockquote>
-                                    <footer>Gabrielle Barger<br><cite>Help Desk at pushbullet</cite></footer>
+                                    <footer>Gabrielle Barger<br><cite></cite></footer>
                                 </blockquote>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded">
-                            <img class="uk-position-bottom-right" src="img/in-testimoni-3.png" alt="client-testimoni" width="200">
+                            <img class="uk-position-bottom-right" src="{{ url_for('static', filename="img/in-testimoni-3.png") }}" alt="client-testimoni" width="200">
                             <div class="uk-card-header">
                                 <blockquote>
                                     <p>Quick, easy, and super helpful to collect and organise feedback from all kinds of channels we use to communicate with our customers.</p>
                                 </blockquote>
                             </div>
                             <div class="uk-card-footer">
-                                <img src="img/in-client-testi-2.svg" alt="client-logo" width="54">
+                                <img src="{{ url_for('static', filename="img/in-client-testi-2.svg") }}" alt="client-logo" width="54">
                                 <blockquote>
-                                    <footer>Melvin Cortez<br><cite>Cloud Architect at stormpath</cite></footer>
+                                    <footer>Melvin Cortez<br><cite></cite></footer>
                                 </blockquote>
                             </div>
                         </div>
@@ -103,16 +103,16 @@
                     <div>
                         <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded">
                             <div class="uk-card-header">
-                                <img src="img/in-client-testi-3.svg" alt="client-logo" width="60">
+                                <img src="{{ url_for('static', filename="img/in-client-testi-3.svg") }}" alt="client-logo" width="60">
                             </div>
                             <div class="uk-card-body">
                                 <blockquote>
-                                    <p>Really love the product! It saves so much time and helps a lot in organize our feedback. Very huge potential.</p>
+                                    <p>Very easy and user friendly design, its so easy to make an Investment with little to no complications, Tops!!</p>
                                 </blockquote>
                             </div>
                             <div class="uk-card-footer">
                                 <blockquote>
-                                    <footer>Gabrielle Barger<br><cite>Help Desk at appium</cite></footer>
+                                    <footer>Gabrielle Barger<br><cite></cite></footer>
                                 </blockquote>
                             </div>
                         </div>
@@ -120,16 +120,16 @@
                     <div>
                         <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded">
                             <div class="uk-card-header">
-                                <img src="img/in-client-testi-4.svg" alt="client-logo" width="60">
+                                <img src="{{ url_for('static', filename="img/in-client-testi-4.svg") }}" alt="client-logo" width="60">
                             </div>
                             <div class="uk-card-body">
                                 <blockquote>
-                                    <p>This is my one stop shop for sending all Updates to investors, board of directors or even exec team members.</p>
+                                    <p>This is my one of my favorite platform to invest, Nice customer services.</p>
                                 </blockquote>
                             </div>
                             <div class="uk-card-footer">
                                 <blockquote>
-                                    <footer>Melvin Cortez<br><cite>Cloud Architect at blossom</cite></footer>
+                                    <footer>Melvin Cortez<br><cite></cite></footer>
                                 </blockquote>
                             </div>
                         </div>
@@ -137,16 +137,16 @@
                     <div>
                         <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded">
                             <div class="uk-card-header">
-                                <img src="img/in-client-testi-5.svg" alt="client-logo" width="60">
+                                <img src="{{ url_for('static', filename="img/in-client-testi-5.svg") }}" alt="client-logo" width="60">
                             </div>
                             <div class="uk-card-body">
                                 <blockquote>
-                                    <p>Has been a great tool for me on monthly updates & helps to communicate the issues with us.</p>
+                                    <p>Has been a great way for me to double my capitals rather than the bank & helps to communicate.</p>
                                 </blockquote>
                             </div>
                             <div class="uk-card-footer">
                                 <blockquote>
-                                    <footer>Franklin Clark<br><cite>Sales Analyst at mailgun</cite></footer>
+                                    <footer>Franklin Clark<br><cite></cite></footer>
                                 </blockquote>
                             </div>
                         </div>

@@ -2,17 +2,7 @@
 
 {% block content %}
     <!-- breadcrumb content begin -->
-    <div class="uk-section uk-padding-remove-vertical">
-        <div class="uk-container">
-            <div class="uk-grid">
-                <div class="uk-width-1-1 in-breadcrumb">
-                    <ul class="uk-breadcrumb uk-float-right">
-                        <li><a href="index-2.html">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- breadcrumb content end -->
     <main>
         <!-- section content begin -->
@@ -32,7 +22,7 @@
                             </div>
                             <div>
                                 <h3>Philosophy</h3>
-                                <p>At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.</p>
+                                <p>Inclusion and diversity are key to our success. By fully leveraging our diverse experiences, backgrounds and insights, we can inspire innovation, challenge the status quo and create better outcomes for our people and our clients.</p>
                             </div>
                         </div>
                         <div class="uk-flex uk-flex-left">
@@ -41,7 +31,7 @@
                             </div>
                             <div>
                                 <h3>History</h3>
-                                <p>At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.</p>
+                                <p>We celebrate 7 years of innovation and growth! Inspired by our clients who are driven to succeed, we launched Derivinvestments.com, we have a proven record of delivering market-leading products that are trusted around the world.</p>
                             </div>
                         </div>
                         <div class="uk-flex uk-flex-left">
@@ -50,7 +40,7 @@
                             </div>
                             <div>
                                 <h3>Culture</h3>
-                                <p>At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.</p>
+                                <p> We continue to grow every day all thanks to our clients and our team. Covering a vast span of the financial and retail trading market which includes; Crupto,Stocks & Forex,Synthetic indices,Commodities,All metals,All exotic pairs.</p>
                             </div>
                         </div>
                     </div>
@@ -59,7 +49,7 @@
         </div>
         <!-- section content end -->
         <!-- section content begin -->
-        <div class="uk-section in-offset-top-40 in-offset-bottom-20">
+        <!-- <div class="uk-section in-offset-top-40 in-offset-bottom-20">
             <div class="uk-container">
                 <div class="uk-grid">
                     <div class="uk-width-1-1">
@@ -74,7 +64,7 @@
                                 <div class="uk-grid uk-child-width-1-2@m uk-margin-medium-top" data-uk-grid>
                                     <div class="uk-flex uk-flex-left">
                                         <div class="uk-margin-right">
-                                            <img class="uk-align-center " src="img/in-team-1.png" alt="image-team" width="300">
+                                            <img class="uk-align-center " src="{{ url_for('static', filename="img/in-team-1.png") }}" alt="image-team" width="300">
                                         </div>
                                         <div>
                                             <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-bottom">Chief Executive Officer</p>
@@ -89,7 +79,7 @@
                                     </div>
                                     <div class="uk-flex uk-flex-left">
                                         <div class="uk-margin-right">
-                                            <img class="uk-align-center " src="img/in-team-2.png" alt="image-team" width="300">
+                                            <img class="uk-align-center " src="{{ url_for('static', filename="img/in-team-2.png") }}" alt="image-team" width="300">
                                         </div>
                                         <div>
                                             <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-bottom">Executive Assistant</p>
@@ -104,7 +94,7 @@
                                     </div>
                                     <div class="uk-flex uk-flex-left">
                                         <div class="uk-margin-right">
-                                            <img class="uk-align-center " src="img/in-team-3.png" alt="image-team" width="300">
+                                            <img class="uk-align-center " src="{{ url_for('static', filename="img/in-team-3.png") }}" alt="image-team" width="300">
                                         </div>
                                         <div>
                                             <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-bottom">Marketing Specialist</p>
@@ -119,7 +109,7 @@
                                     </div>
                                     <div class="uk-flex uk-flex-left">
                                         <div class="uk-margin-right">
-                                            <img class="uk-align-center " src="img/in-team-4.png" alt="image-team" width="300">
+                                            <img class="uk-align-center " src="{{ url_for('static', filename="img/in-team-4.png") }}" alt="image-team" width="300">
                                         </div>
                                         <div>
                                             <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-bottom">Human Resources</p>
@@ -138,7 +128,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- section content end -->
         <!-- section content begin -->
         <div class="uk-section">
@@ -149,7 +139,7 @@
                             <div class="uk-width-1-2@m">
                                 <h4 class="uk-text-muted in-offset-bottom-10">Number speaks</h4>
                                 <h1 class="uk-margin-medium-bottom">We always ready<br>for a <span class="in-highlight">challenge.</span></h1>
-                                <a href="#" class="uk-button uk-button-primary uk-border-rounded">Learn more<i class="fas fa-chevron-circle-right fa-xs uk-margin-small-left"></i></a>
+                                <a href="/investment" class="uk-button uk-button-primary uk-border-rounded">Learn more<i class="fas fa-chevron-circle-right fa-xs uk-margin-small-left"></i></a>
                             </div>
                             <div class="uk-width-1-2@m">
                                 <div class="uk-margin-large" data-uk-grid>
@@ -161,7 +151,7 @@
                                     </div>
                                     <div class="uk-width-expand@m">
                                         <h3>Trading instruments</h3>
-                                        <p>Reprehenderit qui in svoluptate velit esse quam molestiae vel illum qui dolorem eum fugiat quo.</p>
+                                        <p>Used daily by our professionals to make the best trading decisions.</p>
                                     </div>
                                 </div>
                                 <div class="uk-margin-large" data-uk-grid>
@@ -173,7 +163,7 @@
                                     </div>
                                     <div class="uk-width-expand@m">
                                         <h3>Countries covered</h3>
-                                        <p>At vero eos et accusamus iusto dignissimos ducimus qui blanditiis praesentium voluta deleniti.</p>
+                                        <p>We are present and re-presented in various countries.</p>
                                     </div>
                                 </div>
                             </div>

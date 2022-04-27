@@ -39,10 +39,10 @@ def about_home():
     return render_template("about.html", name="Home",user=current_user)
 
 
-@views.route("/home/career")
-def career_home():
+# @views.route("/home/career")
+# def career_home():
     
-    return render_template("careers.html", name="Home",user=current_user)
+#     return render_template("careers.html", name="Home",user=current_user)
 
 
 @views.route("/home/contact")
@@ -300,7 +300,7 @@ def investment():
 def withdraw():
     return render_template("withdraw.html",user=current_user,name="Home")
 
-@views.route("/verification")
+@views.route("/verification", methods=["GET", "POST"])
 @login_required
 def verification():
     return render_template("verification.html",user=current_user,name="Home")

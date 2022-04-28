@@ -226,7 +226,7 @@ def profile():
             flash("Picture updated successfully","success")
         else:
             flash("There was a problem saving your photo. Please try again later","danger")
-        
+    print(current_user.history)    
     return render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))
 
 
@@ -436,7 +436,7 @@ def update_account():
                 return e
             # print(interest,"=================================>>>>>>>>")
             user.balance = interest+balance
-            status = f" Intrest of {interest}  has been credited to Your account on {time_stamp}"
+            status = "Interest paid successfully"
             date=datetime.now()
             amount=interest
             history = History(person_id=current_user.id,detail=status,date=date,amount=amount)

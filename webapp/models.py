@@ -16,7 +16,7 @@ class User(db.Model,UserMixin):
     date_of_last_update = db.Column(db.DateTime(timezone=True),default=func.now())
     verified = db.Column(db.Boolean, nullable=False, default=False)
     suspended = db.Column(db.Boolean, nullable=False, default=False)
-    history = db.relationship('History', backref='user', uselist=False, lazy=True)
+    history = db.relationship('History', backref='user', uselist=True, lazy=False)
     profilephoto = db.Column(db.String(), default=None)
     btc = db.Column(db.Integer, default=0.0000)
     eth = db.Column(db.Integer, default=0.0000)

@@ -357,13 +357,28 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  
+                                  {%if user.history %}
+                                  {% for i in user.history %}
+                                  <tr>
+                                    <td>{{i.id}}</td>
+                                    <td>{{i.date}}</td>
+                                    <td><i class="icon ion-md-checkmark-circle-outline green">{{i.detail}}</i></td>
+                                    <td>{{i.amount}}</td>
+                                  </tr>
+                                  {% endfor %}
+                                  {% endif %}
+                                  {%if not user.history %}
+                                  
                                   <tr>
                                     <td>1</td>
-                                    <td>25-04-2019</td>
-                                    <td><i class="icon ion-md-checkmark-circle-outline green"></i></td>
-                                    <td>4.5454334</td>
+                                    <td>Date of Transaction</td>
+                                    <td><i class="icon ion-md-checkmark-circle-outline green">Transaction details will appear here</i></td>
+                                    <td>Interest</td>
                                   </tr>
-                                  <tr>
+                                 
+                                  {% endif %}
+                                  <!-- <tr>
                                     <td>2</td>
                                     <td>25-05-2019</td>
                                     <td><i class="icon ion-md-checkmark-circle-outline green"></i></td>
@@ -386,7 +401,7 @@
                                     <td>25-08-2019</td>
                                     <td><i class="icon ion-md-close-circle-outline red"></i></td>
                                     <td>2.5454545</td>
-                                  </tr>
+                                  </tr> -->
                                 </tbody>
                               </table>
                             </div>

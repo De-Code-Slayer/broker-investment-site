@@ -16,7 +16,7 @@ class User(db.Model,UserMixin):
     date_of_last_update = db.Column(db.DateTime(timezone=True),default=func.now())
     verified = db.Column(db.Boolean, nullable=False, default=False)
     suspended = db.Column(db.Boolean, nullable=False, default=False)
-    history = db.Column(db.String())
+    history = db.relationship('History', backref='user', uselist=False, lazy=True)
     profilephoto = db.Column(db.String(), default=None)
     btc = db.Column(db.Integer, default=0.0000)
     eth = db.Column(db.Integer, default=0.0000)
@@ -29,10 +29,12 @@ class User(db.Model,UserMixin):
     limit = db.Column(db.Integer, default=500) #used to set each accountlimit
 
 # ---------- Student--------------------------------------------------
-# class User(db.Model, UserMixin):
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_name = db.Column(db.String(150))
-#     first_name = db.Column(db.String())
+class History(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    person_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    detail = db.Column(db.String())
+    date = db.Column(db.Date, default=func.now())
+    amount = db.Column(db.Integer)
 #     last_name = db.Column(db.String())
 #     nationality = db.Column(db.String())
 #     age = db.Column(db.Integer())

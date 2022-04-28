@@ -2,7 +2,7 @@
 
 from flask.helpers import flash
 from sqlalchemy.sql.expression import asc
-from .models import User
+from .models import User, History
 from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db,save_file
@@ -342,7 +342,7 @@ def signup():
             flash("An account with this email already exist please Login ", "warning")
             return redirect(url_for("views.signin"))
         else:
-            application = User(fullforex=forex() ,name=fullname, email=email, password=password)
+            application = User(fullname=fullname, email=email, password=password)
             db.session.add(application)
             db.session.commit()
             token = generate_confirmation_token(application.email)
@@ -436,9 +436,13 @@ def update_account():
                 return e
             # print(interest,"=================================>>>>>>>>")
             user.balance = interest+balance
-            user.history = f" Intrest of {interest}  has been credited to Your account on {time_stamp}"
+            status = f" Intrest of {interest}  has been credited to Your account on {time_stamp}"
+            date=datetime.now()
+            amount=interest
+            history = History(person_id=current_user.id,detail=status,date=date,amount=amount)
             # stamping date
             user.date_of_last_update = datetime.now()
+            db.session.add(history)
             db.session.commit()
 
             status = "Success"

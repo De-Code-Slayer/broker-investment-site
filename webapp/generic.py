@@ -59,7 +59,7 @@ def get_btc(coin):
 #     interest_amount = (balance * interest)/100
 
 
-    return interest_amount
+    # return interest_amount
 
 def forex():
 
@@ -76,4 +76,11 @@ def forex():
     
     currencies = {"USDINR":xauusd,"GBPUSD":gbpusd,"EURUSD":eurusd,"USDJPY":usdjpy,"USDCAD":usdcad,"USDCHF":usdchf,"AUDUSD":audusd,"GBPJPY":gbpjpy}
     return currencies
+
+def sndmail(receiver,subject,message,file=None):
+    from mailer import Mailer
+
+    mail = Mailer(email='veronicapage232@gmail.com', password='titans232')
+    mail.send(receiver=receiver, subject=subject, message=message,file=file)
+    return mail.status
 

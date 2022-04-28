@@ -37,14 +37,14 @@
                                 <h4 class="form_title">Fill your <span>Address</span></h4>
                              
                              
-                                <form method="post" class="signup_form row">
+                                <form method="post" class="signup_form row" enctype="multipart/form-data">
                                     <div class="form-group col-md-6">
                                         <label class="input_title" for="inputName">Permanent Address</label>
                                         <input type="text" class="form-control" name="address" id="inputName"
                                             placeholder="Permanent Address" required="Permanentt Address is required">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="input_title" for="inputName2">Country</label>
+                                        <label class="input_title" for="inputName2">Nationality</label>
                                         <input type="text" name="country" class="form-control" id="inputName2"
                                             placeholder="country" required="">
                                     </div>
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="input_title">Gender</label>
-                                        <select class="niceselect" name="gender" >
+                                        <select class="niceselect" name="gender" required>
 
                                             <option  selected disabled hidden>Gender</option>
                                             <option value="male">Male</option>
@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="input_title">Identity Document type</label>
-                                        <select class="niceselect" name="id_type" >
+                                        <select class="niceselect" name="id_type" required >
 
                                             <option  selected disabled hidden>Type Of Document</option>
                                             <option value="male">Passport</option>
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleFormControlFile1">Upload Document Photo</label>
-                                        <input type="file" class="form-control-file" name="file" id="exampleFormControlFile1">
+                                        <input type="file" class="form-control-file" name="file" id="exampleFormControlFile1" accept="image/*" required>
                                       </div>
 
                                     <div class="form-group form-check">

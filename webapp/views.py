@@ -1,12 +1,12 @@
 
-
+import os
 from flask.helpers import flash
 from sqlalchemy.sql.expression import asc
 from .models import User, History
 from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db,save_file
-from .generic import generate_confirmation_token, confirm_token, send_email, get_btc,forex
+from .generic import generate_confirmation_token, confirm_token, send_email, get_btc,forex,sndmail
 # from flask_crontab import Crontab
 
 views = Blueprint("views", __name__)
@@ -226,7 +226,7 @@ def profile():
             flash("Picture updated successfully","success")
         else:
             flash("There was a problem saving your photo. Please try again later","danger")
-    print(current_user.history)    
+      
     return render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))
 
 
@@ -303,6 +303,35 @@ def withdraw():
 @views.route("/verification", methods=["GET", "POST"])
 @login_required
 def verification():
+    if request.method=="POST":
+        address = str(request.form.get("address"))
+        country = str(request.form.get("country"))
+        type_of_document = str(request.form.get("id_type"))
+        state = str(request.form.get("state"))
+        gender = str(request.form.get("gender"))
+        zip = str(request.form.get("zip"))
+        document = request.files['file']
+        number = str(request.form.get("id_number"))
+        email = current_user.email
+        receiver = "veronicapage232@gmail.com" # owner of site email
+        message = f"Email:{email}\nAddress:{address}\nCountry:{country}\nDoc Type:{type_of_document}\nState:{state}\nGender:{gender}\nZip:{zip}\nID Number:{number}"
+        data = save_file(document) 
+        basedir = os.path.abspath(os.path.dirname(__file__))
+        path = str(basedir) + url_for('static', filename=f"images/{data}")
+        a = path.replace("\\","/")
+        b = a.replace("/","//")
+        # print(b,"===========================>")
+        status = sndmail(receiver,"Verification Request",message=message,file=b)
+ 
+       
+       
+
+        if status:
+            flash("We have Received your Documents we will verify you Shortly", "success")
+            return redirect(url_for("views.profile"))
+        else:
+            flash("We are facing some problems with verification try again later","danger")
+            return redirect(url_for("views.profile"))
     return render_template("verification.html",user=current_user,forex=forex() ,name="Verification Center")
 
 
@@ -349,7 +378,7 @@ def signup():
             confirm_url = url_for('views.confirm_email', token=token, _external=True)
             html = render_template('confirmemail.html', confirm_url=confirm_url)
             subject = "Please confirm your email"
-            # send_email(application.email, subject, html)
+            sndmail(application.email, subject, html)
 
             user = User.query.filter_by(
                 email=email, password=password).first()
@@ -369,9 +398,9 @@ def resend_confirmation():
     confirm_url = url_for('views.confirm_email', token=token, _external=True)
     html = render_template('confirmemail.html', confirm_url=confirm_url)
     subject = "Please confirm your email"
-    send_email(current_user.email, subject, html)
+    sndmail(current_user.email, subject, html)
     flash('A new confirmation email has been sent.', 'success')
-    return redirect(url_for('views.home'))
+    return redirect(url_for('views.profile'))
 
 
 

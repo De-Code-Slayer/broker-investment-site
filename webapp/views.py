@@ -6,7 +6,7 @@ from .models import User
 from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db,save_file
-from .generic import generate_confirmation_token, confirm_token, send_email, get_btc
+from .generic import generate_confirmation_token, confirm_token, send_email, get_btc,forex
 # from flask_crontab import Crontab
 
 views = Blueprint("views", __name__)
@@ -19,7 +19,7 @@ def home():
 
     
     
-    return render_template("index.html", name="Home",user=current_user )
+    return render_template("index.html", forex=forex() ,name="Home",user=current_user )
 
 
 # @views.route("/<id>/hh")
@@ -32,47 +32,47 @@ def home():
 @views.route("/home/market")
 def market_home():
     
-    return render_template("markets_home.html", name="Home",user=current_user)
+    return render_template("markets_home.html", forex=forex() ,name="Market",user=current_user)
 
 @views.route("/home/about")
 def about_home():
-    return render_template("about.html", name="Home",user=current_user)
+    return render_template("about.html", forex=forex() ,name="About",user=current_user)
 
 
 # @views.route("/home/career")
 # def career_home():
     
-#     return render_template("careers.html", name="Home",user=current_user)
+#     return render_template("careers.html", forex=forex() ,name="Home",user=current_user)
 
 
 @views.route("/home/contact")
 def contact_home():
     
-    return render_template("contact.html", name="Home",user=current_user)
+    return render_template("contact.html", forex=forex() ,name="Contact",user=current_user)
 
 
 @views.route("/home/legal")
 def legal_home():
     
-    return render_template("legal-docs.html", name="Home",user=current_user)
+    return render_template("legal-docs.html", forex=forex() ,name="Legal",user=current_user)
 
 
 @views.route("/home/help")
 def help_home():
     
-    return render_template("help-center.html", name="Home",user=current_user)
+    return render_template("help-center.html", forex=forex() ,name="Help",user=current_user)
 
 
 @views.route("/home/roadmap")
 def roadmap_home():
     
-    return render_template("roadmap.html", name="Home",user=current_user)
+    return render_template("roadmap.html", forex=forex() ,name="Road Map",user=current_user)
 
 
 @views.route("/home/customers")
 def customers_home():
     
-    return render_template("customers.html", name="Home",user=current_user)
+    return render_template("customers.html", forex=forex() ,name="Customers",user=current_user)
 
 """
 # @views.route("/home/market")
@@ -153,7 +153,7 @@ def customers_home():
 def market():
     
 
-    return render_template("market-crypto-dark.html",user=current_user , name="Home")
+    return render_template("market-crypto-dark.html",user=current_user , forex=forex() ,name="Trade Market")
 
 
 
@@ -163,7 +163,7 @@ def market():
 def exchange():
     
 
-    return render_template("exchange-dark.html",user=current_user, name="Home")
+    return render_template("exchange-dark.html",user=current_user, forex=forex() ,name="Exchange")
 
 
 @views.route("/exchange/liveprice")
@@ -171,7 +171,7 @@ def exchange():
 def exchange_liveprice():
     
 
-    return render_template("exchange-dark-live-price.html",name="Home", user=current_user)
+    return render_template("exchange-dark-live-price.html",forex=forex() ,name="Live Prices", user=current_user)
 
 
 @views.route("/exchange/ticker")
@@ -179,7 +179,7 @@ def exchange_liveprice():
 def exchange_ticker():
     
 
-    return render_template("exchange-dark-ticker.html",user=current_user,name="Home")
+    return render_template("exchange-dark-ticker.html",user=current_user,forex=forex() ,name="Ticker")
 
 
 @views.route("/exchange/fluids")
@@ -187,7 +187,7 @@ def exchange_ticker():
 def exchange_fluids():
     
 
-    return render_template("exchange-dark-fluid.html",name="Home",user=current_user)
+    return render_template("exchange-dark-fluid.html",forex=forex() ,name="Fluids",user=current_user)
 
 @views.route("/profile", methods=["GET", "POST"])
 @login_required
@@ -227,7 +227,7 @@ def profile():
         else:
             flash("There was a problem saving your photo. Please try again later","danger")
         
-    return render_template("settings-wallet-dark.html",name="Home",user=current_user,btc=float(btc), eth=float(eth))
+    return render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))
 
 
 
@@ -275,35 +275,35 @@ def profile():
 @views.route("/crossrates")
 @login_required
 def crossrates():
-    return render_template("cross-rates-dark.html",user=current_user,name="Home")
+    return render_template("cross-rates-dark.html",user=current_user,forex=forex() ,name="Cross Rates")
 
 @views.route("/marketinfo")
 @login_required
 def marketinfo():
-    return render_template("symbol-info-dark.html",user=current_user,name="Home")
+    return render_template("symbol-info-dark.html",user=current_user,forex=forex() ,name="Market Info")
 
 @views.route("/technicalanalysis")
 @login_required
 def technical_analysis():
-    return render_template("technical-analysis-dark.html",user=current_user,name="Home")
+    return render_template("technical-analysis-dark.html",user=current_user,forex=forex() ,name="Analysis")
 #
 # 
 
 @views.route("/investment")
 @login_required
 def investment():
-    return render_template("investment.html",user=current_user,name="Home")
+    return render_template("investment.html",user=current_user,forex=forex() ,name="Investment")
 
 
 @views.route("/withdrawals")
 @login_required
 def withdraw():
-    return render_template("withdraw.html",user=current_user,name="Home")
+    return render_template("withdraw.html",user=current_user,forex=forex() ,name="Withdraw")
 
 @views.route("/verification", methods=["GET", "POST"])
 @login_required
 def verification():
-    return render_template("verification.html",user=current_user,name="Home")
+    return render_template("verification.html",user=current_user,forex=forex() ,name="Verification Center")
 
 
 @views.route("/confirm/<token>")
@@ -342,7 +342,7 @@ def signup():
             flash("An account with this email already exist please Login ", "warning")
             return redirect(url_for("views.signin"))
         else:
-            application = User(fullname=fullname, email=email, password=password)
+            application = User(fullforex=forex() ,name=fullname, email=email, password=password)
             db.session.add(application)
             db.session.commit()
             token = generate_confirmation_token(application.email)
@@ -358,7 +358,7 @@ def signup():
                 flash('A confirmation email has been sent via email.', 'success')
                 return redirect(url_for("views.profile"))
 
-    return render_template("signup-dark.html",name="Home",user=current_user)
+    return render_template("signup-dark.html",forex=forex() ,name="Register",user=current_user)
 
 
 
@@ -391,7 +391,7 @@ def signin():
         else:
             flash("Email or Password is not correct","warning")
 
-    return render_template("signin.html",user=current_user,name="Home")
+    return render_template("signin.html",user=current_user,forex=forex() ,name="Login")
 
 
 @views.route("/logout")

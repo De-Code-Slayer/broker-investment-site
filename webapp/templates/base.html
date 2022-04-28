@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#e9e8f0" />
     <!-- Site Properties -->
-    <title>{{Homepage}} - Glace Wealth Management </title>
+    <title>{{name}} - Glace Wealth Management </title>
     <!-- Critical preload -->
     <link rel="preload" href="{{ url_for('static', filename="js/vendors/uikit.min.js") }}" as="script">
     <link rel="preload" href="{{ url_for('static', filename="css/vendors/uikit.min.css") }}" as="style">
@@ -54,6 +54,13 @@
                     <div class="uk-width-1-1">
                         <div data-uk-slider="autoplay: true; autoplay-interval: 5000">
                             <ul class="uk-grid-large uk-slider-items uk-child-width-1-3@s uk-child-width-1-6@m uk-text-center" data-uk-grid>
+                              {% for key, value in forex.items() %}
+                                <li>
+                                    <i class="fas fa-angle-up in-icon-wrap small circle up"></i> {{key}} <span class="uk-text-success">{{value}}</span>
+                                </li>
+                               {% endfor %}
+                            </ul>
+                            <!-- <ul class="uk-grid-large uk-slider-items uk-child-width-1-3@s uk-child-width-1-6@m uk-text-center" data-uk-grid>
                                 <li>
                                     <i class="fas fa-angle-up in-icon-wrap small circle up"></i> XAUUSD <span class="uk-text-success">1478.81</span>
                                 </li>
@@ -78,7 +85,7 @@
                                 <li>
                                     <i class="fas fa-angle-up in-icon-wrap small circle up"></i> GBPJPY <span class="uk-text-success">141.91</span>
                                 </li>
-                            </ul>
+                            </ul> -->
                             
                         </div>
                     </div>
@@ -251,6 +258,10 @@
         </div>
         <!-- module totop begin -->
     </footer>
+
+
+    <!-- chat widget -->
+    <script src="//code.tidio.co/e4ybpf7abpyggr7idge6uifvgcndtsip.js" async></script>
     <!-- Javascript -->
     <script type="text/javascript">
         function googleTranslateElementInit() {

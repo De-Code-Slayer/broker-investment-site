@@ -21,7 +21,7 @@
         aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
         <i class="icon ion-md-menu"></i>
       </button>
-
+      
       <div class="collapse navbar-collapse" id="headerMenu">
         <ul class="navbar-nav mr-auto">
           <!-- <li class="nav-item dropdown">
@@ -50,6 +50,7 @@
               <a class="dropdown-item" href="market-screener-dark.html">Market Screener</a>
               <a class="dropdown-item" href="market-crypto-dark.html">Market Crypto</a> -->
             </div>
+            
           </li>
 
           <li class="nav-item dropdown">
@@ -62,13 +63,19 @@
               <!-- <a class="dropdown-item" href="/wallet">Wallet</a> -->
               <a class="dropdown-item" href="/crossrates">Crossrates</a>
               <a class="dropdown-item" href="/investment">Investments</a>
+              {% if not user.verified %}
               <a class="dropdown-item" href="/verification">Credentials Verification</a>
+              {% endif %}
               <a class="dropdown-item" href="/withdrawals">Withdrawals</a>
               <a class="dropdown-item" href="/technicalanalysis">Technical Analysis</a>
               <!-- <a class="dropdown-item" href="/settings">Settings</a> -->
               
             </div>
+            
+              
+            
           </li>
+          <div id="google_translate_element"></div>
           <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
@@ -238,9 +245,14 @@
 
    {% endblock %}
 
+   <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-
-  
+  <!-- google trans abv -->
   <script src="{{ url_for('static', filename="assets/js/jquery-3.4.1.min.js") }}"></script>
   <script src="{{ url_for('static', filename="assets/js/popper.min.js") }}"></script>
   <script src="{{ url_for('static', filename="assets/js/bootstrap.min.js") }}"></script>

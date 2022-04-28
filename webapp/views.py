@@ -300,6 +300,33 @@ def investment():
 def withdraw():
     return render_template("withdraw.html",user=current_user,forex=forex() ,name="Withdraw")
 
+
+
+
+
+
+@views.route("/resetpassword", methods=["GET", "POST"])
+@login_required
+def reswt_password():
+    if request.method == "POST":
+        email = request.form.get("email")
+        user = User.query.filter_by(email=email).first()
+        if user:
+            password = user.password
+            sndmail(email,"password Recovered",f"Here is your password {password} do not lose it again")
+            flash("An Email was sent to you, Please check Your Mail Box", "success")
+        else:
+            flash("No User With that email was found", "info")
+    return render_template("resetpassword.html",user=current_user,forex=forex(),name="Password Recovery")
+
+
+
+
+
+
+
+
+
 @views.route("/verification", methods=["GET", "POST"])
 @login_required
 def verification():

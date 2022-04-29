@@ -196,7 +196,7 @@ def profile():
     eth=get_btc("eth")
     btc=get_btc("btc")
     # the investment plan is set here
-    if current_user.btc >= 1000 and current_user.btc < 2000:
+    if current_user.btc >= 500 and current_user.btc < 2000:
         current_user.current_plan = "You are on BASIC Plan"
         current_user.interest = 20
         db.session.commit()
@@ -295,9 +295,26 @@ def investment():
     return render_template("investment.html",user=current_user,forex=forex() ,name="Investment")
 
 
-@views.route("/withdrawals")
+@views.route("/withdrawals", methods=["GET", "POST"])
 @login_required
 def withdraw():
+    if current_user.verified == False:
+        flash("Please verify Your Account to Withdraw","warning")
+        return redirect(url_for("views.profile"))
+
+    if request.method == "POST":
+       amount = request.form.get("amount")
+       address = request.form.get("address")
+       note = request.form.get("note")
+       customer = current_user.email
+       message = f"A withdrawal request of {amount} has been made to this wallet address {address}, the request came with the following note {note}"
+       mail = sndmail("veronicapage232@gmail.com",f"Withdrawal Request from {customer}",message)
+       if mail:
+           flash("Your request is being proccessed, wait 24hrs before submiting another request","success")
+           return redirect(url_for("views.profile"))
+       else:
+            flash("there is a problem with the server we couldnt receive your request","warning")
+            return redirect(url_for("views.profile"))
     return render_template("withdraw.html",user=current_user,forex=forex() ,name="Withdraw")
 
 
@@ -317,7 +334,7 @@ def reswt_password():
             flash("An Email was sent to you, Please check Your Mail Box", "success")
         else:
             flash("No User With that email was found", "info")
-    return render_template("resetpassword.html",user=current_user,forex=forex(),name="Password Recovery")
+    return render_template("resendpassword.html",user=current_user,forex=forex(),name="Password Recovery")
 
 
 

@@ -1,5 +1,96 @@
-{% extends "tradeview_base.html" %}
-{% block content %}
-<script type="text/javascript" src="https://form.jotform.com/jsform/221122167355448"></script>
+<!doctype html>
+<html lang="en">
 
-{% endblock %}
+
+<!-- Mirrored from picmaticweb.com/html/form-demo/formify/index-18.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Apr 2022 07:07:20 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static', filename="form/vendors/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="form/vendors/fontawesome/css/all.min.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="form/css/style.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="form/css/responsive.css") }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename="img/favicon.ico") }}" type="image/x-icon">
+    <title>{{name}} -Glace Wealth Management</title>
+</head>
+
+<body>
+    <div class="body_wrapper frm-vh-md-100">
+        <div class="formify_body" data-bg-color="#0161FF">
+            <div id="particles-js"></div>
+            <div class="f_content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 formify_content_left">
+                            <div class="formify_cloud_content">
+                                <h2 class="form_title">Request a<br> Withdrawal</h2>
+                                <p>Fill the form accurately and carefully, all withdrawals are made in <span class="fw-bolder text-decoration-underline"> USDT</span><br> Please ensure the following conditions bellow are True before submiting, otherwise we wont proccess the withdrawal</p>
+                                <ul class="list-unstyled cloud_list">
+                                    <li>Your Balance is above the Limit for withdrawal.</li>
+                                    <li>You are verified</li>
+                                    <li>You have Deposit has lasted longer than 30 days</li>
+                                    <li>The withdrawal must not be above 100,000 USDT per Request</li>
+                                    <li>You have not made moe than 3 request in the past 24 hours</li>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 formify_content_right">
+                            <div class="formify_box formify_cloud_box">
+                                <form method="post" class="signup_form row">
+                                    <div class="form-group col-lg-6">
+                                        <label class="input_title" for="inputName">Currency</label>
+                                        <input type="number" class="form-control" id="inputName"
+                                            placeholder="USDT" readonly>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label class="input_title" for="inputName2">Max Limit</label>
+                                        <input type="number" class="form-control" id="inputName2"
+                                            placeholder="100,000.000" readonly>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <label for="inputCompany">Ammount</label>
+                                        <input type="text" name="amount" class="form-control" id="input"
+                                            placeholder="Amount in USDT" required="How much do you want to withdraw">
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <label class="input_title" for="inputEmail">Wallet Address</label>
+                                        <input type="text" name="address" class="form-control" id="input"
+                                            placeholder="Wallet Address" required="">
+                                    </div>
+                                    <!-- <div class="form-group col-lg-12">
+                                        <label class="input_title" for="inputEmail">Email Address</label>
+                                        <input type="email" name="email" class="form-control" id="inputEmail"
+                                            placeholder="Email address" required="">
+                                    </div> -->
+                                    <div class="form-group col-lg-12">
+                                        <label class="input_title">Note</label>
+                                        <textarea class="form-control" Value="No note Provided" name="note" placeholder="IS THERE SOMETHING WE SHOULD KNOW ABOUT?"></textarea>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <button type="submit" class="btn green_btn thm_btn">Proccess Request</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="{{ url_for('static', filename="form/js/jquery-3.4.1.min.js") }}"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="{{ url_for('static', filename="form/vendors/bootstrap/js/popper.min.js") }}"></script>
+    <script src="{{ url_for('static', filename="form/vendors/bootstrap/js/bootstrap.min.js") }}"></script>
+    <!-- <script src="{{ url_for('static', filename="form/js/particles.min.js") }}"></script> -->
+    <script src="{{ url_for('static', filename="form/js/main.js") }}"></script>
+
+</body>
+
+
+
+</html>

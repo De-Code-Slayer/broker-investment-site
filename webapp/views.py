@@ -198,19 +198,19 @@ def profile():
     # the investment plan is set here
     if current_user.btc >= 500 and current_user.btc < 2000:
         current_user.current_plan = "You are on BASIC Plan"
-        current_user.interest = 20
+        # current_user.interest = 20
         db.session.commit()
     if current_user.btc >= 4000 and current_user.btc < 10000:
         current_user.current_plan = "You are on STANDARD Plan"
-        current_user.interest = 25
+        # current_user.interest = 25
         db.session.commit()
     if current_user.btc >= 10000 and current_user.btc < 50000:
         current_user.current_plan = "You are on SILVER Plan"
-        current_user.interest = 28
+        # current_user.interest = 28
         db.session.commit()
     if current_user.btc >= 50000 :
         current_user.current_plan = "You are on GOLD Plan"
-        current_user.interest = 30
+        # current_user.interest = 30
         db.session.commit()
     if current_user.confirmed == False:
         flash("Please confirm your email, an email was sent to your account","info")

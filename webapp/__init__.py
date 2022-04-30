@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import os
 from os.path import join, dirname, realpath
 from flask_mail import Mail
+from flask_talisman import Talisman
 # from flask_crontab import Crontab
 
 
@@ -74,6 +75,8 @@ def create_app():
  return app
 
 mail = Mail(app)
+
+Talisman(app, content_security_policy=None)
 
 def allowed_file(filename):
     return '.' in filename and \

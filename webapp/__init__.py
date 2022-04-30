@@ -10,7 +10,7 @@ from flask_mail import Mail
 
 
 db = SQLAlchemy()
-DB_NAME = "Paschals_sqlite_database.db"
+DB_NAME = "paschal-glacewealth.cmjajipac6t9.us-east-2.rds.amazonaws.com"
 ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -21,9 +21,10 @@ app = Flask(__name__)
 
 def create_app():
  global app
- app.config["SECRET_KEY"] = "paschal"
+ app.config["SECRET_KEY"] = "Klassique458"
  app.config["SECURITY_PASSWORD_SALT"] = "salt_for_paschal"
- app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_NAME)
+#  app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_NAME)
+ app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://glacewealth:Klassique458@{}:5432/postgres".format(DB_NAME)
  # mail settings
  app.config["MAIL_SERVER"] = "smtp.gmail.com"
  app.config["MAIL_PORT"] = 587

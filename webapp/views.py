@@ -1,5 +1,6 @@
 
 import os
+from datetime import datetime, timedelta,tzinfo
 from flask.helpers import flash
 from sqlalchemy.sql.expression import asc
 from .models import User, History
@@ -472,12 +473,26 @@ def logout():
     logout_user()
     return redirect(url_for("views.signin"))
 
+ZERO = timedelta(0)
+
+class UTC(tzinfo):
+  def utcoffset(self, dt):
+    return ZERO
+  def tzname(self, dt):
+    return "UTC"
+  def dst(self, dt):
+    return ZERO
+
+utc = UTC()
+
 
 @views.route("/user/update/account/verified")
 @login_required
 def update_account():
-    from datetime import datetime, timedelta
+    
+    import pytz
 
+    
     result = db.session.query(User.btc,User.balance,User.interest,User.date_of_last_update,User.date_deposit,User.id).all()
     status = "Account Updated Successfully"
     mode = "success"
@@ -490,15 +505,17 @@ def update_account():
         deposit_date = i[4]
         id = i[5]
         user = User.query.filter_by(id=id).first()
+
+        conv = deposit_date+timedelta(days=31)
         # print(user.id)
         # days_old = datetime.now() - deposit_date
         last_check = time_stamp - timedelta(days=30)
         # test = deposit_date - timedelta(days=30)
-        print(deposit_date)
+        # print(deposit_date)
         # print(time_stamp - timedelta(seconds=40) )
         # print(time_stamp > (time_stamp - timedelta(seconds=40)) )
         # check if its up to a month since user deposited
-        if deposit_date+timedelta(days=31) < datetime.now():
+        if conv < datetime.now(utc):
             # check if it been up to a month since last interest was paid
           if last_check > datetime.now()-timedelta(days=31):
             print("=============UPDATING====")

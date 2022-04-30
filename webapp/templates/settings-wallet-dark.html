@@ -244,11 +244,18 @@
                                   <h2>Investment Plan</h2>
                                 </div>
                                
-                                <div>
-                              
-                                  <span class="badge badge-pill badge-warning"> <h3>{{user.current_plan}} </h3></span>
+                
 
+                                <div class="card bg-primary font-weight-bold" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      <h3> {{user.current_plan}} </h3>
+                                    </div>
+                                  </div>
                                 </div>
+
+
+
                               </li>
                               
                               
@@ -257,9 +264,16 @@
                                   <i class="icon ion-md-pulse"></i>
                                   <h2>Interest Rate</h2>
                                 </div>
-                                <div>
-                                  <span class="badge badge-primary"><h3>{{(user.interest)}} %</h3></span>
+
+                                <div class="card bg-dark" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      
+                                      <h3> {{(user.interest)}} %</h3>
+                                    </div>
+                                  </div>
                                 </div>
+
                               </li>
                             </ul>
 
@@ -276,11 +290,19 @@
                                   <h2>Total Deposit</h2>
                                 </div>
                                
-                                <div>
-                              
-                                  <span class="badge badge-success"><h3>{{user.btc/btc}} BTC</h3></span>
 
+
+                                <div class="card bg-dark" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      <h3>{{user.btc/btc}} BTC</h3>
+                                    </div>
+                                  </div>
                                 </div>
+
+
+
+                               
                               </li>
                               
                               
@@ -289,9 +311,20 @@
                                   <i class="icon ion-md-wallet"></i>
                                   <h2>Available Balance</h2>
                                 </div>
-                                <div>
-                                  <span class="badge badge-success"> <h3>{{(user.btc/btc)+(user.balance/btc)}} BTC</h3></span>
+
+
+                                <div class="card bg-dark" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      <h3>{{(user.btc/btc)+(user.balance/btc)}} BTC</h3>
+                                    </div>
+                                  </div>
                                 </div>
+
+
+
+
+                              
                               </li>
                               <hr>
                               <li class="d-flex justify-content-between align-items-center">
@@ -299,9 +332,19 @@
                                   <i class="icon ion-md-ribbon"></i>
                                   <h2>Bonus</h2>
                                 </div>
-                                <div>
-                                  <span class="badge badge-info"><h3>{{(user.bonus/btc)}} BTC</h3></span>
+
+
+                                <div class="card bg-dark" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      <h3>{{(user.bonus/btc)}} BTC</h3>
+                                    </div>
+                                  </div>
                                 </div>
+
+
+
+    
                               </li>
                               <hr>
                               <li class="d-flex justify-content-between align-items-center">
@@ -309,9 +352,19 @@
                                   <i class="icon ion-md-link"></i>
                                   <h2>Referal Points</h2>
                                 </div>
-                                <div>
-                                  <span class="badge badge-secondary"> <h3>{{user.referal_points}} BTC</h3></span>
+
+
+                                <div class="card bg-secondary" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      <h3>{{user.referal_points}} BTC</h3>
+                                    </div>
+                                  </div>
                                 </div>
+
+
+
+                               
                               </li>
                             </ul>
 
@@ -373,7 +426,7 @@
                                   <tr>
                                     <td>1</td>
                                     <td>Date of Transaction</td>
-                                    <td><i class="icon ion-md-checkmark-circle-outline green">Transaction details will appear here</i></td>
+                                    <td><i class="icon ion-md-checkmark-circle-outline blue">Transaction details will appear here</i></td>
                                     <td>Interest</td>
                                   </tr>
                                  
@@ -518,18 +571,43 @@
                                   <i class="icon ion-md-cash"></i>
                                   <h2>Total Balance</h2>
                                 </div>
-                                <div>
-                                  <h3>{{user.btc}} USDT</h3>
+
+
+
+
+
+                                <div class="card bg-dark" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      <h3>{{user.btc}} USDT</h3>
+                                    </div>
+                                  </div>
+                                
                                 </div>
+
+
+
+
+
                               </li>
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-checkmark"></i>
                                   <h2>Available Balance</h2>
                                 </div>
-                                <div>
-                                  <h3>{{user.btc+user.balance}}</h3>
+
+                                <div class="card bg-dark" style="width: 10rem;">
+                                  <div class="card-header">
+                                    <div>
+                                      <h3>{{user.btc+user.balance}}</h3>
+                                    </div>
+                                  </div>
+                                
                                 </div>
+
+                                
+
+
                               </li>
                             </ul>
                             {% if user.btc >= user.limit %}
@@ -558,7 +636,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="card">
+                         <div class="card">
                           <div class="card-body">
                             <h5 class="card-title">Latest Transactions</h5>
                             <div class="wallet-history">
@@ -606,9 +684,9 @@
                               </table>
                             </div>
                           </div>
-                        </div> -->
+                        </div> 
                     <!-- Other coins below -->
-                        <!-- </div>
+                        </div>
                       <div class="tab-pane fade" id="coinTRX" role="tabpanel">
                         <div class="card">
                           <div class="card-body">

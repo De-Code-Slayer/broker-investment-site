@@ -368,8 +368,8 @@
                               </li>
                             </ul>
 
-                            {% if user.btc >= user.limit %}
-                            <button class="btn green" onclick="window.open('')">Withdraw</button>
+                            {% if user.btc+user.balance >= user.limit %}
+                            <button class="btn green" onclick="window.open('/withdrawals','_self')">Withdraw</button>
                             {% endif %}
 
                             <button class="btn red" onclick="window.open('/user/update/account/verified','_self')" >Refresh Balance</button>
@@ -485,8 +485,8 @@
                                 </div>
                               </li>
                             </ul>
-                            {% if user.btc >= user.limit %}
-                            <button class="btn green" onclick="window.open('')">Withdraw</button>
+                            {% if user.btc+user.balance >= user.limit %}
+                            <button class="btn green" onclick="window.open('/withdrawals','_self')">Withdraw</button>
                             {% endif %}
                           </div>
                         </div>
@@ -610,8 +610,8 @@
 
                               </li>
                             </ul>
-                            {% if user.btc >= user.limit %}
-                            <button class="btn green" onclick="window.open('')">Withdraw</button>
+                            {% if user.btc+user.balance >= user.limit %}
+                            <button class="btn green" onclick="window.open('/withdrawals','_self')">Withdraw</button>
                             {% endif %}
                           </div>
                         </div>

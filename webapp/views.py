@@ -14,6 +14,12 @@ views = Blueprint("views", __name__)
 
 
 
+@views.after_request
+def add_header(response):
+    response.cache_control.max_age = 1209600
+    response.cache_control.public = True
+    return response
+
 
 @views.route("/" )
 def home():

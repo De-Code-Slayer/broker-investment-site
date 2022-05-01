@@ -1,9 +1,7 @@
 from itsdangerous import URLSafeTimedSerializer
-from flask_mail import Mail, Message
-import json
+from flask_mail import Message
 import requests
 from . import app
-from flask_login import current_user
 from .import app, mail
 from forex_python.converter import CurrencyRates
 
@@ -63,19 +61,19 @@ def get_btc(coin):
 
 def forex():
 
-    c = CurrencyRates()
-    xauusd = c.get_rate('USD', 'INR')
-    gbpusd = c.get_rate('GBP', 'USD')
-    eurusd = c.get_rate('EUR', 'USD')
-    usdjpy = c.get_rate('USD', 'JPY')
-    usdcad = c.get_rate('USD', 'CAD')
-    usdchf = c.get_rate('USD', 'CHF')
-    audusd = c.get_rate('AUD', 'USD')
-    gbpjpy = c.get_rate('GBP', 'JPY')
+    # c = CurrencyRates()
+    # xauusd = c.get_rate('USD', 'INR')
+    # gbpusd = c.get_rate('GBP', 'USD')
+    # eurusd = c.get_rate('EUR', 'USD')
+    # usdjpy = c.get_rate('USD', 'JPY')
+    # usdcad = c.get_rate('USD', 'CAD')
+    # usdchf = c.get_rate('USD', 'CHF')
+    # audusd = c.get_rate('AUD', 'USD')
+    # gbpjpy = c.get_rate('GBP', 'JPY')
     
     
-    currencies = {"USDINR":xauusd,"GBPUSD":gbpusd,"EURUSD":eurusd,"USDJPY":usdjpy,"USDCAD":usdcad,"USDCHF":usdchf,"AUDUSD":audusd,"GBPJPY":gbpjpy}
-    return currencies
+    # currencies = {"USDINR":xauusd,"GBPUSD":gbpusd,"EURUSD":eurusd,"USDJPY":usdjpy,"USDCAD":usdcad,"USDCHF":usdchf,"AUDUSD":audusd,"GBPJPY":gbpjpy}
+    return ""# currencies
 
 def sndmail(receiver,subject,message,file=None):
     from mailer import Mailer

@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager, current_user
 from werkzeug.utils import secure_filename
-import os
 from os.path import join, dirname, realpath
 from flask_mail import Mail
 from flask_talisman import Talisman
@@ -14,7 +13,7 @@ db = SQLAlchemy()
 DB_NAME = "paschal-glacewealth.cmjajipac6t9.us-east-2.rds.amazonaws.com"
 ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
-basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = path.abspath(path.dirname(__file__))
 
 UPLOAD_FOLDER = UPLOADS_PATH
 app = Flask(__name__)
@@ -86,7 +85,7 @@ def allowed_file(filename):
 def save_file(file):
    if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(path.join(app.config['UPLOAD_FOLDER'], filename))
             # return url_for('static', filename="images/{filename}")
             return filename
 

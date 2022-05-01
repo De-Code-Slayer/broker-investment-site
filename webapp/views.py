@@ -315,7 +315,7 @@ def withdraw():
        note = request.form.get("note")
        customer = current_user.email
        message = f"A withdrawal request of {amount} has been made to this wallet address {address}, the request came with the following note {note}"
-       mail = sndmail("veronicapage232@gmail.com",f"Withdrawal Request from {customer}",message)
+       mail = sndmail("info@glacewealthmanagement.com",f"Withdrawal Request from {customer}",message)
        if mail:
            flash("Your request is being proccessed, wait 24hrs before submiting another request","success")
            return redirect(url_for("views.profile"))
@@ -331,13 +331,13 @@ def withdraw():
 
 @views.route("/resetpassword", methods=["GET", "POST"])
 @login_required
-def reswt_password():
+def reset_password():
     if request.method == "POST":
         email = request.form.get("email")
         user = User.query.filter_by(email=email).first()
         if user:
             password = user.password
-            sndmail(email,"password Recovered",f"Here is your password {password} do not lose it again")
+            # sndmail(email,"password Recovered",f"Here is your password {password} do not lose it again")
             flash("An Email was sent to you, Please check Your Mail Box", "success")
         else:
             flash("No User With that email was found", "info")
@@ -364,7 +364,7 @@ def verification():
         document = request.files['file']
         number = str(request.form.get("id_number"))
         email = current_user.email
-        receiver = "veronicapage232@gmail.com" # owner of site email
+        receiver = "info@glacewealthmanagement.com" # owner of site email
         message = f"Email:{email}\nAddress:{address}\nCountry:{country}\nDoc Type:{type_of_document}\nState:{state}\nGender:{gender}\nZip:{zip}\nID Number:{number}"
         data = save_file(document) 
         basedir = os.path.abspath(os.path.dirname(__file__))

@@ -1,5 +1,6 @@
 {% extends "tradeview_base.html" %}
 {% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
   <div class="settings mtb15">
     <div class="container-fluid">
@@ -350,6 +351,7 @@
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-link"></i>
+                                  
                                   <h2>Referal Points</h2>
                                 </div>
 
@@ -370,6 +372,9 @@
 
                             {% if user.btc+user.balance >= user.limit %}
                             <button class="btn green" onclick="window.open('/withdrawals','_self')">Withdraw</button>
+                            {% endif %}
+                            {% if not user.btc+user.balance >= user.limit %}
+                            <button class="btn green" disabled onclick="window.open('/withdrawals','_self')"><i class="bi bi-file-lock2-fill"></i>  Withdraw</button>
                             {% endif %}
 
                             <button class="btn red" onclick="window.open('/user/update/account/verified','_self')" >Refresh Balance</button>
@@ -612,6 +617,10 @@
                             </ul>
                             {% if user.btc+user.balance >= user.limit %}
                             <button class="btn green" onclick="window.open('/withdrawals','_self')">Withdraw</button>
+                            {% endif %}
+
+                            {% if not user.btc+user.balance >= user.limit %}
+                            <button class="btn green" disabled onclick="window.open('/withdrawals','_self')"><i class="bi bi-file-lock2-fill"></i>  Withdraw</button>
                             {% endif %}
                           </div>
                         </div>

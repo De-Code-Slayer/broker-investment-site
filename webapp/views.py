@@ -508,22 +508,22 @@ def update_account():
         balance = i[1]
         interest_rate = i[2]
         time_stamp = i[3]
-        deposit_date = i[4]
+        # deposit_date = i[4]
         id = i[5]
         user = User.query.filter_by(id=id).first()
 
-        conv = deposit_date+timedelta(days=31)
+        # conv = deposit_date+timedelta(days=31)
         # print(user.id)
         # days_old = datetime.now() - deposit_date
-        last_check = time_stamp - timedelta(days=30)
+        last_check = time_stamp+timedelta(days=1)
         # test = deposit_date - timedelta(days=30)
         # print(deposit_date)
         # print(time_stamp - timedelta(seconds=40) )
         # print(time_stamp > (time_stamp - timedelta(seconds=40)) )
         # check if its up to a month since user deposited
-        if conv < datetime.now(utc):
+        # if conv < datetime.now(utc):
             # check if it been up to a month since last interest was paid
-          if last_check > datetime.now()-timedelta(days=31):
+        if last_check < datetime.now(utc):
             print("=============UPDATING====")
             # calculate his interest
             try:
@@ -543,13 +543,13 @@ def update_account():
 
             status = "Success"
             # print("============SAVED=====================>>>>>>>>")
-          else:
-            statsu = "Interest is alreaady UpToDate"
-            mode = "info"
-        else:  
-            status = "Interest will be paid after a month from deposit Date"
-            mode = "info"
-        flash(status,mode)    
+        else:
+            status = "Interest is alreaady UpToDate"
+            # mode = "info"
+        # else:  
+            # status = "Interest will be paid after a month from deposit Date"
+            # mode = "info"
+        # flash(status,mode)    
     return redirect(url_for("views.profile"))
         # print(i,"=================================>>>>>>>>")
 

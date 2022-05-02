@@ -131,34 +131,6 @@
                 <div class="row">
                   <div class="col-md-12 col-lg-4">
                     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                      <a class="nav-link d-flex justify-content-between align-items-center active" data-toggle="pill"
-                        href="#coinBTC" role="tab" aria-selected="true">
-                        <div class="d-flex">
-                          <img src="{{ url_for('static', filename="assets/img/icon/18.png") }}" alt="btc">
-                          <div>
-                            <h2>BTC</h2>
-                            <p>Bitcoin</p>
-                          </div>
-                        </div>
-                        <div>
-                          <h3>{{btc}}</h3>
-                          <p class="text-right"><i class="icon ion-md-lock"></i> {{500/btc}}</p>
-                        </div>
-                      </a>
-                      <a class="nav-link d-flex justify-content-between align-items-center" data-toggle="pill"
-                        href="#coinETH" role="tab" aria-selected="true">
-                        <div class="d-flex">
-                          <img src="{{ url_for('static', filename="assets/img/icon/1.png") }}" alt="btc">
-                          <div>
-                            <h2>ETH</h2>
-                            <p>Ethereum</p>
-                          </div>
-                        </div>
-                        <div>
-                          <h3>{{eth}}</h3>
-                          <p class="text-right"><i class="icon ion-md-lock"></i> {{500/eth}}</p>
-                        </div>
-                      </a>
                       <a class="nav-link d-flex justify-content-between align-items-center" data-toggle="pill"
                         href="#coinBNB" role="tab" aria-selected="true">
                         <div class="d-flex">
@@ -173,6 +145,34 @@
                           <p class="text-right"><i class="icon ion-md-lock"></i> {{user.limit}}</p>
                         </div>
                       </a>
+                      <a class="nav-link d-flex justify-content-between align-items-center active" data-toggle="pill"
+                        href="#coinBTC" role="tab" aria-selected="true">
+                        <div class="d-flex">
+                          <img src="{{ url_for('static', filename="assets/img/icon/18.png") }}" alt="btc">
+                          <div>
+                            <h2>BTC</h2>
+                            <p>Bitcoin</p>
+                          </div>
+                        </div>
+                        <div>
+                          <h3>{{btc}}</h3>
+                          <p class="text-right"><i class="icon ion-md-lock"></i> {{500/btc}}</p>
+                        </div>
+                      </a>
+                      <!-- <a class="nav-link d-flex justify-content-between align-items-center" data-toggle="pill"
+                        href="#coinETH" role="tab" aria-selected="true">
+                        <div class="d-flex">
+                          <img src="{{ url_for('static', filename="assets/img/icon/1.png") }}" alt="btc">
+                          <div>
+                            <h2>ETH</h2>
+                            <p>Ethereum</p>
+                          </div>
+                        </div>
+                        <div>
+                          <h3>{{eth}}</h3>
+                          <p class="text-right"><i class="icon ion-md-lock"></i> {{500/eth}}</p>
+                        </div>
+                      </a> -->
                       <!-- <a class="nav-link d-flex justify-content-between align-items-center" data-toggle="pill"
                         href="#coinTRX" role="tab" aria-selected="true">
                         <div class="d-flex">

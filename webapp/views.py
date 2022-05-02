@@ -429,7 +429,7 @@ def signup():
             confirm_url = url_for('views.confirm_email', token=token, _external=True)
             html = render_template('confirmemail.html', confirm_url=confirm_url)
             subject = "Please confirm your email"
-            sndmail(application.email, subject, html)
+            # sndmail(application.email, subject, html)
 
             user = User.query.filter_by(
                 email=email, password=password).first()

@@ -496,7 +496,7 @@ utc = UTC()
 @login_required
 def update_account():
     
-    import pytz
+    # import pytz
 
     
     result = db.session.query(User.btc,User.balance,User.interest,User.date_of_last_update,User.date_deposit,User.id).all()
@@ -552,7 +552,7 @@ def update_account():
         # flash(status,mode)    
     return redirect(url_for("views.profile"))
         # print(i,"=================================>>>>>>>>")
-
+""""
 
 # [(400, 20000), (50, 656), (85, 8487)]
  
@@ -566,3 +566,4 @@ def update_account():
 #     else:
 #        current_user.balance = balance + current_user.btc 
 #     db.session.commit()
+"""

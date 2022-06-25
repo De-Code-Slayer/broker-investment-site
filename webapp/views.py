@@ -493,7 +493,7 @@ utc = UTC()
 
 
 @views.route("/user/update/account/verified")
-@login_required
+# @login_required
 def update_account():
     
     # import pytz

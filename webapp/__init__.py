@@ -10,7 +10,7 @@ from flask_talisman import Talisman
 
 
 db = SQLAlchemy()
-DB_NAME = "paschal-glacewealth.cmjajipac6t9.us-east-2.rds.amazonaws.com"
+DB_NAME = "185.212.70.154"
 ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
 basedir = path.abspath(path.dirname(__file__))
@@ -21,13 +21,14 @@ app = Flask(__name__)
 
 def create_app():
  global app
- app.config["SECRET_KEY"] = "klassique458"
+ app.config["SECRET_KEY"] = "Titans232"
  app.config["SECURITY_PASSWORD_SALT"] = "salt_for_paschal"
 #  app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_NAME)
- app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://glacewealth:klassique458@{}:5432/postgres".format(DB_NAME)
+ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://u212458944_glace:Titans232@{}:3306/u212458944_Glacewealth".format(DB_NAME)
  # mail settings
  app.config["MAIL_SERVER"] = "smtp.gmail.com"
  app.config["MAIL_PORT"] = 587
+ app.config['SQLALCHEMY_POOL_RECYCLE'] = 30
  app.config["MAIL_USE_TLS"] = True
  app.config["MAIL_USE_SSL"] = False
 #  crontab.init_app(app)
@@ -43,7 +44,8 @@ def create_app():
  app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
- db.init_app(app)
+ with app.app_context():   
+    db.init_app(app)
 
  from .views import views
 #  from .admin import admin

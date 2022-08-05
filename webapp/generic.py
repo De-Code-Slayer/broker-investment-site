@@ -78,7 +78,8 @@ def forex():
 def sndmail(receiver,subject,message,file=None):
     from mailer import Mailer
 
-    mail = Mailer(email='veronicapage232@gmail.com', password='titans232')
+    mail = Mailer(email='glacewealthmanagement@gmail.com', password='magamustpay')
     mail.send(receiver=receiver, subject=subject, message=message,file=file)
+    print(mail.status)
     return mail.status
 

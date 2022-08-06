@@ -55,7 +55,7 @@ def create_app():
 #  app.register_blueprint(admin, url_prefix="/" )
 
  from .models import User
- create_database(app)
+#  create_database(app)
 
 
  login_manager = LoginManager()

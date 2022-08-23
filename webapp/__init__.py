@@ -18,8 +18,8 @@ app = Flask(__name__)
 
 def create_app():
  global app
- app.config["SECRET_KEY"] = "Titans232."
- app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:Titans232.@{}:5432".format(DB_NAME)
+ app.config["SECRET_KEY"] = ""
+ app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:@{}:5432".format(DB_NAME)
  app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

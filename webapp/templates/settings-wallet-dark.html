@@ -474,7 +474,7 @@
                               <li class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                   <i class="icon ion-md-cash"></i>
-                                  <h2>Total Balance</h2>
+                                  <h2>Total Profit</h2>
                                 </div>
                                 <div>
                                   <h3>{{(user.btc/eth)}} ETH</h3>
@@ -633,9 +633,9 @@
                                   of your
                                   funds at once if you deposit more than your daily withdrawal limit.</p>
                                 <div class="input-group">
-                                  <input type="text"  class="form-control" id="myInput"  value="TDvHVEHzqN8yscchSTvKjVgohKwvqWu2iD" readonly>
+                                  <input type="text"  class="form-control" id="myInput2"  value="TDvHVEHzqN8yscchSTvKjVgohKwvqWu2iD" readonly>
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-primary" onclick="myFunction()">COPY</button>
+                                    <button class="btn btn-primary" onclick="myFunction_1()">COPY</button>
                                   </div>
                                 </div>
                               </div>
@@ -1247,21 +1247,36 @@
   </div>
 
   <script>
-function myFunction() {
-  /* Get the text field */
-  var copyText = document.getElementById("myInput");
-
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-   /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
-
-  /* Alert the copied text */
-  alert("The Wallet address has been copied to your Clipboard ");
-  // alert("The Wallet address has been copied to your Clipboard " + copyText.value);
-}
-
+    function myFunction() {
+      /* Get the text field */
+      var copyText = document.getElementById("myInput");
+    
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+       /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+    
+      /* Alert the copied text */
+      alert("The Wallet address has been copied to your Clipboard ");
+      // alert("The Wallet address has been copied to your Clipboard " + copyText.value);
+    }
+    function myFunction_1() {
+      /* Get the text field */
+      var copyText = document.getElementById("myInput2");
+    
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+       /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+    
+      /* Alert the copied text */
+      alert("The Wallet address has been copied to your Clipboard ");
+      // alert("The Wallet address has been copied to your Clipboard " + copyText.value);
+    }
+    
   </script>
 {% endblock %}

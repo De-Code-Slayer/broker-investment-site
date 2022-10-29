@@ -6,6 +6,8 @@ from werkzeug.utils import secure_filename
 from os.path import join, dirname, realpath
 from flask_mail import Mail
 from flask_talisman import Talisman
+from apscheduler.schedulers.background import BackgroundScheduler
+
 # from flask_crontab import Crontab
 
 
@@ -47,12 +49,16 @@ def create_app():
  with app.app_context():   
     db.init_app(app)
 
+
+
+
+
  from .views import views
-#  from .admin import admin
+
 
 
  app.register_blueprint(views, url_prefix="/" )
-#  app.register_blueprint(admin, url_prefix="/" )
+
 
  from .models import User
 #  create_database(app)
@@ -95,3 +101,14 @@ def create_database(app):
     # if not path.exists("webapp/" + DB_NAME):
         db.create_all(app=app)
         print("Database created!!")
+
+
+
+#  Initializing scheduler for intrest
+from .views import add_interest
+def test_job():
+    add_interest()
+
+scheduler = BackgroundScheduler()
+job       = scheduler.add_job(test_job, 'interval', days=1)
+scheduler.start()

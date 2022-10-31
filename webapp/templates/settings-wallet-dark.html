@@ -1256,10 +1256,16 @@
       copyText.setSelectionRange(0, 99999); /* For mobile devices */
     
        /* Copy the text inside the text field */
-      navigator.clipboard.writeText(copyText.value);
+      navigator.clipboard.writeText(copyText.value).then(() => {
+          /* Alert the copied text */
+      alert("The Wallet address has been copied to your Clipboard");
+      })
+      .catch(() => {
+        alert("Could Not Copy Due to Permission");
+      });
     
       /* Alert the copied text */
-      alert("The Wallet address has been copied to your Clipboard ");
+      // alert("The Wallet address has been copied to your Clipboard ");
       // alert("The Wallet address has been copied to your Clipboard " + copyText.value);
     }
     function myFunction_1() {

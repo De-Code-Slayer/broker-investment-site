@@ -576,46 +576,43 @@ def update_account():
 
 
 def add_interest():
-    
+     
 
     
     result = db.session.query(User.btc,User.balance,User.interest,User.date_of_last_update,User.date_deposit,User.id).all()
-    status = "Account Updated Successfully"
+    status = "Account Interest Successfully"
     mode = "success"
+    counter = 0
     for i in result:
+        counter += 1
         # initilize the columns
+        print(counter, "counter")
         deposit = i[0]
         balance = i[1]
         interest_rate = i[2]
-        time_stamp = i[3]
-        # deposit_date = i[4]
         id = i[5]
         user = User.query.filter_by(id=id).first()
+        print(deposit,interest_rate,id,"interest")
+        
+        print("=============UPDATING====")
+            # calculate interest
+        
+        interest = (deposit*interest_rate)/100
+        print(interest,deposit,interest_rate,"interest")
+        date         =  datetime.now()
+        amount       =  interest
 
-        # conv = deposit_date+timedelta(days=31)
-        # print(user.id)
-        # days_old = datetime.now() - deposit_date
-        last_check = time_stamp+timedelta(days=1)
-        if last_check < datetime.now(utc):
-            print("=============UPDATING====")
-            # calculate his interest
-            try:
-             interest = (deposit*interest_rate)/100
-            except Exception as e:
-                return e
+        
 
-            user.balance = interest+balance
-            status = "Interest paid successfully"
-            date=datetime.now()
-            amount=interest
-            history = History(person_id=current_user.id,detail=status,date=date,amount=amount)
+        user.balance = interest+balance
+        print(user.balance,"balance")
+        status       = "Interest paid successfully"
             # stamping date
-            user.date_of_last_update = datetime.now()
-            db.session.add(history)
-            db.session.commit()
+        history      = History(person_id=id,detail=status,date=date,amount=amount)
+        user.date_of_last_update = datetime.now()
+        db.session.commit()
+        db.session.add(history)
+        db.session.commit()
 
-            status = "Success"
-            # print("============SAVED=====================>>>>>>>>")
-        else:
-            status = "Interest is alreaady UpToDate"   
+        status     = "Success" 
     return status

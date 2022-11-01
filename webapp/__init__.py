@@ -106,8 +106,10 @@ def create_database(app):
 
 #  Initializing scheduler for intrest
 from .views import add_interest
+
 def test_job():
-    add_interest()
+   with app.app_context():
+     add_interest()
 
 scheduler = BackgroundScheduler()
 job       = scheduler.add_job(test_job, 'interval', days=1)

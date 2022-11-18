@@ -610,7 +610,6 @@ def add_interest():
             # stamping date
         history      = History(person_id=id,detail=status,date=date,amount=amount)
         user.date_of_last_update = datetime.now()
-        db.session.commit()
         db.session.add(history)
         db.session.commit()
 

@@ -2,7 +2,7 @@ from itsdangerous import URLSafeTimedSerializer
 from flask_mail import Message
 import requests
 from . import app
-from .import app, mail
+from .import mail
 from forex_python.converter import CurrencyRates
 
 def send_email(to, subject, template):
@@ -10,7 +10,7 @@ def send_email(to, subject, template):
         subject,
         recipients=[to],
         html=template,
-        sender=app.config['MAIL_DEFAULT_SENDER']
+        sender="veronicapage232@gmail.com"
     )
     print(app.config["MAIL_SERVER"])
     mail.send(msg)
@@ -78,8 +78,38 @@ def forex():
 def sndmail(receiver,subject,message,file=None):
     from mailer import Mailer
 
-    mail = Mailer(email='glacewealthmanagement@gmail.com', password='magamustpay')
+    mail = Mailer(email='veronicapage23@gmail.com', password='nlevlvdrriimjxdh')
     mail.send(receiver=receiver, subject=subject, message=message,file=file)
     print(mail.status)
     return mail.status
+
+
+def smtpmailer():
+    import smtplib
+
+    # creates SMTP session
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+
+    # start TLS for security
+    s.starttls()
+
+    # Authentication
+    s.login("veronicapage232@gmail.com", "wopsoowlmvlqzzvu")
+
+    # message to be sent
+    message = "Message_you_need_to_send"
+
+    # sending the mail
+    s.sendmail("veronicapage232@gmail.com", "chukwujapheth232@gmail.com", message)
+
+    # terminating the session
+    s.quit()
+
+
+
+
+smtpmailer()
+
+
+
 

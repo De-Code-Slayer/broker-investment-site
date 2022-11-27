@@ -8,7 +8,7 @@ from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db,save_file
 from .generic import generate_confirmation_token, confirm_token, send_email, get_btc,forex,sndmail
-# from flask_crontab import Crontab
+from .telegram import send_msg
 
 views = Blueprint("views", __name__)
 
@@ -314,8 +314,8 @@ def withdraw():
        address = request.form.get("address")
        note = request.form.get("note")
        customer = current_user.email
-       message = f"A withdrawal request of {amount} has been made to this wallet address {address}, the request came with the following note {note}"
-       mail = sndmail("info@glacewealthmanagement.com",f"Withdrawal Request from {customer}",message)
+       message = f"Withdrawal Request from {customer}\nA withdrawal request of {amount} has been made to this wallet address {address}, the request came with the following note {note}"
+       mail = send_msg(message)
        if mail:
            flash("Your request is being proccessed, wait 24hrs before submiting another request","success")
            return redirect(url_for("views.profile"))
@@ -613,5 +613,5 @@ def add_interest():
         db.session.add(history)
         db.session.commit()
 
-        status     = "Success" 
+        status       = "Success" 
     return status

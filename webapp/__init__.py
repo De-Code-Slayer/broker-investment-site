@@ -36,7 +36,7 @@ def create_app():
 #  crontab.init_app(app)
   # gmail authentication
  app.config["MAIL_USERNAME"] = "veronicapage232@gmail.com"
- app.config["MAIL_PASSWORD"] = "titans232"
+ app.config["MAIL_PASSWORD"] = "nlevlvdrriimjxdh"
 
     # mail accounts
  app.config["MAIL_DEFAULT_SENDER"] = 'veronicapage232@gmail.com'

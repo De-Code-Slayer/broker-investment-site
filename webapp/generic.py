@@ -1,8 +1,8 @@
 from itsdangerous import URLSafeTimedSerializer
 from flask_mail import Message
 import requests
-from . import app
-from .import mail
+# from . import app
+# from .import mail
 from forex_python.converter import CurrencyRates
 
 def send_email(to, subject, template):
@@ -45,7 +45,7 @@ def get_btc(coin):
     data = requests.get(key)
     data = data.json()
     # print(f"{data['symbol']} price is {data['price']}")
-    return data.get('price')
+    return data
 
 
 # def update_balance(current_user):

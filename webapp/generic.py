@@ -45,7 +45,7 @@ def get_btc(coin):
     data = requests.get(key)
     data = data.json()
     # print(f"{data['symbol']} price is {data['price']}")
-    return data['price']
+    return data.get('price')
 
 
 # def update_balance(current_user):
@@ -108,8 +108,7 @@ def smtpmailer():
 
 
 
-smtpmailer()
-
+print(get_btc('BTC'))
 
 
 

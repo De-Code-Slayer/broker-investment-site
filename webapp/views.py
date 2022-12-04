@@ -7,7 +7,7 @@ from .models import User, History
 from flask import Blueprint, render_template, url_for, request, redirect,abort
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db,save_file
-from .generic import generate_confirmation_token, confirm_token, send_email, get_btc,forex,sndmail
+from .generic import generate_confirmation_token, confirm_token, send_email, get_btc,forex,sndmail,get_coin
 from .telegram import send_msg
 
 views = Blueprint("views", __name__)
@@ -200,8 +200,10 @@ def exchange_fluids():
 @login_required
 def profile():
     
-    eth=get_btc("ETH")
-    btc=get_btc("BTC")
+    # eth=get_btc("ETH")
+    # btc=get_btc("BTC")
+    eth=get_coin("ETH")
+    btc=get_coin("BTC")
     # the investment plan is set here
     if current_user.btc >= 500 and current_user.btc < 2000:
         current_user.current_plan = "You are on BASIC Plan"

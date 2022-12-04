@@ -1,8 +1,8 @@
 from itsdangerous import URLSafeTimedSerializer
 from flask_mail import Message
 import requests
-# from . import app
-# from .import mail
+from . import app
+from .import mail
 from forex_python.converter import CurrencyRates
 
 def send_email(to, subject, template):
@@ -107,8 +107,21 @@ def smtpmailer():
 
 
 
+def get_coin(coin):
+    from pycoingecko import CoinGeckoAPI
+    cg = CoinGeckoAPI()
 
-print(get_btc('BTC'))
+    # /simple/price endpoint with the required parameters
+    btc = cg.get_price(ids='bitcoin', vs_currencies='usd')
+    eth = cg.get_price(ids='ethereum', vs_currencies='usd')
+
+    if coin == "BTC":
+       return btc[u'bitcoin'][u'usd']
+    return eth[u'ethereum'][u'usd']
+    
+
+
+
 
 
 

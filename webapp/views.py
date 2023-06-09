@@ -81,7 +81,7 @@ def customers_home():
     
     return render_template("customers.html", forex=forex() ,name="Customers",user=current_user)
 
-"""
+
 # @views.route("/home/market")
 # def market_home():
     
@@ -96,63 +96,6 @@ def customers_home():
 #     return render_template("markets_home.html")
 
 
-# @views.route("/whatsapp", methods=["GET", "POST"])
-# def whatsapp():
-#     if request.method == "POST":
-#         institute = request.form.get("category")
-#         category = Whatsapp.query.filter_by(institute=institute).all()
-#         # print(category)
-#         if category:
-#             whatsapp = category
-#             return render_template("whatsapp.html", whatsapp=whatsapp, user=current_user,  id="!!")
-            
-#     # Queries to database to get All the whatsapp links
-#     whatsapp_groups = db.session.query(Whatsapp).all()
-#     return render_template("whatsapp.html", whatsapp=whatsapp_groups, user=current_user,  id="!!")
-
-
-# @views.route("/how")
-# def how_to():
-
-#     how_to = Howto.query.all()
-#     return render_template("how-to.html", how_to=how_to, user=current_user,  id="!!")
-
-
-# @views.route("/how_to/<id>")
-# def view_how_to(id):
-#     ident = id
-#     how_to = Howto.query.all()
-#     view = Howto.query.get(ident)
-#     return render_template("how-to.html", how_to=how_to, view=view, user=current_user,  id="!!")
-
-
-# @views.route("/university")
-# def university():
-
-#     university = University.query.order_by(asc(University.school)).all()
-#     print(university)
-
-#     return render_template("university.html", university=university, user=current_user,  id="!!")
-
-
-# @views.route("/profile", methods=["GET", "POST"])
-# @login_required
-# def profile():
-#     if request.method == "POST":
-#         school = str(request.form.get("university")).title()
-#         course = str(request.form.get("course")).title()
-#         degree = str(request.form.get("degree")).title()
-#         email = current_user.email
-#         application = User.query.filter_by(email=email).first()
-#         print(application)
-#         application.university = school
-#         application.course = course
-#         application.degree = degree
-#         db.session.commit()
-#         flash("Application Submitted")
-
-#     return render_template("profile.html", student=current_user, user=current_user,  id="!!")
-"""
 
 
 @views.route("/market")

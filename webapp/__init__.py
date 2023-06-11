@@ -83,7 +83,7 @@ def create_app():
 
 mail = Mail(app)
 
-Talisman(app, content_security_policy=None)
+# Talisman(app, content_security_policy=None)
 
 def allowed_file(filename):
     return '.' in filename and \

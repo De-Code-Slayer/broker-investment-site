@@ -34,6 +34,12 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename="css/vendors/uikit.min.css") }}">
     <link rel="stylesheet" href="{{ url_for('static', filename="css/style.css") }}">
+    <!-- floating whatsapp button -->
+    <script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.3.1.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/floating-wpp.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/floating-wpp.js") }}"></script>
+    <link rel="stylesheet"         href="{{ url_for('static', filename="css/floating-wpp.min.css") }}">
+    <link rel="stylesheet"         href="{{ url_for('static', filename="css/floating-wpp.css") }}">
 </head>
 
 <body>
@@ -252,8 +258,23 @@
         </div>
         <!-- module totop begin -->
     </footer>
-
-
+<div id="whatsappbutton"></div>
+<!-- floating whatsapp button -->
+<script type="text/javascript">
+    $(function () {
+      $('#whatsappbutton').floatingWhatsApp({
+        phone: '16176520197',
+        popupMessage: 'Hello, how can we help you?',
+        message: "I'd like to start an Investment",
+        showPopup: true,
+        showOnIE: false,
+        headerTitle: 'Welcome!',
+        //headerColor: 'crimson',
+        //backgroundColor: 'crimson',
+        buttonImage: '<img src="{{ url_for('static', filename="img/WhatsApp.svg.png") }}" />'
+      });
+    });
+  </script>
     <!-- chat widget -->
     <script src="//code.tidio.co/0gthms1faomt4dmkhmirsh3czljngriy.js" async></script>
     

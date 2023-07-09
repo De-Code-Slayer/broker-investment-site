@@ -7,7 +7,7 @@ import os
 from os.path import join, dirname, realpath
 
 db = SQLAlchemy()
-DB_NAME = "database-1.cmjajipac6t9.us-east-2.rds.amazonaws.com"
+DB_NAME = ""
 ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
 # basedir = os.path.abspath(os.path.dirname(__file__))

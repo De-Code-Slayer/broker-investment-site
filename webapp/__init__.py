@@ -30,7 +30,7 @@ def create_app():
  # mail settings
  app.config["MAIL_SERVER"] = "smtp.gmail.com"
  app.config["MAIL_PORT"] = 587
- app.config['SQLALCHEMY_POOL_RECYCLE'] = 5
+ app.config['SQLALCHEMY_POOL_RECYCLE'] = 2
  app.config["MAIL_USE_TLS"] = True
  app.config["MAIL_USE_SSL"] = False
 #  crontab.init_app(app)

@@ -45,6 +45,7 @@ def get_btc(coin):
     # requesting data from url
     data = requests.get(key)
     data = data.json()
+    print(data,'---------->>>>')
   except Exception as e:
     print({"error":f"{e}"})
     # print(f"{data['symbol']} price is {data['price']}")

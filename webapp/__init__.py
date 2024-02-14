@@ -33,10 +33,10 @@ def create_app():
  # mail settings
  app.config["MAIL_SERVER"] = "smtp.gmail.com"
  app.config["MAIL_PORT"] = 587
- app.config['SQLALCHEMY_POOL_RECYCLE'] = 1
- app.config['SQLALCHEMY_POOL_SIZE'] = 1
- app.config['SQLALCHEMY_POOL_TIMEOUT'] = 10
- app.config['SQLALCHEMY_POOL_PRE_PING'] = True
+#  app.config['SQLALCHEMY_POOL_RECYCLE'] = 1
+#  app.config['SQLALCHEMY_POOL_SIZE'] = 1
+#  app.config['SQLALCHEMY_POOL_TIMEOUT'] = 10
+#  app.config['SQLALCHEMY_POOL_PRE_PING'] = True
  app.config["MAIL_USE_TLS"] = True
  app.config["MAIL_USE_SSL"] = False
 #  crontab.init_app(app)
@@ -67,7 +67,7 @@ def create_app():
 
 
  from .models import User
- create_database(app)
+#  create_database(app)
 
 
  login_manager = LoginManager()

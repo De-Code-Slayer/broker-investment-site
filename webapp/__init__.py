@@ -7,11 +7,13 @@ from os.path import join, dirname, realpath
 from flask_mail import Mail
 from flask_talisman import Talisman
 from apscheduler.schedulers.background import BackgroundScheduler
-
+import  os
 # from flask_crontab import Crontab
 
 
 db = SQLAlchemy()
+heroku_database_url = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://")
+
 DB_NAME = "185.212.70.154"
 ALLOWED_EXTENSIONS = {'png', 'jpg','jpeg'}
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/images')
@@ -26,7 +28,8 @@ def create_app():
  app.config["SECRET_KEY"] = "Titans232"
  app.config["SECURITY_PASSWORD_SALT"] = "salt_for_paschal"
 #  app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_NAME)
- app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://u212458944_glace:Titans232@{}:3306/u212458944_Glacewealth".format(DB_NAME)
+#  app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://u212458944_glace:Titans232@{}:3306/u212458944_Glacewealth".format(DB_NAME)
+ app.config["SQLALCHEMY_DATABASE_URI"] = heroku_database_url
  # mail settings
  app.config["MAIL_SERVER"] = "smtp.gmail.com"
  app.config["MAIL_PORT"] = 587

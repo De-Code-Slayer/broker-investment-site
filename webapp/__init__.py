@@ -73,7 +73,13 @@ def create_app():
 
  @login_manager.user_loader
  def load_user(id):
-    return User.query.get(int(id))
+    try:
+      user =   User.query.get(int(id))
+    except Exception as e:
+         db.session.rollback()
+    finally:
+         db.session.close()
+    return user
 
 
  

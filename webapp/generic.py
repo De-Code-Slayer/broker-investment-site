@@ -49,7 +49,8 @@ def get_btc(coin):
   except Exception as e:
     print({"error":f"{e}"})
     # print(f"{data['symbol']} price is {data['price']}")
-  return data[u'price']
+#   return data[u'price']
+  return 51603.58000000
 
 
 # def update_balance(current_user):

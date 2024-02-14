@@ -147,7 +147,7 @@ def profile():
     # btc=get_btc("BTC")
     # eth=get_coin("ETH")
     # btc=get_coin("BTC")
-    the investment plan is set here
+    # the investment plan is set here
     if current_user.btc >= 500 and current_user.btc < 2000:
         current_user.current_plan = "You are on BASIC Plan"
         # current_user.interest = 20

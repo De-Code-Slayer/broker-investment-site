@@ -143,10 +143,10 @@ def exchange_fluids():
 @login_required
 def profile():
     
-    # eth=get_btc("ETH")
-    # btc=get_btc("BTC")
-    eth=get_coin("ETH")
-    btc=get_coin("BTC")
+    eth=get_btc("ETH")
+    btc=get_btc("BTC")
+    # eth=get_coin("ETH")
+    # btc=get_coin("BTC")
     # the investment plan is set here
     if current_user.btc >= 500 and current_user.btc < 2000:
         current_user.current_plan = "You are on BASIC Plan"

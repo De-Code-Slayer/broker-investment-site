@@ -145,8 +145,8 @@ def profile():
     
     # eth=get_btc("ETH")
     # btc=get_btc("BTC")
-    eth=get_coin("ETH")
-    btc=get_coin("BTC")
+    # eth=get_coin("ETH")
+    # btc=get_coin("BTC")
     # the investment plan is set here
     # if current_user.btc >= 500 and current_user.btc < 2000:
     #     current_user.current_plan = "You are on BASIC Plan"
@@ -164,10 +164,10 @@ def profile():
     #     current_user.current_plan = "You are on GOLD Plan"
     #     # current_user.interest = 30
     #     db.session.commit()
-    if current_user.confirmed == False:
-        flash("Please confirm your email, an email was sent to your account","info")
-    if current_user.verified == False:
-        flash("Please verify your account, go to credential verifications", "info")
+    # if current_user.confirmed == False:
+    #     flash("Please confirm your email, an email was sent to your account","info")
+    # if current_user.verified == False:
+    #     flash("Please verify your account, go to credential verifications", "info")
 
     # if request.method == "POST":
     #     file = request.files['img']

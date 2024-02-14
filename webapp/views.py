@@ -152,15 +152,15 @@ def profile():
         current_user.current_plan = "You are on BASIC Plan"
         # current_user.interest = 20
         db.session.commit()
-    elif current_user.btc >= 4000 and current_user.btc < 10000:
+    if current_user.btc >= 4000 and current_user.btc < 10000:
         current_user.current_plan = "You are on STANDARD Plan"
         # current_user.interest = 25
         db.session.commit()
-    elif current_user.btc >= 10000 and current_user.btc < 50000:
+    if current_user.btc >= 10000 and current_user.btc < 50000:
         current_user.current_plan = "You are on SILVER Plan"
         # current_user.interest = 28
         db.session.commit()
-    elif current_user.btc >= 50000 :
+    if current_user.btc >= 50000 :
         current_user.current_plan = "You are on GOLD Plan"
         # current_user.interest = 30
         db.session.commit()
@@ -415,14 +415,8 @@ def signin():
         finally:
             db.session.close()
         if check:
-            
-            try:
-             login_user(check, remember=True)
-            except Exception as e:
-                db.session.rollback()
-            finally:
-                db.session.close()
-            
+
+            login_user(check, remember=True)
             return redirect(url_for("views.profile"))
         else:
             flash("Email or Password is not correct","warning")

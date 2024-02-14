@@ -415,8 +415,14 @@ def signin():
         finally:
             db.session.close()
         if check:
-
-            login_user(check, remember=True)
+            
+            try:
+             login_user(check, remember=True)
+            except Exception as e:
+                db.session.rollback()
+            finally:
+                db.session.close()
+            
             return redirect(url_for("views.profile"))
         else:
             flash("Email or Password is not correct","warning")

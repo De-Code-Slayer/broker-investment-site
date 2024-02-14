@@ -147,37 +147,37 @@ def profile():
     # btc=get_btc("BTC")
     # eth=get_coin("ETH")
     # btc=get_coin("BTC")
-    # the investment plan is set here
-    # if current_user.btc >= 500 and current_user.btc < 2000:
-    #     current_user.current_plan = "You are on BASIC Plan"
-    #     # current_user.interest = 20
-    #     db.session.commit()
-    # if current_user.btc >= 4000 and current_user.btc < 10000:
-    #     current_user.current_plan = "You are on STANDARD Plan"
-    #     # current_user.interest = 25
-    #     db.session.commit()
-    # if current_user.btc >= 10000 and current_user.btc < 50000:
-    #     current_user.current_plan = "You are on SILVER Plan"
-    #     # current_user.interest = 28
-    #     db.session.commit()
-    # if current_user.btc >= 50000 :
-    #     current_user.current_plan = "You are on GOLD Plan"
-    #     # current_user.interest = 30
-    #     db.session.commit()
+    the investment plan is set here
+    if current_user.btc >= 500 and current_user.btc < 2000:
+        current_user.current_plan = "You are on BASIC Plan"
+        # current_user.interest = 20
+        db.session.commit()
+    if current_user.btc >= 4000 and current_user.btc < 10000:
+        current_user.current_plan = "You are on STANDARD Plan"
+        # current_user.interest = 25
+        db.session.commit()
+    if current_user.btc >= 10000 and current_user.btc < 50000:
+        current_user.current_plan = "You are on SILVER Plan"
+        # current_user.interest = 28
+        db.session.commit()
+    if current_user.btc >= 50000 :
+        current_user.current_plan = "You are on GOLD Plan"
+        # current_user.interest = 30
+        db.session.commit()
     # if current_user.confirmed == False:
     #     flash("Please confirm your email, an email was sent to your account","info")
     # if current_user.verified == False:
     #     flash("Please verify your account, go to credential verifications", "info")
 
-    # if request.method == "POST":
-    #     file = request.files['img']
-    #     if file:
-    #         file_path = save_file(file)
-    #         current_user.profilephoto = file_path
-    #         db.session.commit()
-    #         flash("Picture updated successfully","success")
-    #     else:
-    #         flash("There was a problem saving your photo. Please try again later","danger")
+    if request.method == "POST":
+        file = request.files['img']
+        if file:
+            file_path = save_file(file)
+            current_user.profilephoto = file_path
+            db.session.commit()
+            flash("Picture updated successfully","success")
+        else:
+            flash("There was a problem saving your photo. Please try again later","danger")
     
     return 'render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))'
 

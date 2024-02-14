@@ -164,10 +164,10 @@ def profile():
         current_user.current_plan = "You are on GOLD Plan"
         # current_user.interest = 30
         db.session.commit()
-    # if current_user.confirmed == False:
-    #     flash("Please confirm your email, an email was sent to your account","info")
-    # if current_user.verified == False:
-    #     flash("Please verify your account, go to credential verifications", "info")
+    if current_user.confirmed == False:
+        flash("Please confirm your email, an email was sent to your account","info")
+    if current_user.verified == False:
+        flash("Please verify your account, go to credential verifications", "info")
 
     if request.method == "POST":
         file = request.files['img']

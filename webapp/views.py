@@ -179,7 +179,7 @@ def profile():
         else:
             flash("There was a problem saving your photo. Please try again later","danger")
     
-    return render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))
+    return 'render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))'
 
 
 

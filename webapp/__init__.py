@@ -67,7 +67,7 @@ def create_app():
 
 
  from .models import User
-#  create_database(app)
+ create_database(app)
 
 
  login_manager = LoginManager()

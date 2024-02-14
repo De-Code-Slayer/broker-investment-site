@@ -375,7 +375,7 @@ def signup():
             html = render_template('confirmemail.html', confirm_url=confirm_url)
             subject = "Please confirm your email"
             # sndmail(application.email, subject, html)
-
+            
             user = User.query.filter_by(
                 email=email, password=password).first()
             if user:
@@ -407,8 +407,13 @@ def signin():
         email = str(request.form.get("email"))
         password = str(request.form.get("password"))
 
-        check = User.query.filter_by(
-            email=email, password=password).first()
+        try:
+          check = User.query.filter_by(
+              email=email, password=password).first()
+        except Exception as e:
+            db.session.rollback()
+        finally:
+            db.session.close()
         if check:
 
             login_user(check, remember=True)

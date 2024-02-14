@@ -145,8 +145,8 @@ def profile():
     
     # eth=get_btc("ETH")
     # btc=get_btc("BTC")
-    # eth=get_coin("ETH")
-    # btc=get_coin("BTC")
+    eth=get_coin("ETH")
+    btc=get_coin("BTC")
     # the investment plan is set here
     if current_user.btc >= 500 and current_user.btc < 2000:
         current_user.current_plan = "You are on BASIC Plan"
@@ -179,7 +179,7 @@ def profile():
         else:
             flash("There was a problem saving your photo. Please try again later","danger")
     
-    return 'render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))'
+    return render_template("settings-wallet-dark.html",forex=forex() ,name="Profile",user=current_user,btc=float(btc), eth=float(eth))
 
 
 

@@ -35,6 +35,7 @@ def confirm_token(token, expiration=3600):
 
 
 def get_btc(coin):
+  try:
     # Import libraries
     coin = coin.upper()
 
@@ -44,8 +45,10 @@ def get_btc(coin):
     # requesting data from url
     data = requests.get(key)
     data = data.json()
+  except Exception as e:
+    print({"error":f"{e}"})
     # print(f"{data['symbol']} price is {data['price']}")
-    return data
+  return data
 
 
 # def update_balance(current_user):
@@ -110,14 +113,16 @@ def smtpmailer():
 def get_coin(coin):
     from pycoingecko import CoinGeckoAPI
     cg = CoinGeckoAPI()
+    try:
+       # /simple/price endpoint with the required parameters
+       btc = cg.get_price(ids='bitcoin', vs_currencies='usd')
+       eth = cg.get_price(ids='ethereum', vs_currencies='usd')
 
-    # /simple/price endpoint with the required parameters
-    btc = cg.get_price(ids='bitcoin', vs_currencies='usd')
-    eth = cg.get_price(ids='ethereum', vs_currencies='usd')
-
-    if coin == "BTC":
-       return btc[u'bitcoin'][u'usd']
-    return eth[u'ethereum'][u'usd']
+       if coin == "BTC":
+          return btc[u'bitcoin'][u'usd']
+       return eth[u'ethereum'][u'usd']
+    except Exception as e:
+      print({"error":f"{e}"})
     
 
 

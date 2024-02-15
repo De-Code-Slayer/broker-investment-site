@@ -28,13 +28,13 @@ def create_app():
  app.config["SECRET_KEY"] = "Titans232"
  app.config["SECURITY_PASSWORD_SALT"] = "salt_for_paschal"
 #  app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}".format(DB_NAME)
-#  app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://u212458944_glace:Titans232@{}:3306/u212458944_Glacewealth".format(DB_NAME)
- app.config["SQLALCHEMY_DATABASE_URI"] = heroku_database_url
+ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://u212458944_glace:Titans232@{}:3306/u212458944_Glacewealth".format(DB_NAME)
+#  app.config["SQLALCHEMY_DATABASE_URI"] = heroku_database_url
  # mail settings
  app.config["MAIL_SERVER"] = "smtp.gmail.com"
  app.config["MAIL_PORT"] = 587
-#  app.config['SQLALCHEMY_POOL_RECYCLE'] = 1
-#  app.config['SQLALCHEMY_POOL_SIZE'] = 1
+#  app.config['SQLALCHEMY_POOL_RECYCLE'] = 30
+#  app.config['SQLALCHEMY_POOL_SIZE'] = 100
 #  app.config['SQLALCHEMY_POOL_TIMEOUT'] = 10
 #  app.config['SQLALCHEMY_POOL_PRE_PING'] = True
  app.config["MAIL_USE_TLS"] = True
